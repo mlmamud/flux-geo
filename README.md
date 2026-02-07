@@ -36,59 +36,83 @@ Python serves as the integration layer, providing a consistent interface for sce
 
 ## Capabilities
 
+FLUX-GEO provides a unified, Python-driven framework for subsurface flow, transport, and coupled process modeling. Each capability leverages the most appropriate numerical engines while maintaining a consistent workflow for scenario definition, execution, postprocessing, QA/QC, and reporting.
+
+---
+
 ### Multiphase CO₂ Flow (CO₂–Water / sCO₂)
 
-FLUX-GEO supports modeling of CO₂ injection and long-term multiphase evolution using solver-appropriate physics.
+FLUX-GEO supports modeling of CO₂ injection and long-term multiphase evolution using solver-appropriate physics across reservoir-scale, near-field, and transition-zone regimes.
 
 #### What We Can Do
 - Injection scenarios with pressure buildup and plume migration  
-- Buoyancy-driven flow and containment behavior  
+- Buoyancy-driven flow, containment behavior, and structural trapping  
 - Salinity- and temperature-dependent variants where they materially affect results  
+- Transition between saturated and variably saturated conditions near wells and boundaries  
 
-**Primary engines:** PFLOTRAN, FEHM  
-**Supporting engines:** MODFLOW (density-aware extensions)
+**Primary engines:**  
+- **PFLOTRAN** — multiphase CO₂–brine flow, compositional effects, large-scale storage systems  
+- **FEHM** — multiphase and thermal–hydrologic flow, including strong temperature coupling  
+
+**Supporting engines:**  
+- **MODFLOW-family models** — pressure evolution and flow behavior using density-aware or variable-density formulations  
+- **VS2DI / VS2DTI** — variably saturated and near-field flow where capillary effects and partial saturation are important  
 
 ---
 
 ### Wells and Operations
 
-FLUX-GEO represents coupled wells and operational controls under realistic engineering constraints.
+FLUX-GEO represents coupled wells and operational controls under realistic engineering and regulatory constraints.
 
 #### What We Can Do
 - Well injection and production scheduling, including WAG and brine extraction strategies  
 - Constraint evaluation (fracture pressure limits, minimum pressure thresholds, bottom-hole pressure limits)  
-- Well performance summaries and field-level key performance indicators (KPIs)  
+- Well interference analysis and field-level performance metrics  
+- Operational scenario comparison under changing rates, pressures, and schedules  
 
-**Primary engines:** PFLOTRAN, FEHM  
-**Supporting engines:** MODFLOW well packages, Python-based operational logic
+**Primary engines:**  
+- **PFLOTRAN** — fully coupled well–reservoir interactions in multiphase systems  
+- **FEHM** — coupled well, flow, and thermal effects  
+
+**Supporting engines:**  
+- **MODFLOW-family well packages** — groundwater-focused well representation  
+- **Python-based operational logic** — scheduling, constraint enforcement, and scenario orchestration  
 
 ---
 
 ### Reactive Transport and Mineralization
 
-When permanence and geochemistry are critical, FLUX-GEO incorporates reactive transport and geochemical bookkeeping.
+When geochemistry and long-term permanence are relevant, FLUX-GEO incorporates reactive transport and geochemical bookkeeping.
 
 #### What We Can Do
-- Coupled flow, transport, and geochemistry for CO₂ partitioning  
+- Coupled flow, transport, and geochemistry for gas–aqueous–mineral interactions  
 - Tracking of CO₂ into mobile/free-phase, dissolved, and mineralized fractions  
-- Mass-balance-based KPIs with explicitly stated assumptions and limitations  
+- Time-dependent mass balance and reaction-path analysis  
+- Permanence and storage metrics with explicitly stated assumptions and limitations  
 
-**Primary engines:** PFLOTRAN  
-**Supporting workflows:** Python-driven reaction tracking and postprocessing
+**Primary engines:**  
+- **PFLOTRAN** — reactive transport and mineralization kinetics  
+
+**Supporting workflows:**  
+- **Python-driven reaction tracking and postprocessing** — standardized geochemical summaries and KPIs  
 
 ---
 
 ### Variably Saturated Flow and Near-Field Processes
 
-FLUX-GEO supports near-field and unsaturated-zone modeling where capillary effects and partial saturation dominate behavior.
+FLUX-GEO supports near-field, vadose-zone, and leakage-relevant modeling where partial saturation and capillary effects dominate behavior.
 
 #### What We Can Do
 - Variably saturated flow and transport simulations  
 - Infiltration, leakage, and near-surface process representation  
-- Consistent comparison with saturated-flow and reservoir-scale models  
+- Coupling of near-field models with deeper saturated or multiphase systems  
+- Consistent comparison with reservoir-scale results  
 
-**Primary engines:** VS2DI, VS2DTI  
-**Integration layer:** Python-based preprocessing and postprocessing
+**Primary engines:**  
+- **VS2DI, VS2DTI (VS2DRTI)** — variably saturated flow and transport  
+
+**Integration layer:**  
+- **Python-based preprocessing and postprocessing** — consistent inputs, outputs, and diagnostics  
 
 ---
 
@@ -98,27 +122,27 @@ FLUX-GEO converts raw simulator outputs into consistent, decision-ready products
 
 #### What We Can Do
 - Automated plots for pressure evolution, plume footprint proxies, and well behavior  
-- CO₂ mass partitioning summaries through time  
-- Cross-solver KPI comparison (pressure, plume extent, trapping and storage metrics)  
-- Clear, reviewable documentation and run logs suitable for technical and regulatory review  
+- Mass balance and storage partitioning summaries through time  
+- Cross-solver KPI comparison (pressure, plume extent, trapping, and storage metrics)  
+- Reproducible figures, tables, and run logs suitable for technical and regulatory review  
 
 ---
 
 ### Reproducibility and QA/QC
 
-FLUX-GEO deliverables are designed to be rerun, audited, and extended across modeling engines.
+FLUX-GEO deliverables are designed to be rerun, audited, and extended across modeling engines and applications.
 
 #### What We Can Do
-- Reproducible run packages (inputs, execution instructions, and standardized plots)  
+- Reproducible run packages (inputs, execution instructions, standardized outputs)  
 - QA/QC checks including mass balance, timestep stability, and solver diagnostics  
-- Versioning and change tracking for iterative projects  
+- Versioning and change tracking for iterative model development  
 - Explicit documentation of solver-specific assumptions and limitations  
 
 ---
 
 ## Deliverables
 
-Deliverables scale with data availability and project goals, from rapid feasibility screening to site-scale and permanence analyses.
+Deliverables scale with data availability and project goals, from rapid feasibility screening to site-scale and long-term performance analyses.
 
 ---
 
@@ -145,7 +169,7 @@ Deliverables scale with data availability and project goals, from rapid feasibil
 
 #### Deliverables
 - Chemistry configuration (species, minerals, reaction rates, database selection)  
-- CO₂ partitioning versus time (mobile gas, dissolved, mineralized)  
+- Gas and solute partitioning versus time (mobile, dissolved, mineralized)  
 - Permanence KPIs suitable for technical narratives, with explicit assumptions and limitations  
 
 ---
