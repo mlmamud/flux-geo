@@ -1,0 +1,5 @@
+/home/lal/miniconda3/envs/pflot/lib/python3.11/site-packages/matplotlib/transforms.py:2652: RuntimeWarning: divide by zero encountered in scalar divide
+  y_scale = 1.0 / inh
+/home/lal/miniconda3/envs/pflot/lib/python3.11/site-packages/matplotlib/transforms.py:2437: RuntimeWarning: invalid value encountered in dot
+  return Affine2D(np.dot(self._b.get_affine().get_matrix(),
+Wrote plots to: figures_all_xy_cbar_fixed

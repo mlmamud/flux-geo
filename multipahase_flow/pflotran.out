@@ -1,0 +1,2430 @@
+
+================================
+  PFLOTRAN Development Version
+================================
+
+"grid_structured_type" set to default value.
+pflotran card:: NUMERICAL_METHODS
+pflotran card:: CO2_DATABASE
+pflotran card:: GRID
+pflotran card:: TIME
+pflotran card:: OUTPUT
+"OUTPUT,MASS_BALANCE,DETAILED" set to default value.
+"OUTPUT,FORMAT,HDF5,# FILES" set to default value.
+pflotran card:: FLUID_PROPERTY
+"FLUID_PROPERTY,diffusion_coefficient units" set to default value.
+pflotran card:: MATERIAL_PROPERTY
+  Name :: formation
+"MATERIAL_PROPERTY,ROCK_DENSITY units" set to default value.
+"MATERIAL_PROPERTY,SPECIFIC_HEAT units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_DRY units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_WET units" set to default value.
+pflotran card:: MATERIAL_PROPERTY
+  Name :: caprock
+"MATERIAL_PROPERTY,ROCK_DENSITY units" set to default value.
+"MATERIAL_PROPERTY,SPECIFIC_HEAT units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_DRY units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_WET units" set to default value.
+pflotran card:: MATERIAL_PROPERTY
+  Name :: overburden
+"MATERIAL_PROPERTY,ROCK_DENSITY units" set to default value.
+"MATERIAL_PROPERTY,SPECIFIC_HEAT units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_DRY units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_WET units" set to default value.
+pflotran card:: MATERIAL_PROPERTY
+  Name :: basement
+"MATERIAL_PROPERTY,ROCK_DENSITY units" set to default value.
+"MATERIAL_PROPERTY,SPECIFIC_HEAT units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_DRY units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_WET units" set to default value.
+pflotran card:: SATURATION_FUNCTION
+pflotran card:: REGION
+all
+pflotran card:: REGION
+top
+pflotran card:: REGION
+bottom
+pflotran card:: REGION
+east
+pflotran card:: REGION
+west
+pflotran card:: REGION
+north
+pflotran card:: REGION
+south
+pflotran card:: REGION
+basement
+pflotran card:: REGION
+formation
+pflotran card:: REGION
+caprock
+pflotran card:: REGION
+overburden
+pflotran card:: REGION
+well
+pflotran card:: REGION
+obs
+pflotran card:: OBSERVATION
+pflotran card:: FLOW_CONDITION
+initial
+pflotran card:: FLOW_CONDITION
+src
+pflotran card:: INITIAL_CONDITION
+"Initial Condition name" set to default value.
+pflotran card:: BOUNDARY_CONDITION
+pflotran card:: BOUNDARY_CONDITION
+pflotran card:: BOUNDARY_CONDITION
+pflotran card:: BOUNDARY_CONDITION
+pflotran card:: BOUNDARY_CONDITION
+pflotran card:: BOUNDARY_CONDITION
+pflotran card:: SOURCE_SINK
+pflotran card:: STRATA
+pflotran card:: STRATA
+pflotran card:: STRATA
+pflotran card:: STRATA
+pflotran card:: END_SUBSURFACE
+
+Process Decomposition
+
+Number of processes: 4
+
+Extent of Gridded Domain
+ X: 0.000000E+00 - 2.500000E+03
+ Y: 0.000000E+00 - 2.500000E+03
+ Z: 0.000000E+00 - 1.000000E+03
+
+Size of Gridded Domain
+ Number of grid cells: 8820
+ Maximum number of grid cells per process: 2420
+ Minimum number of grid cells per process: 2000
+
+Min/Max Cell Volumes [m^3]
+ Maximum: 7.086168E+05
+ Minimum: 7.086168E+05
+
+Number of active grid cells: 8820
+Number of inactive grid cells: 0
+
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+  Initial Condition
+
+--------------------------------------------------------------------------------
+          Flow Condition:   initial
+                  Region:   all
+-----------------------------------------------Default HDF5 method is used in Initialization
+ Preparing Table...           2
+ Reading Table ...
+ --> CO2 database file: /home/lal/software/pflotran/database/co2data0.dat
+  Beginning setup of FLOW SNES
+ number of dofs =   3, number of phases =   2
+ mode = MPH: p, T, s/X
+  Finished setting up FLOW SNES
+
+ Requested processors and decomposition =     4, npx,y,z=   -1  -1  -1
+ Actual decomposition: npx,y,z=    2   2   1
+
+
+FLOW Time Stepper SNES
+      maximum number of steps: 999999
+constant time steps threshold: 5
+       maximum number of cuts: 16
+             reduction factor: 5.000000E-01
+        maximum growth factor: 2.000000E+00
+                 acceleration: on
+       acceleration threshold: 8
+       number of ramp entries: 8
+                ramp entry #1: 2.0000
+                ramp entry #2: 2.0000
+                ramp entry #3: 2.0000
+                ramp entry #4: 2.0000
+                ramp entry #5: 2.0000
+                ramp entry #6: 1.8000
+                ramp entry #7: 1.6000
+                ramp entry #8: 1.4000
+                ramp entry #9: 1.2000
+               ramp entry #10: 1.0000
+               ramp entry #11: 1.0000
+               ramp entry #12: 1.0000
+               ramp entry #13: 1.0000
+
+FLOW Newton Solver
+                         atol: 1.000000E-12
+                         rtol: 1.000000E-08
+                         stol: 1.000000E-30
+                         dtol: 1.000000E+09
+                      maxnorm: 1.000000E+20
+                    inftolres: 1.000000E-07
+                    inftolupd: -9.990000E+02
+                 inftolrelupd: -9.990000E+02
+                 inftolsclres: -9.990000E+02
+                     max iter: 25
+                     min iter: 1
+                         maxf: 10000
+                  matrix type: baij
+         precond. matrix type: baij
+               inexact newton: off
+            print convergence: on
+   print detailed convergence: off
+          check infinity norm: on
+
+FLOW Linear Solver
+                       solver: bcgs
+               preconditioner: bjacobi
+                         atol: 1.000000E-50
+                         rtol: 1.000000E-05
+                         dtol: 1.000000E+04
+            maximum iteration: 10000
+
+ --> creating hdf5 output file: pflotran.h5
+      0.02 Seconds to write HDF5 file.
+
+ Finished Initialization
+
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 2.19E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 1.55E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 2.25E-09 2x: 2.34E+09 2u: 8.40E+01 ir: 9.41E-11 iu: 5.94E+01 rsn: itol_res
+
+ Step      1 Time=  1.00000E-08 Dt=  1.00000E-08 [y] conv_reason: 10
+  newton =   1 [       1] linear =     1 [         1] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 1 / 1
+  --> SNES Residual: 0.224608E-08 0.254658E-12 0.941462E-10
+  --> max change: dpmx=   5.9374E+01 dtmpmx=   1.0196E-06
+                  dcmx=   1.2431E-08 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 4.39E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 3.10E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 1.89E-09 2x: 2.34E+09 2u: 1.68E+02 ir: 7.91E-11 iu: 1.19E+02 rsn: itol_res
+
+ Step      2 Time=  3.00000E-08 Dt=  2.00000E-08 [y] conv_reason: 10
+  newton =   1 [       2] linear =     1 [         2] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 1 / 1
+  --> SNES Residual: 0.188871E-08 0.214140E-12 0.790866E-10
+  --> max change: dpmx=   1.1873E+02 dtmpmx=   2.0388E-06
+                  dcmx=   2.4861E-08 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.95E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 4.91E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 1.95E-09 2x: 2.34E+09 2u: 3.36E+02 ir: 2.56E-10 iu: 2.37E+02 rsn: itol_res
+
+ Step      3 Time=  7.00000E-08 Dt=  4.00000E-08 [y] conv_reason: 10
+  newton =   1 [       3] linear =     1 [         3] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 1 / 1
+  --> SNES Residual: 0.195431E-08 0.221577E-12 0.256151E-09
+  --> max change: dpmx=   2.3737E+02 dtmpmx=   4.0766E-06
+                  dcmx=   4.9722E-08 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.95E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 4.91E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 9.70E-10 2x: 2.34E+09 2u: 6.71E+02 ir: 1.02E-10 iu: 4.74E+02 rsn: itol_res
+
+ Step      4 Time=  1.50000E-07 Dt=  8.00000E-08 [y] conv_reason: 10
+  newton =   1 [       4] linear =     1 [         4] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 1 / 1
+  --> SNES Residual: 0.969775E-09 0.109952E-12 0.102204E-09
+  --> max change: dpmx=   4.7442E+02 dtmpmx=   8.1492E-06
+                  dcmx=   9.9444E-08 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.95E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 4.91E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 7.07E-10 2x: 2.34E+09 2u: 1.34E+03 ir: 2.51E-10 iu: 9.48E+02 rsn: itol_res
+
+ Step      5 Time=  3.10000E-07 Dt=  1.60000E-07 [y] conv_reason: 10
+  newton =   1 [       5] linear =     1 [         5] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 1 / 1
+  --> SNES Residual: 0.707302E-09 0.801929E-13 0.251452E-09
+  --> max change: dpmx=   9.4752E+02 dtmpmx=   1.6282E-05
+                  dcmx=   1.9889E-07 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.94E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 4.90E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 4.26E-10 2x: 2.34E+09 2u: 2.67E+03 ir: 2.00E-10 iu: 1.89E+03 rsn: itol_res
+
+ Step      6 Time=  6.30000E-07 Dt=  3.20000E-07 [y] conv_reason: 10
+  newton =   1 [       6] linear =     1 [         6] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 1 / 1
+  --> SNES Residual: 0.425890E-09 0.482869E-13 0.200195E-09
+  --> max change: dpmx=   1.8898E+03 dtmpmx=   3.2498E-05
+                  dcmx=   3.9778E-07 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.92E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 4.89E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 3.44E-10 2x: 2.34E+09 2u: 3.08E+03 ir: 1.39E-10 iu: 2.18E+03 rsn: itol_res
+
+ Step      7 Time=  1.00000E-06 Dt=  3.70000E-07 [y] conv_reason: 10
+  newton =   1 [       7] linear =     1 [         7] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 1 / 1
+  --> SNES Residual: 0.344325E-09 0.390391E-13 0.139178E-09
+  --> max change: dpmx=   2.1781E+03 dtmpmx=   3.7487E-05
+                  dcmx=   4.5993E-07 dsmx=   0.0000E+00
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.90E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 4.87E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 2.28E-10 2x: 2.34E+09 2u: 5.30E+03 ir: 1.07E-10 iu: 3.75E+03 rsn: itol_res
+
+ Step      8 Time=  1.64000E-06 Dt=  6.40000E-07 [y] conv_reason: 10
+  newton =   1 [       8] linear =     1 [         8] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 1 / 1
+  --> SNES Residual: 0.227771E-09 0.258244E-13 0.106628E-09
+  --> max change: dpmx=   3.7470E+03 dtmpmx=   6.4583E-05
+                  dcmx=   7.9555E-07 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.86E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 4.85E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 1.54E-10 2x: 2.34E+09 2u: 1.05E+04 ir: 1.32E-10 iu: 7.41E+03 rsn: itol_res
+
+ Step      9 Time=  2.92000E-06 Dt=  1.28000E-06 [y] conv_reason: 10
+  newton =   1 [       9] linear =     2 [        10] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 2 / 1
+  --> SNES Residual: 0.153567E-09 0.174113E-13 0.132109E-09
+  --> max change: dpmx=   7.4143E+03 dtmpmx=   1.2813E-04
+                  dcmx=   1.5911E-06 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.79E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 4.80E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 2.37E-10 2x: 2.34E+09 2u: 2.05E+04 ir: 1.69E-10 iu: 1.45E+04 rsn: itol_res
+
+ Step     10 Time=  5.48000E-06 Dt=  2.56000E-06 [y] conv_reason: 10
+  newton =   1 [      10] linear =     2 [        12] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 2 / 1
+  --> SNES Residual: 0.237311E-09 0.269060E-13 0.168823E-09
+  --> max change: dpmx=   1.4518E+04 dtmpmx=   2.5226E-04
+                  dcmx=   3.1822E-06 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.66E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 4.70E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 1.84E-10 2x: 2.34E+09 2u: 3.94E+04 ir: 1.74E-10 iu: 2.79E+04 rsn: itol_res
+
+ Step     11 Time=  1.06000E-05 Dt=  5.12000E-06 [y] conv_reason: 10
+  newton =   1 [      11] linear =     2 [        14] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 2 / 1
+  --> SNES Residual: 0.184185E-09 0.208826E-13 0.174382E-09
+  --> max change: dpmx=   2.7854E+04 dtmpmx=   4.8930E-04
+                  dcmx=   6.3643E-06 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.40E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 4.52E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 4.33E-10 2x: 2.34E+09 2u: 7.29E+04 ir: 3.67E-10 iu: 5.14E+04 rsn: itol_res
+
+ Step     12 Time=  2.08400E-05 Dt=  1.02400E-05 [y] conv_reason: 10
+  newton =   1 [      12] linear =     2 [        16] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 2 / 1
+  --> SNES Residual: 0.432689E-09 0.490578E-13 0.366619E-09
+  --> max change: dpmx=   5.1425E+04 dtmpmx=   9.2376E-04
+                  dcmx=   1.2729E-05 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 5.94E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 4.19E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 7.14E-10 2x: 2.34E+09 2u: 1.27E+05 ir: 5.70E-10 iu: 8.86E+04 rsn: itol_res
+
+ Step     13 Time=  4.13200E-05 Dt=  2.04800E-05 [y] conv_reason: 10
+  newton =   1 [      13] linear =     3 [        19] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 3 / 1
+  --> SNES Residual: 0.714147E-09 0.809690E-13 0.570455E-09
+  --> max change: dpmx=   8.8622E+04 dtmpmx=   1.6692E-03
+                  dcmx=   2.5456E-05 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 5.21E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 3.65E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 1.55E-09 2x: 2.34E+09 2u: 2.01E+05 ir: 1.12E-09 iu: 1.36E+05 rsn: itol_res
+
+ Step     14 Time=  8.22800E-05 Dt=  4.09600E-05 [y] conv_reason: 10
+  newton =   1 [      14] linear =     3 [        22] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 3 / 1
+  --> SNES Residual: 0.154945E-08 0.175675E-12 0.112491E-08
+  --> max change: dpmx=   1.3643E+05 dtmpmx=   2.8284E-03
+                  dcmx=   5.0910E-05 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 4.20E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 2.86E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 1.76E-09 2x: 2.34E+09 2u: 2.87E+05 ir: 1.30E-09 iu: 1.79E+05 rsn: itol_res
+
+ Step     15 Time=  1.64200E-04 Dt=  8.19200E-05 [y] conv_reason: 10
+  newton =   1 [      15] linear =     3 [        25] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 3 / 1
+  --> SNES Residual: 0.176294E-08 0.199880E-12 0.130095E-08
+  --> max change: dpmx=   1.7895E+05 dtmpmx=   4.4827E-03
+                  dcmx=   1.0181E-04 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 3.11E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 1.95E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 2.29E-09 2x: 2.34E+09 2u: 3.69E+05 ir: 1.32E-09 iu: 1.89E+05 rsn: itol_res
+
+ Step     16 Time=  3.19606E-04 Dt=  1.55406E-04 [y] conv_reason: 10
+  newton =   1 [      16] linear =     4 [        29] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 4 / 1
+  --> SNES Residual: 0.229060E-08 0.259705E-12 0.131717E-08
+  --> max change: dpmx=   1.8925E+05 dtmpmx=   6.6230E-03
+                  dcmx=   1.9309E-04 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 2.26E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 1.19E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 1.79E-09 2x: 2.34E+09 2u: 4.63E+05 ir: 1.29E-09 iu: 1.72E+05 rsn: itol_res
+
+ Step     17 Time=  6.02600E-04 Dt=  2.82994E-04 [y] conv_reason: 10
+  newton =   1 [      17] linear =     5 [        34] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 5 / 1
+  --> SNES Residual: 0.179293E-08 0.203280E-12 0.129176E-08
+  --> max change: dpmx=   1.7200E+05 dtmpmx=   9.8935E-03
+                  dcmx=   3.5148E-04 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.74E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 7.05E-07 iu: 0.00E+00 rsn:   0
+  1 2r: 2.55E-09 2x: 2.34E+09 2u: 6.36E+05 ir: 1.73E-09 iu: 1.57E+05 rsn: itol_res
+
+ Step     18 Time=  1.15542E-03 Dt=  5.52824E-04 [y] conv_reason: 10
+  newton =   1 [      18] linear =     6 [        40] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 6 / 1
+  --> SNES Residual: 0.254758E-08 0.288841E-12 0.173092E-08
+  --> max change: dpmx=   1.5723E+05 dtmpmx=   1.7069E-02
+                  dcmx=   6.8609E-04 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.43E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 6.34E-07 iu: 0.00E+00 rsn:   0
+  1 2r: 4.21E-09 2x: 2.34E+09 2u: 9.10E+05 ir: 2.86E-09 iu: 1.46E+05 rsn: itol_res
+
+ Step     19 Time=  2.26107E-03 Dt=  1.10565E-03 [y] conv_reason: 10
+  newton =   1 [      19] linear =     7 [        47] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 7 / 1
+  --> SNES Residual: 0.420702E-08 0.476987E-12 0.285939E-08
+  --> max change: dpmx=   1.4616E+05 dtmpmx=   3.1977E-02
+                  dcmx=   1.3702E-03 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.25E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 6.49E-07 iu: 0.00E+00 rsn:   0
+  1 2r: 7.73E-09 2x: 2.34E+09 2u: 1.32E+06 ir: 5.19E-09 iu: 2.09E+05 rsn: itol_res
+
+ Step     20 Time=  4.47237E-03 Dt=  2.21130E-03 [y] conv_reason: 10
+  newton =   1 [      20] linear =     8 [        55] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 8 / 1
+  --> SNES Residual: 0.772642E-08 0.876012E-12 0.518517E-08
+  --> max change: dpmx=   2.0862E+05 dtmpmx=   6.1889E-02
+                  dcmx=   2.7327E-03 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.16E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 6.53E-07 iu: 0.00E+00 rsn:   0
+  1 2r: 1.25E-08 2x: 2.35E+09 2u: 1.64E+06 ir: 8.32E-09 iu: 2.25E+05 rsn: itol_res
+
+ Step     21 Time=  8.22787E-03 Dt=  3.75550E-03 [y] conv_reason: 10
+  newton =   1 [      21] linear =     9 [        64] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 9 / 1
+  --> SNES Residual: 0.124723E-07 0.141409E-11 0.831831E-08
+  --> max change: dpmx=   2.2472E+05 dtmpmx=   1.0345E-01
+                  dcmx=   4.6231E-03 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.11E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 6.51E-07 iu: 0.00E+00 rsn:   0
+  1 2r: 1.92E-08 2x: 2.35E+09 2u: 1.83E+06 ir: 1.28E-08 iu: 2.01E+05 rsn: itol_res
+
+ Step     22 Time=  1.42836E-02 Dt=  6.05574E-03 [y] conv_reason: 10
+  newton =   1 [      22] linear =    11 [        75] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 11 / 1
+  --> SNES Residual: 0.192110E-07 0.217812E-11 0.127575E-07
+  --> max change: dpmx=   2.0115E+05 dtmpmx=   1.6539E-01
+                  dcmx=   7.4129E-03 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.08E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 6.42E-07 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1089 p=2.7133E+07 T=9.0056E+01 Xl= 3.0351E-02 Xco2eq= 2.2048E-02 sg= 2.7572E-02
+ Liq -> 2ph rank=     0 n=    1210 p=2.6654E+07 T=8.8819E+01 Xl= 3.0333E-02 Xco2eq= 2.1953E-02 sg= 2.7914E-02
+  1 2r: 1.57E-06 2x: 2.35E+09 2u: 1.96E+06 ir: 9.85E-07 iu: 1.69E+05 rsn:   0
+  2 2r: 5.43E-08 2x: 2.35E+09 2u: 2.38E+06 ir: 3.57E-08 iu: 8.18E+05 rsn: itol_res
+
+ Step     23 Time=  2.48379E-02 Dt=  1.05543E-02 [y] conv_reason: 10
+  newton =   2 [      24] linear =    24 [        99] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 24 / 2
+  --> SNES Residual: 0.543378E-07 0.616075E-11 0.356686E-07
+  --> max change: dpmx=   8.9470E+05 dtmpmx=   7.9388E-02
+                  dcmx=   2.3225E-04 dsmx=   0.0000E+00
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 2.80E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 1.76E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 8.87E-08 2x: 2.35E+09 2u: 2.87E+06 ir: 5.45E-08 iu: 6.26E+05 rsn: itol_res
+
+ Step     24 Time=  3.30642E-02 Dt=  8.22629E-03 [y] conv_reason: 10
+  newton =   1 [      25] linear =    13 [       112] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.887232E-07 0.100593E-10 0.544683E-07
+  --> max change: dpmx=   6.2563E+05 dtmpmx=   2.8701E-02
+                  dcmx=   2.5912E-04 dsmx=   3.4096E-02
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 4.04E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 2.72E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 1.40E-07 2x: 2.35E+09 2u: 1.62E+06 ir: 9.92E-08 iu: 2.01E+05 rsn: itol_res
+
+ Step     25 Time=  4.04646E-02 Dt=  7.40034E-03 [y] conv_reason: 10
+  newton =   1 [      26] linear =    10 [       122] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 10 / 1
+  --> SNES Residual: 0.139848E-06 0.158558E-10 0.992353E-07
+  --> max change: dpmx=   2.0081E+05 dtmpmx=   3.1706E-02
+                  dcmx=   3.9116E-04 dsmx=   2.8548E-02
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 3.99E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 2.68E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 3.91E-07 2x: 2.35E+09 2u: 1.58E+06 ir: 2.57E-07 iu: 1.48E+05 rsn:   0
+  2 2r: 3.37E-10 2x: 2.35E+09 2u: 1.17E+05 ir: 1.71E-10 iu: 7.59E+04 rsn: itol_res
+
+ Step     26 Time=  5.33778E-02 Dt=  1.29133E-02 [y] conv_reason: 10
+  newton =   2 [      28] linear =    24 [       146] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 24 / 2
+  --> SNES Residual: 0.336838E-09 0.381902E-13 0.170917E-09
+  --> max change: dpmx=   1.4438E+05 dtmpmx=   6.2575E-02
+                  dcmx=   1.2674E-03 dsmx=   4.1848E-02
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 3.36E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 2.24E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 7.23E-07 2x: 2.35E+09 2u: 1.63E+06 ir: 4.67E-07 iu: 1.28E+05 rsn:   0
+  2 2r: 3.09E-10 2x: 2.35E+09 2u: 1.55E+05 ir: 2.26E-10 iu: 1.10E+05 rsn: itol_res
+
+ Step     27 Time=  7.92043E-02 Dt=  2.58265E-02 [y] conv_reason: 10
+  newton =   2 [      30] linear =    29 [       175] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 29 / 2
+  --> SNES Residual: 0.309236E-09 0.350607E-13 0.225533E-09
+  --> max change: dpmx=   2.2133E+05 dtmpmx=   1.3434E-01
+                  dcmx=   4.3200E-03 dsmx=   5.8859E-02
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 2.56E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 1.71E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 3.88E-07 2x: 2.35E+09 2u: 1.65E+06 ir: 2.57E-07 iu: 3.50E+05 rsn:   0
+  2 2r: 1.75E-09 2x: 2.35E+09 2u: 1.24E+05 ir: 1.26E-09 iu: 4.13E+04 rsn: itol_res
+
+ Step     28 Time=  1.21290E-01 Dt=  4.20854E-02 [y] conv_reason: 10
+  newton =   2 [      32] linear =    25 [       200] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 25 / 2
+  --> SNES Residual: 0.174526E-08 0.197875E-12 0.125759E-08
+  --> max change: dpmx=   3.9039E+05 dtmpmx=   2.4047E-01
+                  dcmx=   9.6123E-03 dsmx=   5.9628E-02
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.86E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 1.23E-06 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1078 p=2.6733E+07 T=9.0009E+01 Xl= 2.5413E-02 Xco2eq= 2.1952E-02 sg= 1.0729E-02
+ Liq -> 2ph rank=     0 n=    1088 p=2.6733E+07 T=9.0009E+01 Xl= 2.5413E-02 Xco2eq= 2.1952E-02 sg= 1.0729E-02
+ Liq -> 2ph rank=     0 n=    1199 p=2.6256E+07 T=8.8851E+01 Xl= 2.8734E-02 Xco2eq= 2.1856E-02 sg= 2.2926E-02
+ Liq -> 2ph rank=     0 n=    1209 p=2.6256E+07 T=8.8851E+01 Xl= 2.8734E-02 Xco2eq= 2.1856E-02 sg= 2.2926E-02
+ Liq -> 2ph rank=     1 n=     981 p=2.6733E+07 T=9.0009E+01 Xl= 2.5413E-02 Xco2eq= 2.1952E-02 sg= 1.0729E-02
+ Liq -> 2ph rank=     1 n=    1091 p=2.6256E+07 T=8.8851E+01 Xl= 2.8734E-02 Xco2eq= 2.1856E-02 sg= 2.2926E-02
+ Liq -> 2ph rank=     2 n=     891 p=2.6733E+07 T=9.0009E+01 Xl= 2.5413E-02 Xco2eq= 2.1952E-02 sg= 1.0729E-02
+ Liq -> 2ph rank=     2 n=    1001 p=2.6256E+07 T=8.8851E+01 Xl= 2.8734E-02 Xco2eq= 2.1856E-02 sg= 2.2926E-02
+  1 2r: 6.34E-07 2x: 2.35E+09 2u: 1.09E+06 ir: 2.40E-07 iu: 2.98E+05 rsn:   0
+  2 2r: 1.81E-08 2x: 2.35E+09 2u: 2.18E+06 ir: 6.86E-09 iu: 2.85E+05 rsn: itol_res
+
+ Step     29 Time=  1.69283E-01 Dt=  4.79933E-02 [y] conv_reason: 10
+  newton =   2 [      34] linear =    27 [       227] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 27 / 2
+  --> SNES Residual: 0.181246E-07 0.205494E-11 0.686465E-08
+  --> max change: dpmx=   1.9910E+05 dtmpmx=   2.3678E-01
+                  dcmx=   1.0682E-03 dsmx=   4.5498E-02
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.51E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 9.14E-07 iu: 0.00E+00 rsn:   0
+  1 2r: 1.87E-07 2x: 2.35E+09 2u: 3.78E+06 ir: 6.84E-08 iu: 4.89E+05 rsn: itol_res
+
+ Step     30 Time=  2.53542E-01 Dt=  8.42592E-02 [y] conv_reason: 10
+  newton =   1 [      35] linear =    13 [       240] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.186867E-06 0.211868E-10 0.683833E-07
+  --> max change: dpmx=   4.8865E+05 dtmpmx=   3.8768E-01
+                  dcmx=   2.4170E-03 dsmx=   8.4666E-02
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.99E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 6.07E-07 iu: 0.00E+00 rsn:   0
+  1 2r: 4.37E-07 2x: 2.35E+09 2u: 1.28E+06 ir: 1.28E-07 iu: 2.07E+05 rsn:   0
+  2 2r: 9.55E-10 2x: 2.35E+09 2u: 1.87E+05 ir: 2.67E-10 iu: 5.02E+04 rsn: itol_res
+
+ Step     31 Time=  3.38780E-01 Dt=  8.52381E-02 [y] conv_reason: 10
+  newton =   2 [      37] linear =    31 [       271] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 31 / 2
+  --> SNES Residual: 0.955273E-09 0.108308E-12 0.266635E-09
+  --> max change: dpmx=   2.5420E+05 dtmpmx=   4.1188E-01
+                  dcmx=   7.1381E-03 dsmx=   5.9503E-02
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.51E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 6.26E-07 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     1 n=    1081 p=2.6222E+07 T=8.8769E+01 Xl= 2.5733E-02 Xco2eq= 2.1850E-02 sg= 1.2363E-02
+ Liq -> 2ph rank=     2 n=    1000 p=2.6222E+07 T=8.8769E+01 Xl= 2.5733E-02 Xco2eq= 2.1850E-02 sg= 1.2363E-02
+ Liq -> 2ph rank=     3 n=     901 p=2.6222E+07 T=8.8769E+01 Xl= 2.5733E-02 Xco2eq= 2.1850E-02 sg= 1.2363E-02
+ Liq -> 2ph rank=     0 n=    1198 p=2.6222E+07 T=8.8769E+01 Xl= 2.5733E-02 Xco2eq= 2.1850E-02 sg= 1.2363E-02
+  1 2r: 4.83E-07 2x: 2.35E+09 2u: 1.81E+06 ir: 1.65E-07 iu: 2.85E+05 rsn:   0
+  2 2r: 4.75E-09 2x: 2.35E+09 2u: 4.25E+05 ir: 1.96E-09 iu: 5.49E+04 rsn: itol_res
+
+ Step     32 Time=  4.65230E-01 Dt=  1.26450E-01 [y] conv_reason: 10
+  newton =   2 [      39] linear =    31 [       302] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 31 / 2
+  --> SNES Residual: 0.475223E-08 0.538802E-12 0.196206E-08
+  --> max change: dpmx=   2.6693E+05 dtmpmx=   5.8401E-01
+                  dcmx=   1.1864E-02 dsmx=   6.0766E-02
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.16E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 5.33E-07 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     1 n=    1092 p=2.6088E+07 T=8.8684E+01 Xl= 2.2583E-02 Xco2eq= 2.1819E-02 sg= 1.0087E-03
+ Liq -> 2ph rank=     2 n=    1012 p=2.6088E+07 T=8.8684E+01 Xl= 2.2583E-02 Xco2eq= 2.1819E-02 sg= 1.0087E-03
+ Liq -> 2ph rank=     0 n=    1188 p=2.6088E+07 T=8.8684E+01 Xl= 2.2583E-02 Xco2eq= 2.1819E-02 sg= 1.0087E-03
+ Liq -> 2ph rank=     0 n=    1208 p=2.6088E+07 T=8.8684E+01 Xl= 2.2583E-02 Xco2eq= 2.1819E-02 sg= 1.0087E-03
+  1 2r: 4.57E-08 2x: 2.35E+09 2u: 4.22E+05 ir: 1.27E-08 iu: 7.93E+04 rsn: itol_res
+
+ Step     33 Time=  5.00000E-01 Dt=  3.47702E-02 [y] conv_reason: 10
+  newton =   1 [      40] linear =    13 [       315] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.457472E-07 0.518676E-11 0.126949E-07
+  --> max change: dpmx=   7.9312E+04 dtmpmx=   1.5484E-01
+                  dcmx=   2.5783E-03 dsmx=   1.6335E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.18E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 4.92E-07 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     2 n=     890 p=2.6905E+07 T=9.0189E+01 Xl= 3.3236E-02 Xco2eq= 2.1991E-02 sg= 3.7882E-02
+ Liq -> 2ph rank=     2 n=     902 p=2.6691E+07 T=9.0016E+01 Xl= 2.6683E-02 Xco2eq= 2.1942E-02 sg= 1.5339E-02
+ Liq -> 2ph rank=     3 n=     801 p=2.6905E+07 T=9.0189E+01 Xl= 3.3236E-02 Xco2eq= 2.1991E-02 sg= 3.7882E-02
+ Liq -> 2ph rank=     1 n=     971 p=2.6905E+07 T=9.0189E+01 Xl= 3.3236E-02 Xco2eq= 2.1991E-02 sg= 3.7882E-02
+ Liq -> 2ph rank=     1 n=     982 p=2.6691E+07 T=9.0016E+01 Xl= 2.6683E-02 Xco2eq= 2.1942E-02 sg= 1.5338E-02
+ Liq -> 2ph rank=     0 n=    1067 p=2.6691E+07 T=9.0016E+01 Xl= 2.6683E-02 Xco2eq= 2.1942E-02 sg= 1.5338E-02
+ Liq -> 2ph rank=     0 n=    1077 p=2.6905E+07 T=9.0189E+01 Xl= 3.3236E-02 Xco2eq= 2.1991E-02 sg= 3.7882E-02
+ Liq -> 2ph rank=     0 n=    1087 p=2.6691E+07 T=9.0016E+01 Xl= 2.6683E-02 Xco2eq= 2.1942E-02 sg= 1.5338E-02
+  1 2r: 7.50E-07 2x: 2.35E+09 2u: 1.19E+06 ir: 1.85E-07 iu: 1.76E+05 rsn:   0
+  2 2r: 2.30E-08 2x: 2.35E+09 2u: 7.12E+05 ir: 9.23E-09 iu: 9.56E+04 rsn: itol_res
+
+ Step     34 Time=  6.81656E-01 Dt=  1.81656E-01 [y] conv_reason: 10
+  newton =   2 [      42] linear =    30 [       345] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 30 / 2
+  --> SNES Residual: 0.230170E-07 0.260963E-11 0.922509E-08
+  --> max change: dpmx=   2.0440E+05 dtmpmx=   7.5720E-01
+                  dcmx=   5.6698E-03 dsmx=   8.2733E-02
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.18E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 4.30E-07 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1187 p=2.6092E+07 T=8.8725E+01 Xl= 2.3973E-02 Xco2eq= 2.1819E-02 sg= 6.1385E-03
+ Liq -> 2ph rank=     0 n=    1197 p=2.6092E+07 T=8.8725E+01 Xl= 2.3973E-02 Xco2eq= 2.1819E-02 sg= 6.1385E-03
+ Liq -> 2ph rank=     0 n=    1331 p=2.6496E+07 T=8.6904E+01 Xl= 2.7474E-02 Xco2eq= 2.1954E-02 sg= 1.7759E-02
+ Liq -> 2ph rank=     1 n=    1071 p=2.6092E+07 T=8.8725E+01 Xl= 2.3973E-02 Xco2eq= 2.1819E-02 sg= 6.1384E-03
+ Liq -> 2ph rank=     1 n=    1082 p=2.6092E+07 T=8.8725E+01 Xl= 2.3973E-02 Xco2eq= 2.1819E-02 sg= 6.1386E-03
+ Liq -> 2ph rank=     2 n=     999 p=2.6092E+07 T=8.8725E+01 Xl= 2.3973E-02 Xco2eq= 2.1819E-02 sg= 6.1384E-03
+ Liq -> 2ph rank=     2 n=    1011 p=2.6092E+07 T=8.8725E+01 Xl= 2.3973E-02 Xco2eq= 2.1819E-02 sg= 6.1386E-03
+ Liq -> 2ph rank=     3 n=     902 p=2.6092E+07 T=8.8725E+01 Xl= 2.3973E-02 Xco2eq= 2.1819E-02 sg= 6.1385E-03
+ Liq -> 2ph rank=     3 n=     911 p=2.6092E+07 T=8.8725E+01 Xl= 2.3973E-02 Xco2eq= 2.1819E-02 sg= 6.1385E-03
+  1 2r: 8.91E-07 2x: 2.35E+09 2u: 5.12E+05 ir: 1.94E-07 iu: 8.91E+04 rsn:   0
+  2 2r: 5.18E-08 2x: 2.35E+09 2u: 3.64E+05 ir: 1.22E-08 iu: 8.50E+04 rsn: itol_res
+
+ Step     35 Time=  1.00000E+00 Dt=  3.18344E-01 [y] conv_reason: 10
+  newton =   2 [      44] linear =    32 [       377] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 32 / 2
+  --> SNES Residual: 0.517616E-07 0.586866E-11 0.122155E-07
+  --> max change: dpmx=   1.4466E+05 dtmpmx=   1.2032E+00
+                  dcmx=   1.2817E-02 dsmx=   1.0742E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 9.81E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.66E-07 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1177 p=2.5899E+07 T=8.9090E+01 Xl= 3.7582E-02 Xco2eq= 2.1765E-02 sg= 5.4294E-02
+ Liq -> 2ph rank=     0 n=    1207 p=2.5899E+07 T=8.9090E+01 Xl= 3.7582E-02 Xco2eq= 2.1765E-02 sg= 5.4294E-02
+ Liq -> 2ph rank=     1 n=    1093 p=2.5899E+07 T=8.9090E+01 Xl= 3.7582E-02 Xco2eq= 2.1765E-02 sg= 5.4294E-02
+ Liq -> 2ph rank=     2 n=    1023 p=2.5899E+07 T=8.9090E+01 Xl= 3.7582E-02 Xco2eq= 2.1765E-02 sg= 5.4294E-02
+  1 2r: 6.19E-07 2x: 2.35E+09 2u: 5.22E+05 ir: 1.96E-07 iu: 1.06E+05 rsn:   0
+  2 2r: 1.91E-08 2x: 2.35E+09 2u: 3.35E+05 ir: 4.82E-09 iu: 5.24E+04 rsn: itol_res
+
+ Step     36 Time=  1.31301E+00 Dt=  3.13011E-01 [y] conv_reason: 10
+  newton =   2 [      46] linear =    31 [       408] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 31 / 2
+  --> SNES Residual: 0.191276E-07 0.216866E-11 0.482384E-08
+  --> max change: dpmx=   9.3221E+04 dtmpmx=   1.0600E+00
+                  dcmx=   8.4352E-03 dsmx=   9.4791E-02
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 9.40E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.15E-07 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=     968 p=2.7569E+07 T=9.0950E+01 Xl= 2.5792E-02 Xco2eq= 2.2139E-02 sg= 1.1226E-02
+ Liq -> 2ph rank=     0 n=    1056 p=2.6352E+07 T=8.9981E+01 Xl= 2.6851E-02 Xco2eq= 2.1860E-02 sg= 1.6410E-02
+ Liq -> 2ph rank=     1 n=     961 p=2.6521E+07 T=9.0303E+01 Xl= 3.7283E-02 Xco2eq= 2.1896E-02 sg= 5.2490E-02
+ Liq -> 2ph rank=     1 n=     972 p=2.6521E+07 T=9.0303E+01 Xl= 3.7283E-02 Xco2eq= 2.1896E-02 sg= 5.2490E-02
+ Liq -> 2ph rank=     1 n=     983 p=2.6352E+07 T=8.9981E+01 Xl= 2.6851E-02 Xco2eq= 2.1860E-02 sg= 1.6410E-02
+ Liq -> 2ph rank=     1 n=    1061 p=2.5800E+07 T=8.9050E+01 Xl= 3.4541E-02 Xco2eq= 2.1741E-02 sg= 4.4462E-02
+ Liq -> 2ph rank=     1 n=    1072 p=2.5860E+07 T=8.9408E+01 Xl= 4.6385E-02 Xco2eq= 2.1749E-02 sg= 8.4502E-02
+ Liq -> 2ph rank=     1 n=    1083 p=2.5800E+07 T=8.9050E+01 Xl= 3.4541E-02 Xco2eq= 2.1741E-02 sg= 4.4462E-02
+ Liq -> 2ph rank=     2 n=     889 p=2.6521E+07 T=9.0303E+01 Xl= 3.7283E-02 Xco2eq= 2.1896E-02 sg= 5.2490E-02
+ Liq -> 2ph rank=     2 n=     901 p=2.6521E+07 T=9.0303E+01 Xl= 3.7283E-02 Xco2eq= 2.1896E-02 sg= 5.2490E-02
+ Liq -> 2ph rank=     2 n=     913 p=2.6352E+07 T=8.9981E+01 Xl= 2.6851E-02 Xco2eq= 2.1860E-02 sg= 1.6410E-02
+ Liq -> 2ph rank=     2 n=     998 p=2.5800E+07 T=8.9050E+01 Xl= 3.4541E-02 Xco2eq= 2.1741E-02 sg= 4.4462E-02
+ Liq -> 2ph rank=     2 n=    1010 p=2.5860E+07 T=8.9408E+01 Xl= 4.6385E-02 Xco2eq= 2.1749E-02 sg= 8.4502E-02
+ Liq -> 2ph rank=     2 n=    1022 p=2.5800E+07 T=8.9050E+01 Xl= 3.4541E-02 Xco2eq= 2.1741E-02 sg= 4.4462E-02
+ Liq -> 2ph rank=     2 n=    1111 p=2.5892E+07 T=8.6928E+01 Xl= 2.7126E-02 Xco2eq= 2.1809E-02 sg= 1.7328E-02
+ Liq -> 2ph rank=     3 n=     802 p=2.6521E+07 T=9.0303E+01 Xl= 3.7283E-02 Xco2eq= 2.1896E-02 sg= 5.2490E-02
+ Liq -> 2ph rank=     3 n=     811 p=2.6521E+07 T=9.0303E+01 Xl= 3.7283E-02 Xco2eq= 2.1896E-02 sg= 5.2490E-02
+ Liq -> 2ph rank=     3 n=     903 p=2.5800E+07 T=8.9050E+01 Xl= 3.4541E-02 Xco2eq= 2.1741E-02 sg= 4.4462E-02
+ Liq -> 2ph rank=     3 n=     912 p=2.5860E+07 T=8.9408E+01 Xl= 4.6385E-02 Xco2eq= 2.1749E-02 sg= 8.4502E-02
+ Liq -> 2ph rank=     3 n=     921 p=2.5800E+07 T=8.9050E+01 Xl= 3.4541E-02 Xco2eq= 2.1741E-02 sg= 4.4462E-02
+ Liq -> 2ph rank=     0 n=    1066 p=2.6521E+07 T=9.0303E+01 Xl= 3.7283E-02 Xco2eq= 2.1896E-02 sg= 5.2490E-02
+ Liq -> 2ph rank=     0 n=    1076 p=2.6521E+07 T=9.0303E+01 Xl= 3.7283E-02 Xco2eq= 2.1896E-02 sg= 5.2490E-02
+ Liq -> 2ph rank=     0 n=    1086 p=2.6352E+07 T=8.9981E+01 Xl= 2.6851E-02 Xco2eq= 2.1860E-02 sg= 1.6410E-02
+ Liq -> 2ph rank=     0 n=    1176 p=2.5800E+07 T=8.9050E+01 Xl= 3.4541E-02 Xco2eq= 2.1741E-02 sg= 4.4462E-02
+ Liq -> 2ph rank=     0 n=    1186 p=2.5860E+07 T=8.9408E+01 Xl= 4.6385E-02 Xco2eq= 2.1749E-02 sg= 8.4502E-02
+ Liq -> 2ph rank=     0 n=    1196 p=2.5800E+07 T=8.9050E+01 Xl= 3.4541E-02 Xco2eq= 2.1741E-02 sg= 4.4462E-02
+ Liq -> 2ph rank=     1 n=    1201 p=2.5892E+07 T=8.6928E+01 Xl= 2.7126E-02 Xco2eq= 2.1809E-02 sg= 1.7328E-02
+ Liq -> 2ph rank=     0 n=    1320 p=2.5892E+07 T=8.6928E+01 Xl= 2.7126E-02 Xco2eq= 2.1809E-02 sg= 1.7328E-02
+ Liq -> 2ph rank=     0 n=    1330 p=2.5892E+07 T=8.6928E+01 Xl= 2.7126E-02 Xco2eq= 2.1809E-02 sg= 1.7328E-02
+  1 2r: 1.59E-06 2x: 2.35E+09 2u: 1.98E+06 ir: 4.24E-07 iu: 2.46E+05 rsn:   0
+ Liq -> 2ph rank=     0 n=    1166 p=2.5714E+07 T=8.8688E+01 Xl= 2.2648E-02 Xco2eq= 2.1727E-02 sg= 1.6178E-03
+ Liq -> 2ph rank=     0 n=    1206 p=2.5714E+07 T=8.8688E+01 Xl= 2.2648E-02 Xco2eq= 2.1727E-02 sg= 1.6178E-03
+ Liq -> 2ph rank=     1 n=    1094 p=2.5714E+07 T=8.8688E+01 Xl= 2.2648E-02 Xco2eq= 2.1727E-02 sg= 1.6181E-03
+ Liq -> 2ph rank=     2 n=    1034 p=2.5714E+07 T=8.8688E+01 Xl= 2.2648E-02 Xco2eq= 2.1727E-02 sg= 1.6181E-03
+  2 2r: 3.19E-07 2x: 2.35E+09 2u: 1.78E+06 ir: 8.97E-08 iu: 1.51E+05 rsn: itol_res
+
+ Step     37 Time=  2.00000E+00 Dt=  6.86989E-01 [y] conv_reason: 10
+  newton =   2 [      48] linear =    30 [       438] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 30 / 2
+  --> SNES Residual: 0.318708E-06 0.361347E-10 0.897000E-07
+  --> max change: dpmx=   1.5073E+05 dtmpmx=   1.8541E+00
+                  dcmx=   8.9061E-03 dsmx=   1.4482E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 7.50E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 2.43E-07 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     1 n=    1062 p=2.5808E+07 T=8.8782E+01 Xl= 2.5334E-02 Xco2eq= 2.1748E-02 sg= 1.1439E-02
+ Liq -> 2ph rank=     1 n=    1073 p=2.5808E+07 T=8.8782E+01 Xl= 2.5334E-02 Xco2eq= 2.1748E-02 sg= 1.1439E-02
+ Liq -> 2ph rank=     2 n=    1009 p=2.5808E+07 T=8.8782E+01 Xl= 2.5334E-02 Xco2eq= 2.1748E-02 sg= 1.1439E-02
+ Liq -> 2ph rank=     2 n=    1021 p=2.5808E+07 T=8.8782E+01 Xl= 2.5334E-02 Xco2eq= 2.1748E-02 sg= 1.1439E-02
+ Liq -> 2ph rank=     2 n=    1110 p=2.5789E+07 T=8.6932E+01 Xl= 2.3635E-02 Xco2eq= 2.1784E-02 sg= 4.9538E-03
+ Liq -> 2ph rank=     3 n=     913 p=2.5808E+07 T=8.8782E+01 Xl= 2.5334E-02 Xco2eq= 2.1748E-02 sg= 1.1439E-02
+ Liq -> 2ph rank=     3 n=     922 p=2.5808E+07 T=8.8782E+01 Xl= 2.5334E-02 Xco2eq= 2.1748E-02 sg= 1.1439E-02
+ Liq -> 2ph rank=     3 n=    1001 p=2.5789E+07 T=8.6932E+01 Xl= 2.3635E-02 Xco2eq= 2.1784E-02 sg= 4.9538E-03
+ Liq -> 2ph rank=     0 n=    1175 p=2.5808E+07 T=8.8782E+01 Xl= 2.5334E-02 Xco2eq= 2.1748E-02 sg= 1.1438E-02
+ Liq -> 2ph rank=     0 n=    1185 p=2.5808E+07 T=8.8782E+01 Xl= 2.5334E-02 Xco2eq= 2.1748E-02 sg= 1.1438E-02
+ Liq -> 2ph rank=     1 n=    1191 p=2.5789E+07 T=8.6932E+01 Xl= 2.3635E-02 Xco2eq= 2.1784E-02 sg= 4.9538E-03
+ Liq -> 2ph rank=     0 n=    1319 p=2.5789E+07 T=8.6932E+01 Xl= 2.3635E-02 Xco2eq= 2.1784E-02 sg= 4.9538E-03
+  1 2r: 7.40E-07 2x: 2.35E+09 2u: 7.71E+05 ir: 1.72E-07 iu: 1.16E+05 rsn:   0
+  2 2r: 4.59E-08 2x: 2.35E+09 2u: 4.83E+05 ir: 1.05E-08 iu: 6.50E+04 rsn: itol_res
+
+ Step     38 Time=  2.62602E+00 Dt=  6.26021E-01 [y] conv_reason: 10
+  newton =   2 [      50] linear =    28 [       466] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 28 / 2
+  --> SNES Residual: 0.459061E-07 0.520478E-11 0.104788E-07
+  --> max change: dpmx=   9.5240E+04 dtmpmx=   1.3716E+00
+                  dcmx=   1.4991E-02 dsmx=   1.1173E-01
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 7.23E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 1.93E-07 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1165 p=2.5709E+07 T=8.8978E+01 Xl= 3.3353E-02 Xco2eq= 2.1720E-02 sg= 3.9909E-02
+ Liq -> 2ph rank=     0 n=    1195 p=2.5709E+07 T=8.8978E+01 Xl= 3.3353E-02 Xco2eq= 2.1720E-02 sg= 3.9909E-02
+ Liq -> 2ph rank=     0 n=    1309 p=2.5633E+07 T=8.6937E+01 Xl= 2.5565E-02 Xco2eq= 2.1746E-02 sg= 1.2006E-02
+ Liq -> 2ph rank=     0 n=    1329 p=2.5633E+07 T=8.6937E+01 Xl= 2.5565E-02 Xco2eq= 2.1746E-02 sg= 1.2006E-02
+ Liq -> 2ph rank=     1 n=    1051 p=2.5709E+07 T=8.8978E+01 Xl= 3.3353E-02 Xco2eq= 2.1720E-02 sg= 3.9909E-02
+ Liq -> 2ph rank=     1 n=    1084 p=2.5709E+07 T=8.8978E+01 Xl= 3.3353E-02 Xco2eq= 2.1720E-02 sg= 3.9909E-02
+ Liq -> 2ph rank=     1 n=    1202 p=2.5633E+07 T=8.6937E+01 Xl= 2.5565E-02 Xco2eq= 2.1746E-02 sg= 1.2006E-02
+ Liq -> 2ph rank=     2 n=     997 p=2.5709E+07 T=8.8978E+01 Xl= 3.3353E-02 Xco2eq= 2.1720E-02 sg= 3.9909E-02
+ Liq -> 2ph rank=     2 n=    1033 p=2.5709E+07 T=8.8978E+01 Xl= 3.3353E-02 Xco2eq= 2.1720E-02 sg= 3.9909E-02
+ Liq -> 2ph rank=     2 n=    1122 p=2.5633E+07 T=8.6937E+01 Xl= 2.5565E-02 Xco2eq= 2.1746E-02 sg= 1.2006E-02
+ Liq -> 2ph rank=     3 n=     904 p=2.5709E+07 T=8.8978E+01 Xl= 3.3353E-02 Xco2eq= 2.1720E-02 sg= 3.9909E-02
+ Liq -> 2ph rank=     3 n=     931 p=2.5709E+07 T=8.8978E+01 Xl= 3.3353E-02 Xco2eq= 2.1720E-02 sg= 3.9909E-02
+  1 2r: 4.03E-07 2x: 2.35E+09 2u: 4.64E+05 ir: 1.19E-07 iu: 1.08E+05 rsn:   0
+  2 2r: 6.16E-08 2x: 2.35E+09 2u: 6.43E+05 ir: 1.58E-08 iu: 1.11E+05 rsn: itol_res
+
+ Step     39 Time=  3.00000E+00 Dt=  3.73979E-01 [y] conv_reason: 10
+  newton =   2 [      52] linear =    31 [       497] cuts =  0 [   0]
+  --> SNES Linear  2 2r: 3.19E-07 2x: 2.35E+09 2u: 1.78E+06 ir: 8.97E-08 iu: 1.51E+05 rsn: itol_res
+
+ Step     37 Time=  2.00000E+00 Dt=  6.86989E-01 [y] conv_reason: 10
+  newton =   2 [      48] linear =    30 [       438] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 30 / 2
+  --> SNES Residual: 0.318708E-06 0.361347E-10 0.897000E-07
+  --> max change: dpmx=   1.5073E+05 dtmpmx=   1.8541E+00
+                  dcmx=   8.9061E-03 dsmx=   1.4482E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 7.50E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 2.43E-07 iu: 0.00E+00 rsn:   0
+  1 2r: 7.40E-07 2x: 2.35E+09 2u: 7.71E+05 ir: 1.72E-07 iu: 1.16E+05 rsn:   0
+  2 2r: 4.59E-08 2x: 2.35E+09 2u: 4.83E+05 ir: 1.05E-08 iu: 6.50E+04 rsn: itol_res
+
+ Step     38 Time=  2.62602E+00 Dt=  6.26021E-01 [y] conv_reason: 10
+  newton =   2 [      50] linear =    28 [       466] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 28 / 2
+  --> SNES Residual: 0.459061E-07 0.520478E-11 0.104788E-07
+  --> max change: dpmx=   9.5240E+04 dtmpmx=   1.3716E+00
+                  dcmx=   1.4991E-02 dsmx=   1.1173E-01
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 7.23E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 1.93E-07 iu: 0.00E+00 rsn:   0
+  1 2r: 4.03E-07 2x: 2.35E+09 2u: 4.64E+05 ir: 1.19E-07 iu: 1.08E+05 rsn:   0
+  2 2r: 6.16E-08 2x: 2.35E+09 2u: 6.43E+05 ir: 1.58E-08 iu: 1.11E+05 rsn: itol_res
+
+ Step     39 Time=  3.00000E+00 Dt=  3.73979E-01 [y] conv_reason: 10
+  newton =   2 [      52] linear =    31 [       497] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 31 / 2
+  --> SNES Residual: 0.616419E-07 0.698887E-11 0.158303E-07
+  --> max change: dpmx=   1.1818E+05 dtmpmx=   7.1907E-01
+                  dcmx=   6.1237E-03 dsmx=   6.4006E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.94E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 1.67E-07 iu: 0.00E+00 rsn:   0
+  1 2r: 1.16E-06 2x: 2.35E+09 2u: 1.43E+06 ir: 2.71E-07 iu: 1.56E+05 rsn:   0
+  2 2r: 1.41E-07 2x: 2.35E+09 2u: 6.93E+05 ir: 3.29E-08 iu: 7.50E+04 rsn: itol_res
+
+ Step     40 Time=  4.00000E+00 Dt=  1.00000E+00 [y] conv_reason: 10
+  newton =   2 [      54] linear =    31 [       528] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 31 / 2
+  --> SNES Residual: 0.140587E-06 0.159396E-10 0.328640E-07
+  --> max change: dpmx=   1.3622E+05 dtmpmx=   1.4006E+00
+                  dcmx=   1.6688E-02 dsmx=   1.4123E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.18E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 1.21E-07 iu: 0.00E+00 rsn:   0
+  1 2r: 7.83E-07 2x: 2.35E+09 2u: 8.14E+05 ir: 1.95E-07 iu: 9.58E+04 rsn:   0
+  2 2r: 2.57E-07 2x: 2.35E+09 2u: 4.46E+05 ir: 5.66E-08 iu: 9.50E+04 rsn: itol_res
+
+ Step     41 Time=  5.00000E+00 Dt=  1.00000E+00 [y] conv_reason: 10
+  newton =   2 [      56] linear =    30 [       558] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 30 / 2
+  --> SNES Residual: 0.256689E-06 0.291030E-10 0.566002E-07
+  --> max change: dpmx=   1.1629E+05 dtmpmx=   1.0176E+00
+                  dcmx=   1.4553E-02 dsmx=   1.2127E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.15E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 8.80E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 6.78E-07 2x: 2.35E+09 2u: 7.72E+05 ir: 1.80E-07 iu: 1.35E+05 rsn:   0
+  2 2r: 1.34E-07 2x: 2.35E+09 2u: 3.32E+05 ir: 3.00E-08 iu: 3.90E+04 rsn: itol_res
+
+ Step     42 Time=  6.00000E+00 Dt=  1.00000E+00 [y] conv_reason: 10
+  newton =   2 [      58] linear =    31 [       589] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 31 / 2
+  --> SNES Residual: 0.133996E-06 0.151923E-10 0.300083E-07
+  --> max change: dpmx=   1.1407E+05 dtmpmx=   7.4396E-01
+                  dcmx=   1.0009E-02 dsmx=   1.1466E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 5.51E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 8.10E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 5.38E-07 2x: 2.35E+09 2u: 9.10E+05 ir: 1.42E-07 iu: 8.33E+04 rsn:   0
+  2 2r: 4.46E-08 2x: 2.35E+09 2u: 3.33E+05 ir: 1.40E-08 iu: 7.48E+04 rsn: itol_res
+
+ Step     43 Time=  7.00000E+00 Dt=  1.00000E+00 [y] conv_reason: 10
+  newton =   2 [      60] linear =    29 [       618] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 29 / 2
+  --> SNES Residual: 0.445991E-07 0.505659E-11 0.139701E-07
+  --> max change: dpmx=   8.5647E+04 dtmpmx=   7.2013E-01
+                  dcmx=   1.4487E-02 dsmx=   9.2134E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 5.02E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 6.71E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 5.28E-07 2x: 2.35E+09 2u: 9.02E+05 ir: 1.37E-07 iu: 8.73E+04 rsn:   0
+  2 2r: 9.42E-08 2x: 2.35E+09 2u: 5.24E+05 ir: 2.17E-08 iu: 3.79E+04 rsn: itol_res
+
+ Step     44 Time=  8.00000E+00 Dt=  1.00000E+00 [y] conv_reason: 10
+  newton =   2 [      62] linear =    31 [       649] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 31 / 2
+  --> SNES Residual: 0.942309E-07 0.106838E-10 0.216687E-07
+  --> max change: dpmx=   8.8419E+04 dtmpmx=   6.8433E-01
+                  dcmx=   1.3588E-02 dsmx=   9.1822E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 4.83E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 6.27E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 5.53E-07 2x: 2.35E+09 2u: 1.10E+06 ir: 1.14E-07 iu: 7.30E+04 rsn:   0
+  2 2r: 7.92E-08 2x: 2.35E+09 2u: 8.72E+05 ir: 1.62E-08 iu: 8.74E+04 rsn: itol_res
+
+ Step     45 Time=  9.00000E+00 Dt=  1.00000E+00 [y] conv_reason: 10
+  newton =   2 [      64] linear =    32 [       681] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 32 / 2
+  --> SNES Residual: 0.792148E-07 0.898127E-11 0.161609E-07
+  --> max change: dpmx=   8.9505E+04 dtmpmx=   6.4391E-01
+                  dcmx=   1.0070E-02 dsmx=   7.9685E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 4.52E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 5.83E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 3.26E-07 2x: 2.35E+09 2u: 5.60E+05 ir: 8.40E-08 iu: 4.48E+04 rsn: itol_res
+
+ Step     46 Time=  1.00000E+01 Dt=  1.00000E+00 [y] conv_reason: 10
+  newton =   1 [      65] linear =    16 [       697] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 16 / 1
+  --> SNES Residual: 0.325825E-06 0.369416E-10 0.839592E-07
+  --> max change: dpmx=   4.4821E+04 dtmpmx=   6.0050E-01
+                  dcmx=   7.3727E-03 dsmx=   9.2251E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 5.95E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 9.17E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 4.61E-07 2x: 2.35E+09 2u: 1.07E+06 ir: 1.06E-07 iu: 1.03E+05 rsn:   0
+  2 2r: 8.01E-08 2x: 2.35E+09 2u: 3.46E+05 ir: 2.11E-08 iu: 4.30E+04 rsn: itol_res
+
+ Step     47 Time=  1.12520E+01 Dt=  1.25204E+00 [y] conv_reason: 10
+  newton =   2 [      67] linear =    28 [       725] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 28 / 2
+  --> SNES Residual: 0.800641E-07 0.907757E-11 0.211209E-07
+  --> max change: dpmx=   9.2255E+04 dtmpmx=   6.8582E-01
+                  dcmx=   7.3503E-03 dsmx=   9.2591E-02
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 4.29E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 5.23E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 9.55E-08 2x: 2.35E+09 2u: 3.95E+05 ir: 1.84E-08 iu: 3.86E+04 rsn: itol_res
+
+ Step     48 Time=  1.20000E+01 Dt=  7.47958E-01 [y] conv_reason: 10
+  newton =   1 [      68] linear =    16 [       741] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 16 / 1
+  --> SNES Residual: 0.955455E-07 0.108328E-10 0.184457E-07
+  --> max change: dpmx=   3.8635E+04 dtmpmx=   3.8468E-01
+                  dcmx=   7.7066E-03 dsmx=   6.1381E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 4.76E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 6.60E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 7.58E-07 2x: 2.35E+09 2u: 1.58E+06 ir: 1.44E-07 iu: 1.16E+05 rsn:   0
+  2 2r: 1.44E-07 2x: 2.35E+09 2u: 6.18E+05 ir: 2.45E-08 iu: 5.91E+04 rsn: itol_res
+
+ Step     49 Time=  1.40000E+01 Dt=  2.00000E+00 [y] conv_reason: 10
+  newton =   2 [      70] linear =    29 [       770] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 29 / 2
+  --> SNES Residual: 0.143745E-06 0.162976E-10 0.245304E-07
+  --> max change: dpmx=   9.4050E+04 dtmpmx=   8.7722E-01
+                  dcmx=   9.3960E-03 dsmx=   1.2117E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 3.88E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.95E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 4.58E-07 2x: 2.35E+09 2u: 7.54E+05 ir: 8.54E-08 iu: 5.39E+04 rsn: itol_res
+
+ Step     50 Time=  1.60000E+01 Dt=  2.00000E+00 [y] conv_reason: 10
+  newton =   1 [      71] linear =    16 [       786] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 16 / 1
+  --> SNES Residual: 0.458103E-06 0.519391E-10 0.854137E-07
+  --> max change: dpmx=   5.3917E+04 dtmpmx=   7.3973E-01
+                  dcmx=   1.4988E-02 dsmx=   1.5211E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.67E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 9.08E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 6.48E-07 2x: 2.35E+09 2u: 1.55E+06 ir: 1.20E-07 iu: 9.56E+04 rsn:   0
+  2 2r: 1.12E-07 2x: 2.35E+09 2u: 5.35E+05 ir: 2.32E-08 iu: 5.66E+04 rsn: itol_res
+
+ Step     51 Time=  1.80000E+01 Dt=  2.00000E+00 [y] conv_reason: 10
+  newton =   2 [      73] linear =    27 [       813] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 27 / 2
+  --> SNES Residual: 0.111505E-06 0.126423E-10 0.231668E-07
+  --> max change: dpmx=   1.0419E+05 dtmpmx=   6.2652E-01
+                  dcmx=   1.2421E-02 dsmx=   1.2207E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 3.49E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 4.19E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 1.46E-07 2x: 2.35E+09 2u: 5.21E+05 ir: 4.33E-08 iu: 3.88E+04 rsn: itol_res
+
+ Step     52 Time=  1.90000E+01 Dt=  1.00000E+00 [y] conv_reason: 10
+  newton =   1 [      74] linear =    15 [       828] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 15 / 1
+  --> SNES Residual: 0.146190E-06 0.165748E-10 0.433480E-07
+  --> max change: dpmx=   3.8806E+04 dtmpmx=   2.8650E-01
+                  dcmx=   7.5109E-03 dsmx=   5.9610E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 4.01E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 4.77E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 1.44E-08 2x: 2.35E+09 2u: 1.57E+05 ir: 3.21E-09 iu: 3.06E+04 rsn: itol_res
+
+ Step     53 Time=  1.92500E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      75] linear =    13 [       841] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.143886E-07 0.163136E-11 0.320770E-08
+  --> max change: dpmx=   3.0593E+04 dtmpmx=   7.0029E-02
+                  dcmx=   1.8300E-03 dsmx=   1.3093E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 3.60E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.28E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 3.88E-08 2x: 2.35E+09 2u: 1.41E+05 ir: 1.04E-08 iu: 3.45E+04 rsn: itol_res
+
+ Step     54 Time=  1.95000E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      76] linear =    16 [       857] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 16 / 1
+  --> SNES Residual: 0.388454E-07 0.440424E-11 0.104126E-07
+  --> max change: dpmx=   3.4520E+04 dtmpmx=   6.8345E-02
+                  dcmx=   2.1243E-03 dsmx=   1.2918E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 3.70E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.59E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 5.29E-09 2x: 2.35E+09 2u: 1.17E+05 ir: 1.23E-09 iu: 5.80E+03 rsn: itol_res
+
+ Step     55 Time=  1.97500E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      77] linear =    16 [       873] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 16 / 1
+  --> SNES Residual: 0.528952E-08 0.599719E-12 0.123256E-08
+  --> max change: dpmx=   5.8011E+03 dtmpmx=   6.6909E-02
+                  dcmx=   2.4062E-03 dsmx=   1.2562E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 3.59E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.18E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 1.04E-08 2x: 2.35E+09 2u: 1.95E+05 ir: 2.94E-09 iu: 4.18E+04 rsn: itol_res
+
+ Step     56 Time=  2.00000E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      78] linear =    13 [       886] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.104414E-07 0.118384E-11 0.293939E-08
+  --> max change: dpmx=   4.1816E+04 dtmpmx=   6.9673E-02
+                  dcmx=   2.6908E-03 dsmx=   1.2838E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.93E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 4.89E-06 iu: 0.00E+00 rsn:   0
+  1 2r: 1.28E-07 2x: 2.35E+09 2u: 9.13E+06 ir: 6.39E-08 iu: 9.45E+05 rsn: itol_res
+
+ Step     57 Time=  2.02500E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      79] linear =    13 [       899] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.128360E-06 0.145533E-10 0.639051E-07
+  --> max change: dpmx=   9.4468E+05 dtmpmx=   1.2436E-01
+                  dcmx=   8.4894E-04 dsmx=   6.0246E-03
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 4.06E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 4.11E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 2.25E-08 2x: 2.35E+09 2u: 3.89E+06 ir: 5.68E-09 iu: 2.15E+05 rsn: itol_res
+
+ Step     58 Time=  2.05000E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      80] linear =    14 [       913] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 14 / 1
+  --> SNES Residual: 0.224818E-07 0.254896E-11 0.568074E-08
+  --> max change: dpmx=   2.1505E+05 dtmpmx=   3.3742E-02
+                  dcmx=   7.6119E-04 dsmx=   1.1457E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 2.13E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.13E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 3.41E-09 2x: 2.34E+09 2u: 1.62E+06 ir: 8.34E-10 iu: 7.30E+04 rsn: itol_res
+
+ Step     59 Time=  2.07500E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      81] linear =    15 [       928] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 15 / 1
+  --> SNES Residual: 0.340802E-08 0.386397E-12 0.834286E-09
+  --> max change: dpmx=   7.2971E+04 dtmpmx=   4.3715E-02
+                  dcmx=   7.3993E-04 dsmx=   1.0266E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.62E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 2.52E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 2.08E-09 2x: 2.34E+09 2u: 6.26E+05 ir: 4.15E-10 iu: 3.12E+04 rsn: itol_res
+
+ Step     60 Time=  2.10000E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      82] linear =    14 [       942] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 14 / 1
+  --> SNES Residual: 0.208257E-08 0.236120E-12 0.414654E-09
+  --> max change: dpmx=   3.1166E+04 dtmpmx=   4.6821E-02
+                  dcmx=   7.0535E-04 dsmx=   9.8175E-03
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.50E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 2.41E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 2.31E-08 2x: 2.34E+09 2u: 3.20E+05 ir: 4.16E-09 iu: 2.05E+04 rsn: itol_res
+
+ Step     61 Time=  2.20000E+01 Dt=  1.00000E+00 [y] conv_reason: 10
+  newton =   1 [      83] linear =    14 [       956] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 14 / 1
+  --> SNES Residual: 0.231088E-07 0.262005E-11 0.416238E-08
+  --> max change: dpmx=   2.0487E+04 dtmpmx=   1.8950E-01
+                  dcmx=   2.7154E-03 dsmx=   3.6232E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.49E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 2.62E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 6.35E-08 2x: 2.34E+09 2u: 1.26E+05 ir: 1.85E-08 iu: 2.72E+04 rsn: itol_res
+
+ Step     62 Time=  2.40000E+01 Dt=  2.00000E+00 [y] conv_reason: 10
+  newton =   1 [      84] linear =    13 [       969] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.634532E-07 0.719424E-11 0.184757E-07
+  --> max change: dpmx=   2.7234E+04 dtmpmx=   3.6400E-01
+                  dcmx=   4.8952E-03 dsmx=   8.2660E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.66E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 4.37E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 6.38E-08 2x: 2.34E+09 2u: 1.77E+05 ir: 1.60E-08 iu: 2.83E+04 rsn: itol_res
+
+ Step     63 Time=  2.60000E+01 Dt=  2.00000E+00 [y] conv_reason: 10
+  newton =   1 [      85] linear =    12 [       981] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 12 / 1
+  --> SNES Residual: 0.637651E-07 0.722960E-11 0.159772E-07
+  --> max change: dpmx=   2.8325E+04 dtmpmx=   3.4821E-01
+                  dcmx=   3.5668E-03 dsmx=   7.2728E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.56E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.71E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 5.93E-08 2x: 2.34E+09 2u: 1.75E+05 ir: 1.43E-08 iu: 2.62E+04 rsn: itol_res
+
+ Step     64 Time=  2.80000E+01 Dt=  2.00000E+00 [y] conv_reason: 10
+  newton =   1 [      86] linear =    12 [       993] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 12 / 1
+  --> SNES Residual: 0.593308E-07 0.672685E-11 0.142723E-07
+  --> max change: dpmx=   2.6190E+04 dtmpmx=   3.3318E-01
+                  dcmx=   3.5625E-03 dsmx=   7.5054E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.45E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.69E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 5.53E-08 2x: 2.34E+09 2u: 1.36E+05 ir: 1.86E-08 iu: 2.29E+04 rsn: itol_res
+
+ Step     65 Time=  3.00000E+01 Dt=  2.00000E+00 [y] conv_reason: 10
+  newton =   1 [      87] linear =    13 [      1006] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.553232E-07 0.627247E-11 0.185718E-07
+  --> max change: dpmx=   2.2914E+04 dtmpmx=   3.1904E-01
+                  dcmx=   3.2924E-03 dsmx=   9.4296E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.38E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 4.93E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 9.15E-08 2x: 2.34E+09 2u: 1.55E+05 ir: 2.82E-08 iu: 2.57E+04 rsn: itol_res
+
+ Step     66 Time=  3.25041E+01 Dt=  2.50408E+00 [y] conv_reason: 10
+  newton =   1 [      88] linear =    12 [      1018] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 12 / 1
+  --> SNES Residual: 0.914536E-07 0.103689E-10 0.282498E-07
+  --> max change: dpmx=   2.5744E+04 dtmpmx=   3.7909E-01
+                  dcmx=   3.4275E-03 dsmx=   1.1884E-01
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.67E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 5.91E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 7.93E-08 2x: 2.34E+09 2u: 1.73E+05 ir: 3.24E-08 iu: 2.64E+04 rsn: itol_res
+
+ Step     67 Time=  3.50000E+01 Dt=  2.49592E+00 [y] conv_reason: 10
+  newton =   1 [      89] linear =    12 [      1030] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 12 / 1
+  --> SNES Residual: 0.792790E-07 0.898854E-11 0.324398E-07
+  --> max change: dpmx=   2.6406E+04 dtmpmx=   3.5968E-01
+                  dcmx=   3.0760E-03 dsmx=   1.2603E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.50E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 6.50E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 1.64E-07 2x: 2.34E+09 2u: 2.10E+05 ir: 6.53E-08 iu: 3.24E+04 rsn: itol_res
+
+ Step     68 Time=  4.00000E+01 Dt=  5.00000E+00 [y] conv_reason: 10
+  newton =   1 [      90] linear =    14 [      1044] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 14 / 1
+  --> SNES Residual: 0.164020E-06 0.185963E-10 0.652808E-07
+  --> max change: dpmx=   3.2438E+04 dtmpmx=   7.2642E-01
+                  dcmx=   5.6558E-03 dsmx=   2.7117E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 2.29E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 1.03E-07 iu: 0.00E+00 rsn:   0
+  1 2r: 1.52E-07 2x: 2.34E+09 2u: 2.77E+05 ir: 8.39E-08 iu: 3.55E+04 rsn: itol_res
+
+ Step     69 Time=  4.50000E+01 Dt=  5.00000E+00 [y] conv_reason: 10
+  newton =   1 [      91] linear =    14 [      1058] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 14 / 1
+  --> SNES Residual: 0.151955E-06 0.172284E-10 0.838824E-07
+  --> max change: dpmx=   3.5513E+04 dtmpmx=   7.7290E-01
+                  dcmx=   5.6640E-03 dsmx=   1.5585E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.99E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 1.09E-07 iu: 0.00E+00 rsn:   0
+  1 2r: 2.75E-07 2x: 2.34E+09 2u: 2.73E+05 ir: 2.02E-07 iu: 3.10E+04 rsn:   0
+  2 2r: 1.49E-06 2x: 2.34E+09 2u: 2.67E+05 ir: 1.07E-06 iu: 6.08E+04 rsn:   0
+  3 2r: 3.78E-07 2x: 2.34E+09 2u: 8.10E+04 ir: 2.68E-07 iu: 2.76E+04 rsn:   0
+  4 2r: 6.85E-08 2x: 2.34E+09 2u: 3.30E+04 ir: 4.84E-08 iu: 9.25E+03 rsn: itol_res
+
+ Step     70 Time=  5.00000E+01 Dt=  5.00000E+00 [y] conv_reason: 10
+  newton =   4 [      95] linear =    64 [      1122] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 64 / 4
+  --> SNES Residual: 0.685463E-07 0.777169E-11 0.483725E-07
+  --> max change: dpmx=   6.0936E+04 dtmpmx=   7.8686E-01
+                  dcmx=   5.8131E-03 dsmx=   3.7920E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.26E-08 2x: 0.00E+00 2u: 0.00E+00 ir: 5.50E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 2.47E-08 2x: 2.34E+09 2u: 1.76E+05 ir: 7.23E-09 iu: 3.40E+04 rsn: itol_res
+
+ Step     71 Time=  5.50082E+01 Dt=  5.00817E+00 [y] conv_reason: 10
+  newton =   1 [      96] linear =    14 [      1136] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 14 / 1
+  --> SNES Residual: 0.246821E-07 0.279842E-11 0.722770E-08
+  --> max change: dpmx=   3.4006E+04 dtmpmx=   4.8948E-01
+                  dcmx=   5.5197E-03 dsmx=   1.1728E-01
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 3.88E-08 2x: 0.00E+00 2u: 0.00E+00 ir: 2.48E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 1.87E-08 2x: 2.34E+09 2u: 1.65E+05 ir: 2.25E-09 iu: 3.07E+04 rsn: itol_res
+
+ Step     72 Time=  6.00000E+01 Dt=  4.99183E+00 [y] conv_reason: 10
+  newton =   1 [      97] linear =    13 [      1149] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.187381E-07 0.212450E-11 0.224991E-08
+  --> max change: dpmx=   3.0654E+04 dtmpmx=   4.0442E-01
+                  dcmx=   5.2467E-03 dsmx=   2.3139E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 2.68E-08 2x: 0.00E+00 2u: 0.00E+00 ir: 7.98E-09 iu: 0.00E+00 rsn:   0
+  1 2r: 6.73E-09 2x: 2.34E+09 2u: 1.72E+05 ir: 1.29E-09 iu: 3.42E+04 rsn: itol_res
+
+ Step     73 Time=  7.00000E+01 Dt=  1.00000E+01 [y] conv_reason: 10
+  newton =   1 [      98] linear =    12 [      1161] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 12 / 1
+  --> SNES Residual: 0.672620E-08 0.762607E-12 0.129277E-08
+  --> max change: dpmx=   3.4215E+04 dtmpmx=   6.9816E-01
+                  dcmx=   5.6536E-03 dsmx=   4.5570E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.79E-08 2x: 0.00E+00 2u: 0.00E+00 ir: 6.23E-09 iu: 0.00E+00 rsn:   0
+  1 2r: 8.91E-10 2x: 2.34E+09 2u: 2.14E+05 ir: 2.76E-10 iu: 3.11E+04 rsn: itol_res
+
+ Step     74 Time=  8.00000E+01 Dt=  1.00000E+01 [y] conv_reason: 10
+  newton =   1 [      99] linear =    13 [      1174] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.891112E-09 0.101033E-12 0.275878E-09
+  --> max change: dpmx=   3.1100E+04 dtmpmx=   6.0505E-01
+                  dcmx=   6.8674E-03 dsmx=   3.9391E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.49E-08 2x: 0.00E+00 2u: 0.00E+00 ir: 5.16E-09 iu: 0.00E+00 rsn:   0
+  1 2r: 5.21E-09 2x: 2.34E+09 2u: 1.14E+05 ir: 1.05E-09 iu: 6.88E+03 rsn: itol_res
+
+ Step     75 Time=  9.00000E+01 Dt=  1.00000E+01 [y] conv_reason: 10
+  newton =   1 [     100] linear =    13 [      1187] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.521276E-08 0.591016E-12 0.104828E-08
+  --> max change: dpmx=   6.8780E+03 dtmpmx=   5.2889E-01
+                  dcmx=   5.2797E-03 dsmx=   3.1719E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.48E-08 2x: 0.00E+00 2u: 0.00E+00 ir: 4.63E-09 iu: 0.00E+00 rsn:   0
+  1 2r: 2.54E-10 2x: 2.34E+09 2u: 1.42E+05 ir: 6.66E-11 iu: 1.72E+04 rsn: itol_res
+
+ Step     76 Time=  1.00000E+02 Dt=  1.00000E+01 [y] conv_reason: 10
+  newton =   1 [     101] linear =    11 [      1198] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 11 / 1
+  --> SNES Residual: 0.254221E-09 0.288232E-13 0.665548E-10
+  --> max change: dpmx=   1.7152E+04 dtmpmx=   4.6617E-01
+                  dcmx=   5.2397E-03 dsmx=   2.7928E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+PMCSubsurfaceFlow
+ Total Time: 4.6313E+00 seconds
+
+ FLOW TS SNES steps = 76  newton = 101  linear = 1198  cuts = 0
+ FLOW TS SNES Wasted Linear Iterations = 0
+ FLOW TS SNES Wasted Newton Iterations = 0
+ FLOW TS SNES time = 4.3 seconds
+
+ Wall Clock Time:  4.9110E+00 [sec]   8.1851E-02 [min]   1.3642E-03 [hr]
++01 Xl= 2.2146E-02 Xco2eq= 2.1470E-02 sg= 7.5707E-04
+ Liq -> 2ph rank=     2 n=    1005 p=2.5343E+07 T=8.8958E+01 Xl= 3.3737E-02 Xco2eq= 2.1629E-02 sg= 4.1996E-02
+ Liq -> 2ph rank=     2 n=    1065 p=2.5343E+07 T=8.8958E+01 Xl= 3.3737E-02 Xco2eq= 2.1629E-02 sg= 4.1996E-02
+ Liq -> 2ph rank=     2 n=    1078 p=2.5263E+07 T=8.8798E+01 Xl= 2.8033E-02 Xco2eq= 2.1612E-02 sg= 2.1851E-02
+ Liq -> 2ph rank=     2 n=    1106 p=2.5118E+07 T=8.6960E+01 Xl= 2.8030E-02 Xco2eq= 2.1619E-02 sg= 2.1435E-02
+ Liq -> 2ph rank=     2 n=    1129 p=2.5105E+07 T=8.6958E+01 Xl= 2.2459E-02 Xco2eq= 2.1616E-02 sg= 1.3424E-03
+ Liq -> 2ph rank=     2 n=    1141 p=2.5105E+07 T=8.6958E+01 Xl= 2.2459E-02 Xco2eq= 2.1616E-02 sg= 1.3424E-03
+ Liq -> 2ph rank=     2 n=    1154 p=2.5118E+07 T=8.6960E+01 Xl= 2.8030E-02 Xco2eq= 2.1619E-02 sg= 2.1435E-02
+ Liq -> 2ph rank=     2 n=    1221 p=2.4379E+07 T=8.5655E+01 Xl= 2.2146E-02 Xco2eq= 2.1470E-02 sg= 7.5706E-04
+ Liq -> 2ph rank=     3 n=     917 p=2.5343E+07 T=8.8958E+01 Xl= 3.3737E-02 Xco2eq= 2.1629E-02 sg= 4.1997E-02
+ Liq -> 2ph rank=     3 n=     962 p=2.5343E+07 T=8.8958E+01 Xl= 3.3737E-02 Xco2eq= 2.1629E-02 sg= 4.1997E-02
+ Liq -> 2ph rank=     3 n=    1005 p=2.5118E+07 T=8.6960E+01 Xl= 2.8030E-02 Xco2eq= 2.1619E-02 sg= 2.1435E-02
+ Liq -> 2ph rank=     3 n=    1024 p=2.5105E+07 T=8.6958E+01 Xl= 2.2459E-02 Xco2eq= 2.1616E-02 sg= 1.3424E-03
+ Liq -> 2ph rank=     3 n=    1033 p=2.5105E+07 T=8.6958E+01 Xl= 2.2459E-02 Xco2eq= 2.1616E-02 sg= 1.3424E-03
+ Liq -> 2ph rank=     3 n=    1041 p=2.5118E+07 T=8.6960E+01 Xl= 2.8030E-02 Xco2eq= 2.1619E-02 sg= 2.1435E-02
+  1 2r: 3.26E-07 2x: 2.35E+09 2u: 5.60E+05 ir: 8.40E-08 iu: 4.48E+04 rsn: itol_res
+
+ Step     46 Time=  1.00000E+01 Dt=  1.00000E+00 [y] conv_reason: 10
+  newton =   1 [      65] linear =    16 [       697] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 16 / 1
+  --> SNES Residual: 0.325825E-06 0.369416E-10 0.839592E-07
+  --> max change: dpmx=   4.4821E+04 dtmpmx=   6.0050E-01
+                  dcmx=   7.3727E-03 dsmx=   9.2251E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 5.95E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 9.17E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1121 p=2.5260E+07 T=8.8869E+01 Xl= 3.0514E-02 Xco2eq= 2.1610E-02 sg= 3.0867E-02
+ Liq -> 2ph rank=     0 n=    1140 p=2.5346E+07 T=8.8982E+01 Xl= 3.4315E-02 Xco2eq= 2.1629E-02 sg= 4.4273E-02
+ Liq -> 2ph rank=     0 n=    1150 p=2.5359E+07 T=8.9139E+01 Xl= 3.9910E-02 Xco2eq= 2.1629E-02 sg= 6.3531E-02
+ Liq -> 2ph rank=     0 n=    1160 p=2.5346E+07 T=8.8982E+01 Xl= 3.4315E-02 Xco2eq= 2.1629E-02 sg= 4.4273E-02
+ Liq -> 2ph rank=     0 n=    1191 p=2.5260E+07 T=8.8869E+01 Xl= 3.0514E-02 Xco2eq= 2.1610E-02 sg= 3.0866E-02
+ Liq -> 2ph rank=     0 n=    1265 p=2.5015E+07 T=8.6962E+01 Xl= 2.4394E-02 Xco2eq= 2.1594E-02 sg= 8.5272E-03
+ Liq -> 2ph rank=     0 n=    1274 p=2.5070E+07 T=8.6958E+01 Xl= 2.6310E-02 Xco2eq= 2.1608E-02 sg= 1.5391E-02
+ Liq -> 2ph rank=     1 n=    1011 p=2.5260E+07 T=8.8869E+01 Xl= 3.0514E-02 Xco2eq= 2.1610E-02 sg= 3.0867E-02
+ Liq -> 2ph rank=     1 n=    1034 p=2.5346E+07 T=8.8982E+01 Xl= 3.4315E-02 Xco2eq= 2.1629E-02 sg= 4.4273E-02
+ Liq -> 2ph rank=     1 n=    1045 p=2.5359E+07 T=8.9139E+01 Xl= 3.9910E-02 Xco2eq= 2.1629E-02 sg= 6.3532E-02
+ Liq -> 2ph rank=     1 n=    1056 p=2.5346E+07 T=8.8982E+01 Xl= 3.4315E-02 Xco2eq= 2.1629E-02 sg= 4.4273E-02
+ Liq -> 2ph rank=     1 n=    1088 p=2.5260E+07 T=8.8869E+01 Xl= 3.0514E-02 Xco2eq= 2.1610E-02 sg= 3.0867E-02
+ Liq -> 2ph rank=     1 n=    1152 p=2.5070E+07 T=8.6958E+01 Xl= 2.6311E-02 Xco2eq= 2.1608E-02 sg= 1.5391E-02
+ Liq -> 2ph rank=     1 n=    1185 p=2.5070E+07 T=8.6958E+01 Xl= 2.6311E-02 Xco2eq= 2.1608E-02 sg= 1.5391E-02
+ Liq -> 2ph rank=     1 n=    1206 p=2.5015E+07 T=8.6962E+01 Xl= 2.4394E-02 Xco2eq= 2.1594E-02 sg= 8.5272E-03
+ Liq -> 2ph rank=     2 n=     993 p=2.5260E+07 T=8.8869E+01 Xl= 3.0514E-02 Xco2eq= 2.1610E-02 sg= 3.0867E-02
+ Liq -> 2ph rank=     2 n=    1028 p=2.5346E+07 T=8.8982E+01 Xl= 3.4315E-02 Xco2eq= 2.1629E-02 sg= 4.4273E-02
+ Liq -> 2ph rank=     2 n=    1040 p=2.5359E+07 T=8.9140E+01 Xl= 3.9910E-02 Xco2eq= 2.1629E-02 sg= 6.3532E-02
+ Liq -> 2ph rank=     2 n=    1052 p=2.5346E+07 T=8.8982E+01 Xl= 3.4315E-02 Xco2eq= 2.1629E-02 sg= 4.4273E-02
+ Liq -> 2ph rank=     2 n=    1077 p=2.5260E+07 T=8.8869E+01 Xl= 3.0514E-02 Xco2eq= 2.1610E-02 sg= 3.0867E-02
+ Liq -> 2ph rank=     2 n=    1117 p=2.5070E+07 T=8.6958E+01 Xl= 2.6310E-02 Xco2eq= 2.1608E-02 sg= 1.5391E-02
+ Liq -> 2ph rank=     2 n=    1153 p=2.5070E+07 T=8.6958E+01 Xl= 2.6310E-02 Xco2eq= 2.1608E-02 sg= 1.5391E-02
+ Liq -> 2ph rank=     2 n=    1166 p=2.5015E+07 T=8.6962E+01 Xl= 2.4394E-02 Xco2eq= 2.1594E-02 sg= 8.5272E-03
+ Liq -> 2ph rank=     3 n=     908 p=2.5260E+07 T=8.8869E+01 Xl= 3.0514E-02 Xco2eq= 2.1610E-02 sg= 3.0867E-02
+ Liq -> 2ph rank=     3 n=     936 p=2.5346E+07 T=8.8982E+01 Xl= 3.4316E-02 Xco2eq= 2.1629E-02 sg= 4.4274E-02
+ Liq -> 2ph rank=     3 n=     945 p=2.5359E+07 T=8.9140E+01 Xl= 3.9910E-02 Xco2eq= 2.1629E-02 sg= 6.3533E-02
+ Liq -> 2ph rank=     3 n=     954 p=2.5346E+07 T=8.8982E+01 Xl= 3.4316E-02 Xco2eq= 2.1629E-02 sg= 4.4274E-02
+ Liq -> 2ph rank=     3 n=     971 p=2.5260E+07 T=8.8869E+01 Xl= 3.0514E-02 Xco2eq= 2.1610E-02 sg= 3.0867E-02
+ Liq -> 2ph rank=     3 n=    1015 p=2.5070E+07 T=8.6958E+01 Xl= 2.6311E-02 Xco2eq= 2.1608E-02 sg= 1.5391E-02
+ Liq -> 2ph rank=     3 n=    1042 p=2.5070E+07 T=8.6958E+01 Xl= 2.6311E-02 Xco2eq= 2.1608E-02 sg= 1.5391E-02
+ Liq -> 2ph rank=     0 n=    1304 p=2.5070E+07 T=8.6958E+01 Xl= 2.6310E-02 Xco2eq= 2.1608E-02 sg= 1.5391E-02
+ Liq -> 2ph rank=     0 n=    1325 p=2.5015E+07 T=8.6962E+01 Xl= 2.4394E-02 Xco2eq= 2.1594E-02 sg= 8.5271E-03
+  1 2r: 4.61E-07 2x: 2.35E+09 2u: 1.07E+06 ir: 1.06E-07 iu: 1.03E+05 rsn:   0
+ Liq -> 2ph rank=     0 n=    1130 p=2.5316E+07 T=8.8690E+01 Xl= 2.4238E-02 Xco2eq= 2.1628E-02 sg= 7.8411E-03
+ Liq -> 2ph rank=     0 n=    1170 p=2.5316E+07 T=8.8690E+01 Xl= 2.4238E-02 Xco2eq= 2.1628E-02 sg= 7.8410E-03
+ Liq -> 2ph rank=     1 n=    1023 p=2.5316E+07 T=8.8690E+01 Xl= 2.4238E-02 Xco2eq= 2.1628E-02 sg= 7.8414E-03
+ Liq -> 2ph rank=     1 n=    1067 p=2.5316E+07 T=8.8690E+01 Xl= 2.4238E-02 Xco2eq= 2.1628E-02 sg= 7.8415E-03
+ Liq -> 2ph rank=     2 n=    1016 p=2.5316E+07 T=8.8690E+01 Xl= 2.4238E-02 Xco2eq= 2.1628E-02 sg= 7.8414E-03
+ Liq -> 2ph rank=     2 n=    1064 p=2.5316E+07 T=8.8690E+01 Xl= 2.4238E-02 Xco2eq= 2.1628E-02 sg= 7.8415E-03
+ Liq -> 2ph rank=     3 n=     927 p=2.5316E+07 T=8.8690E+01 Xl= 2.4239E-02 Xco2eq= 2.1628E-02 sg= 7.8419E-03
+ Liq -> 2ph rank=     3 n=     963 p=2.5316E+07 T=8.8690E+01 Xl= 2.4239E-02 Xco2eq= 2.1628E-02 sg= 7.8419E-03
+  2 2r: 8.01E-08 2x: 2.35E+09 2u: 3.46E+05 ir: 2.11E-08 iu: 4.30E+04 rsn: itol_res
+
+ Step     47 Time=  1.12520E+01 Dt=  1.25204E+00 [y] conv_reason: 10
+  newton =   2 [      67] linear =    28 [       725] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 28 / 2
+  --> SNES Residual: 0.800641E-07 0.907757E-11 0.211209E-07
+  --> max change: dpmx=   9.2255E+04 dtmpmx=   6.8582E-01
+                  dcmx=   7.3503E-03 dsmx=   9.2591E-02
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 4.29E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 5.23E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1264 p=2.5014E+07 T=8.6953E+01 Xl= 2.2207E-02 Xco2eq= 2.1594E-02 sg= 5.0013E-04
+ Liq -> 2ph rank=     0 n=    1314 p=2.5014E+07 T=8.6953E+01 Xl= 2.2207E-02 Xco2eq= 2.1594E-02 sg= 5.0013E-04
+ Liq -> 2ph rank=     0 n=    1440 p=2.4353E+07 T=8.5666E+01 Xl= 2.2060E-02 Xco2eq= 2.1463E-02 sg= 4.6514E-04
+ Liq -> 2ph rank=     1 n=    1141 p=2.5014E+07 T=8.6953E+01 Xl= 2.2207E-02 Xco2eq= 2.1594E-02 sg= 5.0019E-04
+ Liq -> 2ph rank=     1 n=    1196 p=2.5014E+07 T=8.6953E+01 Xl= 2.2207E-02 Xco2eq= 2.1594E-02 sg= 5.0023E-04
+ Liq -> 2ph rank=     1 n=    1301 p=2.4353E+07 T=8.5666E+01 Xl= 2.2060E-02 Xco2eq= 2.1463E-02 sg= 4.6513E-04
+ Liq -> 2ph rank=     2 n=    1105 p=2.5014E+07 T=8.6953E+01 Xl= 2.2207E-02 Xco2eq= 2.1594E-02 sg= 5.0017E-04
+ Liq -> 2ph rank=     2 n=    1165 p=2.5014E+07 T=8.6953E+01 Xl= 2.2207E-02 Xco2eq= 2.1594E-02 sg= 5.0024E-04
+ Liq -> 2ph rank=     2 n=    1220 p=2.4353E+07 T=8.5666E+01 Xl= 2.2060E-02 Xco2eq= 2.1463E-02 sg= 4.6513E-04
+ Liq -> 2ph rank=     3 n=    1006 p=2.5014E+07 T=8.6953E+01 Xl= 2.2207E-02 Xco2eq= 2.1594E-02 sg= 5.0032E-04
+ Liq -> 2ph rank=     3 n=    1051 p=2.5014E+07 T=8.6953E+01 Xl= 2.2207E-02 Xco2eq= 2.1594E-02 sg= 5.0029E-04
+ Liq -> 2ph rank=     3 n=    1101 p=2.4353E+07 T=8.5666E+01 Xl= 2.2060E-02 Xco2eq= 2.1463E-02 sg= 4.6511E-04
+  1 2r: 9.55E-08 2x: 2.35E+09 2u: 3.95E+05 ir: 1.84E-08 iu: 3.86E+04 rsn: itol_res
+
+ Step     48 Time=  1.20000E+01 Dt=  7.47958E-01 [y] conv_reason: 10
+  newton =   1 [      68] linear =    16 [       741] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 16 / 1
+  --> SNES Residual: 0.955455E-07 0.108328E-10 0.184457E-07
+  --> max change: dpmx=   3.8635E+04 dtmpmx=   3.8468E-01
+                  dcmx=   7.7066E-03 dsmx=   6.1381E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 4.76E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 6.60E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1034 p=2.5966E+07 T=8.9729E+01 Xl= 2.5218E-02 Xco2eq= 2.1769E-02 sg= 1.0805E-02
+ Liq -> 2ph rank=     0 n=    1084 p=2.5966E+07 T=8.9729E+01 Xl= 2.5218E-02 Xco2eq= 2.1769E-02 sg= 1.0805E-02
+ Liq -> 2ph rank=     0 n=    1110 p=2.5163E+07 T=8.8708E+01 Xl= 2.3759E-02 Xco2eq= 2.1589E-02 sg= 6.3600E-03
+ Liq -> 2ph rank=     0 n=    1111 p=2.5165E+07 T=8.9309E+01 Xl= 4.6108E-02 Xco2eq= 2.1577E-02 sg= 8.4785E-02
+ Liq -> 2ph rank=     0 n=    1120 p=2.5242E+07 T=8.9739E+01 Xl= 6.1061E-02 Xco2eq= 2.1588E-02 sg= 1.3196E-01
+ Liq -> 2ph rank=     0 n=    1129 p=2.5268E+07 T=8.8897E+01 Xl= 3.0462E-02 Xco2eq= 2.1612E-02 sg= 3.0838E-02
+ Liq -> 2ph rank=     0 n=    1139 p=2.5292E+07 T=8.9187E+01 Xl= 4.0600E-02 Xco2eq= 2.1612E-02 sg= 6.6340E-02
+ Liq -> 2ph rank=     0 n=    1149 p=2.5292E+07 T=8.9187E+01 Xl= 4.0600E-02 Xco2eq= 2.1612E-02 sg= 6.6339E-02
+ Liq -> 2ph rank=     0 n=    1159 p=2.5268E+07 T=8.8897E+01 Xl= 3.0462E-02 Xco2eq= 2.1612E-02 sg= 3.0838E-02
+ Liq -> 2ph rank=     0 n=    1180 p=2.5242E+07 T=8.9739E+01 Xl= 6.1061E-02 Xco2eq= 2.1588E-02 sg= 1.3196E-01
+ Liq -> 2ph rank=     0 n=    1190 p=2.5163E+07 T=8.8708E+01 Xl= 2.3759E-02 Xco2eq= 2.1589E-02 sg= 6.3600E-03
+ Liq -> 2ph rank=     0 n=    1201 p=2.5165E+07 T=8.9309E+01 Xl= 4.6108E-02 Xco2eq= 2.1577E-02 sg= 8.4785E-02
+ Liq -> 2ph rank=     1 n=     985 p=2.5966E+07 T=8.9729E+01 Xl= 2.5218E-02 Xco2eq= 2.1769E-02 sg= 1.0805E-02
+ Liq -> 2ph rank=     1 n=    1001 p=2.5163E+07 T=8.8708E+01 Xl= 2.3759E-02 Xco2eq= 2.1589E-02 sg= 6.3602E-03
+ Liq -> 2ph rank=     1 n=    1012 p=2.5242E+07 T=8.9739E+01 Xl= 6.1061E-02 Xco2eq= 2.1588E-02 sg= 1.3196E-01
+ Liq -> 2ph rank=     1 n=    1024 p=2.5268E+07 T=8.8897E+01 Xl= 3.0462E-02 Xco2eq= 2.1612E-02 sg= 3.0839E-02
+ Liq -> 2ph rank=     1 n=    1035 p=2.5292E+07 T=8.9187E+01 Xl= 4.0600E-02 Xco2eq= 2.1612E-02 sg= 6.6340E-02
+ Liq -> 2ph rank=     1 n=    1046 p=2.5292E+07 T=8.9187E+01 Xl= 4.0600E-02 Xco2eq= 2.1612E-02 sg= 6.6340E-02
+ Liq -> 2ph rank=     1 n=    1057 p=2.5268E+07 T=8.8897E+01 Xl= 3.0462E-02 Xco2eq= 2.1612E-02 sg= 3.0839E-02
+ Liq -> 2ph rank=     1 n=    1078 p=2.5242E+07 T=8.9739E+01 Xl= 6.1061E-02 Xco2eq= 2.1588E-02 sg= 1.3196E-01
+ Liq -> 2ph rank=     1 n=    1089 p=2.5163E+07 T=8.8708E+01 Xl= 2.3759E-02 Xco2eq= 2.1589E-02 sg= 6.3604E-03
+ Liq -> 2ph rank=     1 n=    1099 p=2.5165E+07 T=8.9309E+01 Xl= 4.6108E-02 Xco2eq= 2.1577E-02 sg= 8.4786E-02
+ Liq -> 2ph rank=     1 n=    1142 p=2.4978E+07 T=8.6960E+01 Xl= 2.4677E-02 Xco2eq= 2.1585E-02 sg= 9.6305E-03
+ Liq -> 2ph rank=     1 n=    1153 p=2.5025E+07 T=8.6971E+01 Xl= 3.0808E-02 Xco2eq= 2.1596E-02 sg= 3.1461E-02
+ Liq -> 2ph rank=     1 n=    1164 p=2.5041E+07 T=8.6976E+01 Xl= 3.3098E-02 Xco2eq= 2.1600E-02 sg= 3.9374E-02
+ Liq -> 2ph rank=     1 n=    1175 p=2.5025E+07 T=8.6971E+01 Xl= 3.0808E-02 Xco2eq= 2.1596E-02 sg= 3.1461E-02
+ Liq -> 2ph rank=     1 n=    1186 p=2.4978E+07 T=8.6960E+01 Xl= 2.4677E-02 Xco2eq= 2.1585E-02 sg= 9.6305E-03
+ Liq -> 2ph rank=     1 n=    1312 p=2.4320E+07 T=8.5672E+01 Xl= 2.6447E-02 Xco2eq= 2.1455E-02 sg= 1.6622E-02
+ Liq -> 2ph rank=     2 n=     935 p=2.5966E+07 T=8.9729E+01 Xl= 2.5218E-02 Xco2eq= 2.1769E-02 sg= 1.0805E-02
+ Liq -> 2ph rank=     2 n=     992 p=2.5163E+07 T=8.8708E+01 Xl= 2.3759E-02 Xco2eq= 2.1589E-02 sg= 6.3602E-03
+ Liq -> 2ph rank=     2 n=    1004 p=2.5242E+07 T=8.9739E+01 Xl= 6.1061E-02 Xco2eq= 2.1588E-02 sg= 1.3196E-01
+ Liq -> 2ph rank=     2 n=    1027 p=2.5268E+07 T=8.8897E+01 Xl= 3.0462E-02 Xco2eq= 2.1612E-02 sg= 3.0839E-02
+ Liq -> 2ph rank=     2 n=    1039 p=2.5292E+07 T=8.9187E+01 Xl= 4.0600E-02 Xco2eq= 2.1612E-02 sg= 6.6340E-02
+ Liq -> 2ph rank=     2 n=    1051 p=2.5292E+07 T=8.9187E+01 Xl= 4.0600E-02 Xco2eq= 2.1612E-02 sg= 6.6340E-02
+ Liq -> 2ph rank=     2 n=    1063 p=2.5268E+07 T=8.8897E+01 Xl= 3.0462E-02 Xco2eq= 2.1612E-02 sg= 3.0839E-02
+ Liq -> 2ph rank=     2 n=    1076 p=2.5242E+07 T=8.9739E+01 Xl= 6.1061E-02 Xco2eq= 2.1588E-02 sg= 1.3196E-01
+ Liq -> 2ph rank=     2 n=    1088 p=2.5163E+07 T=8.8708E+01 Xl= 2.3759E-02 Xco2eq= 2.1589E-02 sg= 6.3604E-03
+ Liq -> 2ph rank=     2 n=    1089 p=2.5165E+07 T=8.9309E+01 Xl= 4.6108E-02 Xco2eq= 2.1577E-02 sg= 8.4786E-02
+ Liq -> 2ph rank=     2 n=    1116 p=2.4978E+07 T=8.6960E+01 Xl= 2.4677E-02 Xco2eq= 2.1585E-02 sg= 9.6306E-03
+ Liq -> 2ph rank=     2 n=    1128 p=2.5025E+07 T=8.6971E+01 Xl= 3.0808E-02 Xco2eq= 2.1596E-02 sg= 3.1461E-02
+ Liq -> 2ph rank=     2 n=    1140 p=2.5041E+07 T=8.6976E+01 Xl= 3.3098E-02 Xco2eq= 2.1600E-02 sg= 3.9374E-02
+ Liq -> 2ph rank=     2 n=    1152 p=2.5025E+07 T=8.6971E+01 Xl= 3.0808E-02 Xco2eq= 2.1596E-02 sg= 3.1461E-02
+ Liq -> 2ph rank=     2 n=    1164 p=2.4978E+07 T=8.6960E+01 Xl= 2.4677E-02 Xco2eq= 2.1585E-02 sg= 9.6305E-03
+ Liq -> 2ph rank=     2 n=    1232 p=2.4320E+07 T=8.5672E+01 Xl= 2.6447E-02 Xco2eq= 2.1455E-02 sg= 1.6622E-02
+ Liq -> 2ph rank=     3 n=     909 p=2.5163E+07 T=8.8708E+01 Xl= 2.3759E-02 Xco2eq= 2.1589E-02 sg= 6.3607E-03
+ Liq -> 2ph rank=     3 n=     918 p=2.5242E+07 T=8.9739E+01 Xl= 6.1061E-02 Xco2eq= 2.1588E-02 sg= 1.3196E-01
+ Liq -> 2ph rank=     3 n=     937 p=2.5268E+07 T=8.8897E+01 Xl= 3.0462E-02 Xco2eq= 2.1612E-02 sg= 3.0839E-02
+ Liq -> 2ph rank=     3 n=     946 p=2.5292E+07 T=8.9187E+01 Xl= 4.0600E-02 Xco2eq= 2.1612E-02 sg= 6.6341E-02
+ Liq -> 2ph rank=     3 n=     955 p=2.5292E+07 T=8.9187E+01 Xl= 4.0600E-02 Xco2eq= 2.1612E-02 sg= 6.6341E-02
+ Liq -> 2ph rank=     3 n=     964 p=2.5268E+07 T=8.8897E+01 Xl= 3.0462E-02 Xco2eq= 2.1612E-02 sg= 3.0839E-02
+ Liq -> 2ph rank=     3 n=     972 p=2.5242E+07 T=8.9739E+01 Xl= 6.1061E-02 Xco2eq= 2.1588E-02 sg= 1.3196E-01
+ Liq -> 2ph rank=     3 n=     981 p=2.5163E+07 T=8.8708E+01 Xl= 2.3759E-02 Xco2eq= 2.1589E-02 sg= 6.3606E-03
+ Liq -> 2ph rank=     3 n=    1016 p=2.4978E+07 T=8.6960E+01 Xl= 2.4677E-02 Xco2eq= 2.1585E-02 sg= 9.6306E-03
+ Liq -> 2ph rank=     3 n=    1025 p=2.5025E+07 T=8.6971E+01 Xl= 3.0808E-02 Xco2eq= 2.1596E-02 sg= 3.1461E-02
+ Liq -> 2ph rank=     3 n=    1034 p=2.5041E+07 T=8.6976E+01 Xl= 3.3098E-02 Xco2eq= 2.1600E-02 sg= 3.9375E-02
+ Liq -> 2ph rank=     3 n=    1043 p=2.5025E+07 T=8.6971E+01 Xl= 3.0808E-02 Xco2eq= 2.1596E-02 sg= 3.1461E-02
+ Liq -> 2ph rank=     3 n=    1052 p=2.4978E+07 T=8.6960E+01 Xl= 2.4677E-02 Xco2eq= 2.1585E-02 sg= 9.6306E-03
+ Liq -> 2ph rank=     0 n=    1263 p=2.4978E+07 T=8.6960E+01 Xl= 2.4677E-02 Xco2eq= 2.1585E-02 sg= 9.6305E-03
+ Liq -> 2ph rank=     0 n=    1273 p=2.5025E+07 T=8.6971E+01 Xl= 3.0808E-02 Xco2eq= 2.1596E-02 sg= 3.1461E-02
+ Liq -> 2ph rank=     0 n=    1283 p=2.5041E+07 T=8.6976E+01 Xl= 3.3098E-02 Xco2eq= 2.1600E-02 sg= 3.9374E-02
+ Liq -> 2ph rank=     0 n=    1293 p=2.5025E+07 T=8.6971E+01 Xl= 3.0808E-02 Xco2eq= 2.1596E-02 sg= 3.1461E-02
+ Liq -> 2ph rank=     0 n=    1303 p=2.4978E+07 T=8.6960E+01 Xl= 2.4677E-02 Xco2eq= 2.1585E-02 sg= 9.6305E-03
+ Liq -> 2ph rank=     0 n=    1430 p=2.4320E+07 T=8.5672E+01 Xl= 2.6447E-02 Xco2eq= 2.1455E-02 sg= 1.6622E-02
+ Liq -> 2ph rank=     0 n=    1450 p=2.4320E+07 T=8.5672E+01 Xl= 2.6447E-02 Xco2eq= 2.1455E-02 sg= 1.6622E-02
+  1 2r: 7.58E-07 2x: 2.35E+09 2u: 1.58E+06 ir: 1.44E-07 iu: 1.16E+05 rsn:   0
+ Liq -> 2ph rank=     0 n=    1119 p=2.5236E+07 T=8.8715E+01 Xl= 2.4871E-02 Xco2eq= 2.1608E-02 sg= 1.0290E-02
+ Liq -> 2ph rank=     0 n=    1169 p=2.5236E+07 T=8.8715E+01 Xl= 2.4871E-02 Xco2eq= 2.1608E-02 sg= 1.0290E-02
+ Liq -> 2ph rank=     1 n=    1013 p=2.5236E+07 T=8.8715E+01 Xl= 2.4871E-02 Xco2eq= 2.1608E-02 sg= 1.0290E-02
+ Liq -> 2ph rank=     1 n=    1068 p=2.5236E+07 T=8.8715E+01 Xl= 2.4871E-02 Xco2eq= 2.1608E-02 sg= 1.0291E-02
+ Liq -> 2ph rank=     2 n=    1015 p=2.5236E+07 T=8.8715E+01 Xl= 2.4871E-02 Xco2eq= 2.1608E-02 sg= 1.0290E-02
+ Liq -> 2ph rank=     2 n=    1075 p=2.5236E+07 T=8.8715E+01 Xl= 2.4871E-02 Xco2eq= 2.1608E-02 sg= 1.0291E-02
+ Liq -> 2ph rank=     3 n=     928 p=2.5236E+07 T=8.8715E+01 Xl= 2.4871E-02 Xco2eq= 2.1608E-02 sg= 1.0291E-02
+ Liq -> 2ph rank=     3 n=     973 p=2.5236E+07 T=8.8715E+01 Xl= 2.4871E-02 Xco2eq= 2.1608E-02 sg= 1.0291E-02
+  2 2r: 1.44E-07 2x: 2.35E+09 2u: 6.18E+05 ir: 2.45E-08 iu: 5.91E+04 rsn: itol_res
+
+ Step     49 Time=  1.40000E+01 Dt=  2.00000E+00 [y] conv_reason: 10
+  newton =   2 [      70] linear =    29 [       770] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 29 / 2
+  --> SNES Residual: 0.143745E-06 0.162976E-10 0.245304E-07
+  --> max change: dpmx=   9.4050E+04 dtmpmx=   8.7722E-01
+                  dcmx=   9.3960E-03 dsmx=   1.2117E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 3.88E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.95E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1053 p=2.6009E+07 T=8.9671E+01 Xl= 2.4636E-02 Xco2eq= 2.1781E-02 sg= 8.6477E-03
+ Liq -> 2ph rank=     1 n=     953 p=2.6009E+07 T=8.9671E+01 Xl= 2.4636E-02 Xco2eq= 2.1781E-02 sg= 8.6478E-03
+ Liq -> 2ph rank=     1 n=    1002 p=2.5173E+07 T=8.8973E+01 Xl= 3.3677E-02 Xco2eq= 2.1586E-02 sg= 4.2286E-02
+ Liq -> 2ph rank=     1 n=    1036 p=2.5262E+07 T=8.8723E+01 Xl= 2.4127E-02 Xco2eq= 2.1614E-02 sg= 7.6114E-03
+ Liq -> 2ph rank=     1 n=    1079 p=2.5173E+07 T=8.8973E+01 Xl= 3.3677E-02 Xco2eq= 2.1586E-02 sg= 4.2286E-02
+ Liq -> 2ph rank=     1 n=    1100 p=2.5088E+07 T=8.8704E+01 Xl= 2.4044E-02 Xco2eq= 2.1570E-02 sg= 7.4918E-03
+ Liq -> 2ph rank=     2 n=     910 p=2.6009E+07 T=8.9671E+01 Xl= 2.4636E-02 Xco2eq= 2.1781E-02 sg= 8.6477E-03
+ Liq -> 2ph rank=     2 n=    1003 p=2.5173E+07 T=8.8973E+01 Xl= 3.3677E-02 Xco2eq= 2.1586E-02 sg= 4.2286E-02
+ Liq -> 2ph rank=     2 n=    1050 p=2.5262E+07 T=8.8723E+01 Xl= 2.4127E-02 Xco2eq= 2.1614E-02 sg= 7.6114E-03
+ Liq -> 2ph rank=     2 n=    1087 p=2.5173E+07 T=8.8973E+01 Xl= 3.3677E-02 Xco2eq= 2.1586E-02 sg= 4.2286E-02
+ Liq -> 2ph rank=     2 n=    1100 p=2.5088E+07 T=8.8704E+01 Xl= 2.4044E-02 Xco2eq= 2.1570E-02 sg= 7.4918E-03
+ Liq -> 2ph rank=     2 n=    1104 p=2.4936E+07 T=8.6965E+01 Xl= 2.5700E-02 Xco2eq= 2.1574E-02 sg= 1.3393E-02
+ Liq -> 2ph rank=     2 n=    1127 p=2.4958E+07 T=8.6960E+01 Xl= 2.4642E-02 Xco2eq= 2.1579E-02 sg= 9.5220E-03
+ Liq -> 2ph rank=     2 n=    1139 p=2.4986E+07 T=8.6967E+01 Xl= 2.8329E-02 Xco2eq= 2.1586E-02 sg= 2.2768E-02
+ Liq -> 2ph rank=     2 n=    1151 p=2.4986E+07 T=8.6967E+01 Xl= 2.8329E-02 Xco2eq= 2.1586E-02 sg= 2.2768E-02
+ Liq -> 2ph rank=     2 n=    1163 p=2.4958E+07 T=8.6960E+01 Xl= 2.4642E-02 Xco2eq= 2.1579E-02 sg= 9.5220E-03
+ Liq -> 2ph rank=     2 n=    1176 p=2.4936E+07 T=8.6965E+01 Xl= 2.5700E-02 Xco2eq= 2.1574E-02 sg= 1.3393E-02
+ Liq -> 2ph rank=     2 n=    1177 p=2.4942E+07 T=8.6979E+01 Xl= 3.2055E-02 Xco2eq= 2.1575E-02 sg= 3.5906E-02
+ Liq -> 2ph rank=     3 n=     823 p=2.6009E+07 T=8.9671E+01 Xl= 2.4636E-02 Xco2eq= 2.1781E-02 sg= 8.6479E-03
+ Liq -> 2ph rank=     3 n=     919 p=2.5173E+07 T=8.8973E+01 Xl= 3.3677E-02 Xco2eq= 2.1586E-02 sg= 4.2286E-02
+ Liq -> 2ph rank=     3 n=     956 p=2.5262E+07 T=8.8723E+01 Xl= 2.4127E-02 Xco2eq= 2.1614E-02 sg= 7.6120E-03
+ Liq -> 2ph rank=     3 n=     982 p=2.5173E+07 T=8.8973E+01 Xl= 3.3677E-02 Xco2eq= 2.1586E-02 sg= 4.2286E-02
+ Liq -> 2ph rank=     3 n=    1007 p=2.4936E+07 T=8.6965E+01 Xl= 2.5700E-02 Xco2eq= 2.1574E-02 sg= 1.3393E-02
+ Liq -> 2ph rank=     3 n=    1026 p=2.4958E+07 T=8.6960E+01 Xl= 2.4642E-02 Xco2eq= 2.1579E-02 sg= 9.5221E-03
+ Liq -> 2ph rank=     3 n=    1035 p=2.4986E+07 T=8.6967E+01 Xl= 2.8329E-02 Xco2eq= 2.1586E-02 sg= 2.2769E-02
+ Liq -> 2ph rank=     3 n=    1044 p=2.4986E+07 T=8.6967E+01 Xl= 2.8329E-02 Xco2eq= 2.1586E-02 sg= 2.2769E-02
+ Liq -> 2ph rank=     3 n=    1053 p=2.4958E+07 T=8.6960E+01 Xl= 2.4642E-02 Xco2eq= 2.1579E-02 sg= 9.5221E-03
+ Liq -> 2ph rank=     3 n=    1061 p=2.4936E+07 T=8.6965E+01 Xl= 2.5700E-02 Xco2eq= 2.1574E-02 sg= 1.3393E-02
+ Liq -> 2ph rank=     3 n=    1102 p=2.4315E+07 T=8.5681E+01 Xl= 2.7854E-02 Xco2eq= 2.1453E-02 sg= 2.1686E-02
+ Liq -> 2ph rank=     3 n=    1111 p=2.4315E+07 T=8.5681E+01 Xl= 2.7854E-02 Xco2eq= 2.1453E-02 sg= 2.1686E-02
+ Liq -> 2ph rank=     0 n=    1100 p=2.5088E+07 T=8.8704E+01 Xl= 2.4044E-02 Xco2eq= 2.1570E-02 sg= 7.4915E-03
+ Liq -> 2ph rank=     0 n=    1109 p=2.5173E+07 T=8.8973E+01 Xl= 3.3677E-02 Xco2eq= 2.1586E-02 sg= 4.2285E-02
+ Liq -> 2ph rank=     0 n=    1138 p=2.5262E+07 T=8.8723E+01 Xl= 2.4127E-02 Xco2eq= 2.1614E-02 sg= 7.6109E-03
+ Liq -> 2ph rank=     0 n=    1179 p=2.5173E+07 T=8.8973E+01 Xl= 3.3677E-02 Xco2eq= 2.1586E-02 sg= 4.2285E-02
+ Liq -> 2ph rank=     0 n=    1200 p=2.5088E+07 T=8.8704E+01 Xl= 2.4044E-02 Xco2eq= 2.1570E-02 sg= 7.4915E-03
+ Liq -> 2ph rank=     1 n=    1131 p=2.4936E+07 T=8.6965E+01 Xl= 2.5700E-02 Xco2eq= 2.1574E-02 sg= 1.3393E-02
+ Liq -> 2ph rank=     1 n=    1143 p=2.4958E+07 T=8.6960E+01 Xl= 2.4642E-02 Xco2eq= 2.1579E-02 sg= 9.5220E-03
+ Liq -> 2ph rank=     1 n=    1154 p=2.4986E+07 T=8.6967E+01 Xl= 2.8329E-02 Xco2eq= 2.1586E-02 sg= 2.2768E-02
+ Liq -> 2ph rank=     2 n=    1219 p=2.4315E+07 T=8.5681E+01 Xl= 2.7854E-02 Xco2eq= 2.1453E-02 sg= 2.1686E-02
+ Liq -> 2ph rank=     2 n=    1231 p=2.4315E+07 T=8.5681E+01 Xl= 2.7854E-02 Xco2eq= 2.1453E-02 sg= 2.1686E-02
+ Liq -> 2ph rank=     1 n=    1165 p=2.4986E+07 T=8.6967E+01 Xl= 2.8329E-02 Xco2eq= 2.1586E-02 sg= 2.2768E-02
+ Liq -> 2ph rank=     0 n=    1253 p=2.4936E+07 T=8.6965E+01 Xl= 2.5700E-02 Xco2eq= 2.1574E-02 sg= 1.3393E-02
+ Liq -> 2ph rank=     1 n=    1176 p=2.4958E+07 T=8.6960E+01 Xl= 2.4642E-02 Xco2eq= 2.1579E-02 sg= 9.5220E-03
+ Liq -> 2ph rank=     2 n=    1243 p=2.4288E+07 T=8.5672E+01 Xl= 2.1964E-02 Xco2eq= 2.1446E-02 sg= 1.7330E-04
+ Liq -> 2ph rank=     0 n=    1254 p=2.4942E+07 T=8.6979E+01 Xl= 3.2055E-02 Xco2eq= 2.1575E-02 sg= 3.5906E-02
+ Liq -> 2ph rank=     0 n=    1262 p=2.4958E+07 T=8.6960E+01 Xl= 2.4642E-02 Xco2eq= 2.1579E-02 sg= 9.5219E-03
+ Liq -> 2ph rank=     1 n=    1197 p=2.4936E+07 T=8.6965E+01 Xl= 2.5700E-02 Xco2eq= 2.1574E-02 sg= 1.3393E-02
+ Liq -> 2ph rank=     0 n=    1272 p=2.4986E+07 T=8.6967E+01 Xl= 2.8329E-02 Xco2eq= 2.1586E-02 sg= 2.2768E-02
+ Liq -> 2ph rank=     1 n=    1207 p=2.4942E+07 T=8.6979E+01 Xl= 3.2055E-02 Xco2eq= 2.1575E-02 sg= 3.5906E-02
+ Liq -> 2ph rank=     0 n=    1282 p=2.4986E+07 T=8.6967E+01 Xl= 2.8329E-02 Xco2eq= 2.1586E-02 sg= 2.2768E-02
+ Liq -> 2ph rank=     0 n=    1292 p=2.4958E+07 T=8.6960E+01 Xl= 2.4642E-02 Xco2eq= 2.1579E-02 sg= 9.5219E-03
+ Liq -> 2ph rank=     0 n=    1313 p=2.4936E+07 T=8.6965E+01 Xl= 2.5700E-02 Xco2eq= 2.1574E-02 sg= 1.3393E-02
+ Liq -> 2ph rank=     0 n=    1324 p=2.4942E+07 T=8.6979E+01 Xl= 3.2055E-02 Xco2eq= 2.1575E-02 sg= 3.5906E-02
+ Liq -> 2ph rank=     1 n=    1291 p=2.4315E+07 T=8.5681E+01 Xl= 2.7854E-02 Xco2eq= 2.1453E-02 sg= 2.1686E-02
+ Liq -> 2ph rank=     1 n=    1302 p=2.4315E+07 T=8.5681E+01 Xl= 2.7854E-02 Xco2eq= 2.1453E-02 sg= 2.1686E-02
+ Liq -> 2ph rank=     1 n=    1313 p=2.4288E+07 T=8.5672E+01 Xl= 2.1964E-02 Xco2eq= 2.1446E-02 sg= 1.7330E-04
+ Liq -> 2ph rank=     0 n=    1419 p=2.4288E+07 T=8.5672E+01 Xl= 2.1964E-02 Xco2eq= 2.1446E-02 sg= 1.7333E-04
+ Liq -> 2ph rank=     0 n=    1429 p=2.4315E+07 T=8.5681E+01 Xl= 2.7854E-02 Xco2eq= 2.1453E-02 sg= 2.1686E-02
+ Liq -> 2ph rank=     0 n=    1439 p=2.4315E+07 T=8.5681E+01 Xl= 2.7854E-02 Xco2eq= 2.1453E-02 sg= 2.1686E-02
+ Liq -> 2ph rank=     0 n=    1449 p=2.4288E+07 T=8.5672E+01 Xl= 2.1964E-02 Xco2eq= 2.1446E-02 sg= 1.7332E-04
+  1 2r: 4.58E-07 2x: 2.35E+09 2u: 7.54E+05 ir: 8.54E-08 iu: 5.39E+04 rsn: itol_res
+
+ Step     50 Time=  1.60000E+01 Dt=  2.00000E+00 [y] conv_reason: 10
+  newton =   1 [      71] linear =    16 [       786] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 16 / 1
+  --> SNES Residual: 0.458103E-06 0.519391E-10 0.854137E-07
+  --> max change: dpmx=   5.3917E+04 dtmpmx=   7.3973E-01
+                  dcmx=   1.4988E-02 dsmx=   1.5211E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.67E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 9.08E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1043 p=2.5942E+07 T=8.9735E+01 Xl= 2.7061E-02 Xco2eq= 2.1763E-02 sg= 1.7447E-02
+ Liq -> 2ph rank=     0 n=    1063 p=2.5942E+07 T=8.9735E+01 Xl= 2.7061E-02 Xco2eq= 2.1763E-02 sg= 1.7447E-02
+ Liq -> 2ph rank=     0 n=    1099 p=2.5089E+07 T=8.9060E+01 Xl= 3.7314E-02 Xco2eq= 2.1563E-02 sg= 5.5383E-02
+ Liq -> 2ph rank=     0 n=    1108 p=2.5155E+07 T=8.8881E+01 Xl= 3.0768E-02 Xco2eq= 2.1583E-02 sg= 3.2135E-02
+ Liq -> 2ph rank=     0 n=    1118 p=2.5204E+07 T=8.9445E+01 Xl= 5.0483E-02 Xco2eq= 2.1584E-02 sg= 9.9200E-02
+ Liq -> 2ph rank=     0 n=    1128 p=2.5235E+07 T=8.9875E+01 Xl= 6.5711E-02 Xco2eq= 2.1584E-02 sg= 1.4599E-01
+ Liq -> 2ph rank=     0 n=    1148 p=2.5235E+07 T=8.9875E+01 Xl= 6.5711E-02 Xco2eq= 2.1584E-02 sg= 1.4599E-01
+ Liq -> 2ph rank=     0 n=    1158 p=2.5204E+07 T=8.9445E+01 Xl= 5.0483E-02 Xco2eq= 2.1584E-02 sg= 9.9200E-02
+ Liq -> 2ph rank=     0 n=    1168 p=2.5155E+07 T=8.8881E+01 Xl= 3.0768E-02 Xco2eq= 2.1583E-02 sg= 3.2135E-02
+ Liq -> 2ph rank=     0 n=    1189 p=2.5089E+07 T=8.9060E+01 Xl= 3.7314E-02 Xco2eq= 2.1563E-02 sg= 5.5383E-02
+ Liq -> 2ph rank=     0 n=    1243 p=2.4849E+07 T=8.6974E+01 Xl= 2.2259E-02 Xco2eq= 2.1552E-02 sg= 8.5812E-04
+ Liq -> 2ph rank=     0 n=    1252 p=2.4905E+07 T=8.6996E+01 Xl= 2.7023E-02 Xco2eq= 2.1565E-02 sg= 1.8193E-02
+ Liq -> 2ph rank=     0 n=    1261 p=2.4895E+07 T=8.6955E+01 Xl= 2.2073E-02 Xco2eq= 2.1564E-02 sg= 1.2238E-04
+ Liq -> 2ph rank=     0 n=    1271 p=2.4908E+07 T=8.6958E+01 Xl= 2.3637E-02 Xco2eq= 2.1567E-02 sg= 5.8922E-03
+ Liq -> 2ph rank=     0 n=    1281 p=2.4895E+07 T=8.6955E+01 Xl= 2.2073E-02 Xco2eq= 2.1564E-02 sg= 1.2237E-04
+ Liq -> 2ph rank=     0 n=    1302 p=2.4905E+07 T=8.6996E+01 Xl= 2.7023E-02 Xco2eq= 2.1565E-02 sg= 1.8193E-02
+ Liq -> 2ph rank=     0 n=    1323 p=2.4849E+07 T=8.6974E+01 Xl= 2.2259E-02 Xco2eq= 2.1552E-02 sg= 8.5811E-04
+ Liq -> 2ph rank=     1 n=     942 p=2.5942E+07 T=8.9735E+01 Xl= 2.7061E-02 Xco2eq= 2.1763E-02 sg= 1.7447E-02
+ Liq -> 2ph rank=     1 n=     964 p=2.5942E+07 T=8.9735E+01 Xl= 2.7061E-02 Xco2eq= 2.1763E-02 sg= 1.7447E-02
+ Liq -> 2ph rank=     1 n=     991 p=2.5089E+07 T=8.9060E+01 Xl= 3.7315E-02 Xco2eq= 2.1563E-02 sg= 5.5383E-02
+ Liq -> 2ph rank=     1 n=    1003 p=2.5155E+07 T=8.8881E+01 Xl= 3.0768E-02 Xco2eq= 2.1583E-02 sg= 3.2136E-02
+ Liq -> 2ph rank=     1 n=    1014 p=2.5204E+07 T=8.9445E+01 Xl= 5.0483E-02 Xco2eq= 2.1584E-02 sg= 9.9200E-02
+ Liq -> 2ph rank=     1 n=    1025 p=2.5235E+07 T=8.9875E+01 Xl= 6.5711E-02 Xco2eq= 2.1584E-02 sg= 1.4599E-01
+ Liq -> 2ph rank=     1 n=    1047 p=2.5235E+07 T=8.9875E+01 Xl= 6.5711E-02 Xco2eq= 2.1584E-02 sg= 1.4599E-01
+ Liq -> 2ph rank=     1 n=    1058 p=2.5204E+07 T=8.9445E+01 Xl= 5.0483E-02 Xco2eq= 2.1584E-02 sg= 9.9200E-02
+ Liq -> 2ph rank=     1 n=    1069 p=2.5155E+07 T=8.8881E+01 Xl= 3.0768E-02 Xco2eq= 2.1583E-02 sg= 3.2136E-02
+ Liq -> 2ph rank=     1 n=    1090 p=2.5089E+07 T=8.9060E+01 Xl= 3.7314E-02 Xco2eq= 2.1563E-02 sg= 5.5383E-02
+ Liq -> 2ph rank=     1 n=    1132 p=2.4905E+07 T=8.6996E+01 Xl= 2.7023E-02 Xco2eq= 2.1565E-02 sg= 1.8193E-02
+ Liq -> 2ph rank=     1 n=    1144 p=2.4895E+07 T=8.6955E+01 Xl= 2.2073E-02 Xco2eq= 2.1564E-02 sg= 1.2243E-04
+ Liq -> 2ph rank=     1 n=    1155 p=2.4908E+07 T=8.6958E+01 Xl= 2.3637E-02 Xco2eq= 2.1567E-02 sg= 5.8923E-03
+ Liq -> 2ph rank=     1 n=    1166 p=2.4895E+07 T=8.6955E+01 Xl= 2.2073E-02 Xco2eq= 2.1564E-02 sg= 1.2242E-04
+ Liq -> 2ph rank=     1 n=    1187 p=2.4905E+07 T=8.6996E+01 Xl= 2.7023E-02 Xco2eq= 2.1565E-02 sg= 1.8193E-02
+ Liq -> 2ph rank=     1 n=    1208 p=2.4849E+07 T=8.6974E+01 Xl= 2.2259E-02 Xco2eq= 2.1552E-02 sg= 8.5810E-04
+ Liq -> 2ph rank=     1 n=    1281 p=2.4280E+07 T=8.5677E+01 Xl= 2.3763E-02 Xco2eq= 2.1444E-02 sg= 6.8553E-03
+ Liq -> 2ph rank=     1 n=    1292 p=2.4288E+07 T=8.5682E+01 Xl= 2.6530E-02 Xco2eq= 2.1446E-02 sg= 1.6948E-02
+ Liq -> 2ph rank=     1 n=    1303 p=2.4280E+07 T=8.5677E+01 Xl= 2.3763E-02 Xco2eq= 2.1444E-02 sg= 6.8553E-03
+ Liq -> 2ph rank=     2 n=     898 p=2.5942E+07 T=8.9735E+01 Xl= 2.7061E-02 Xco2eq= 2.1763E-02 sg= 1.7447E-02
+ Liq -> 2ph rank=     2 n=     922 p=2.5942E+07 T=8.9735E+01 Xl= 2.7061E-02 Xco2eq= 2.1763E-02 sg= 1.7447E-02
+ Liq -> 2ph rank=     2 n=     991 p=2.5089E+07 T=8.9060E+01 Xl= 3.7315E-02 Xco2eq= 2.1563E-02 sg= 5.5383E-02
+ Liq -> 2ph rank=     2 n=    1014 p=2.5155E+07 T=8.8881E+01 Xl= 3.0768E-02 Xco2eq= 2.1583E-02 sg= 3.2136E-02
+ Liq -> 2ph rank=     2 n=    1026 p=2.5204E+07 T=8.9445E+01 Xl= 5.0483E-02 Xco2eq= 2.1584E-02 sg= 9.9200E-02
+ Liq -> 2ph rank=     2 n=    1038 p=2.5235E+07 T=8.9875E+01 Xl= 6.5711E-02 Xco2eq= 2.1584E-02 sg= 1.4599E-01
+ Liq -> 2ph rank=     2 n=    1062 p=2.5235E+07 T=8.9875E+01 Xl= 6.5711E-02 Xco2eq= 2.1584E-02 sg= 1.4599E-01
+ Liq -> 2ph rank=     2 n=    1074 p=2.5204E+07 T=8.9445E+01 Xl= 5.0483E-02 Xco2eq= 2.1584E-02 sg= 9.9200E-02
+ Liq -> 2ph rank=     2 n=    1086 p=2.5155E+07 T=8.8881E+01 Xl= 3.0768E-02 Xco2eq= 2.1583E-02 sg= 3.2136E-02
+ Liq -> 2ph rank=     2 n=    1099 p=2.5089E+07 T=8.9060E+01 Xl= 3.7314E-02 Xco2eq= 2.1563E-02 sg= 5.5383E-02
+ Liq -> 2ph rank=     2 n=    1115 p=2.4905E+07 T=8.6996E+01 Xl= 2.7023E-02 Xco2eq= 2.1565E-02 sg= 1.8193E-02
+ Liq -> 2ph rank=     2 n=    1138 p=2.4895E+07 T=8.6955E+01 Xl= 2.2073E-02 Xco2eq= 2.1564E-02 sg= 1.2244E-04
+ Liq -> 2ph rank=     2 n=    1150 p=2.4908E+07 T=8.6958E+01 Xl= 2.3637E-02 Xco2eq= 2.1567E-02 sg= 5.8923E-03
+ Liq -> 2ph rank=     2 n=    1162 p=2.4895E+07 T=8.6955E+01 Xl= 2.2073E-02 Xco2eq= 2.1564E-02 sg= 1.2243E-04
+ Liq -> 2ph rank=     2 n=    1175 p=2.4905E+07 T=8.6996E+01 Xl= 2.7023E-02 Xco2eq= 2.1565E-02 sg= 1.8193E-02
+ Liq -> 2ph rank=     2 n=    1188 p=2.4849E+07 T=8.6974E+01 Xl= 2.2259E-02 Xco2eq= 2.1552E-02 sg= 8.5811E-04
+ Liq -> 2ph rank=     2 n=    1218 p=2.4280E+07 T=8.5677E+01 Xl= 2.3763E-02 Xco2eq= 2.1444E-02 sg= 6.8553E-03
+ Liq -> 2ph rank=     2 n=    1230 p=2.4288E+07 T=8.5682E+01 Xl= 2.6530E-02 Xco2eq= 2.1446E-02 sg= 1.6949E-02
+ Liq -> 2ph rank=     2 n=    1242 p=2.4280E+07 T=8.5677E+01 Xl= 2.3763E-02 Xco2eq= 2.1444E-02 sg= 6.8553E-03
+ Liq -> 2ph rank=     3 n=     814 p=2.5942E+07 T=8.9735E+01 Xl= 2.7061E-02 Xco2eq= 2.1763E-02 sg= 1.7447E-02
+ Liq -> 2ph rank=     3 n=     832 p=2.5942E+07 T=8.9735E+01 Xl= 2.7061E-02 Xco2eq= 2.1763E-02 sg= 1.7447E-02
+ Liq -> 2ph rank=     3 n=     910 p=2.5089E+07 T=8.9060E+01 Xl= 3.7314E-02 Xco2eq= 2.1563E-02 sg= 5.5383E-02
+ Liq -> 2ph rank=     3 n=     929 p=2.5155E+07 T=8.8881E+01 Xl= 3.0768E-02 Xco2eq= 2.1583E-02 sg= 3.2136E-02
+ Liq -> 2ph rank=     3 n=     938 p=2.5204E+07 T=8.9445E+01 Xl= 5.0483E-02 Xco2eq= 2.1584E-02 sg= 9.9201E-02
+ Liq -> 2ph rank=     3 n=     947 p=2.5235E+07 T=8.9875E+01 Xl= 6.5711E-02 Xco2eq= 2.1584E-02 sg= 1.4599E-01
+ Liq -> 2ph rank=     3 n=     965 p=2.5235E+07 T=8.9875E+01 Xl= 6.5711E-02 Xco2eq= 2.1584E-02 sg= 1.4599E-01
+ Liq -> 2ph rank=     3 n=     974 p=2.5204E+07 T=8.9445E+01 Xl= 5.0483E-02 Xco2eq= 2.1584E-02 sg= 9.9201E-02
+ Liq -> 2ph rank=     3 n=     983 p=2.5155E+07 T=8.8881E+01 Xl= 3.0768E-02 Xco2eq= 2.1583E-02 sg= 3.2136E-02
+ Liq -> 2ph rank=     3 n=     991 p=2.5089E+07 T=8.9060E+01 Xl= 3.7314E-02 Xco2eq= 2.1563E-02 sg= 5.5383E-02
+ Liq -> 2ph rank=     3 n=    1017 p=2.4905E+07 T=8.6996E+01 Xl= 2.7023E-02 Xco2eq= 2.1565E-02 sg= 1.8193E-02
+ Liq -> 2ph rank=     3 n=    1036 p=2.4895E+07 T=8.6955E+01 Xl= 2.2073E-02 Xco2eq= 2.1564E-02 sg= 1.2251E-04
+ Liq -> 2ph rank=     3 n=    1045 p=2.4908E+07 T=8.6958E+01 Xl= 2.3637E-02 Xco2eq= 2.1567E-02 sg= 5.8924E-03
+ Liq -> 2ph rank=     3 n=    1054 p=2.4895E+07 T=8.6955E+01 Xl= 2.2073E-02 Xco2eq= 2.1564E-02 sg= 1.2252E-04
+ Liq -> 2ph rank=     3 n=    1062 p=2.4905E+07 T=8.6996E+01 Xl= 2.7023E-02 Xco2eq= 2.1565E-02 sg= 1.8193E-02
+ Liq -> 2ph rank=     3 n=    1103 p=2.4280E+07 T=8.5677E+01 Xl= 2.3763E-02 Xco2eq= 2.1444E-02 sg= 6.8553E-03
+ Liq -> 2ph rank=     3 n=    1112 p=2.4288E+07 T=8.5682E+01 Xl= 2.6530E-02 Xco2eq= 2.1446E-02 sg= 1.6948E-02
+ Liq -> 2ph rank=     3 n=    1121 p=2.4280E+07 T=8.5677E+01 Xl= 2.3763E-02 Xco2eq= 2.1444E-02 sg= 6.8553E-03
+ Liq -> 2ph rank=     0 n=    1418 p=2.4280E+07 T=8.5677E+01 Xl= 2.3763E-02 Xco2eq= 2.1444E-02 sg= 6.8553E-03
+ Liq -> 2ph rank=     0 n=    1428 p=2.4288E+07 T=8.5682E+01 Xl= 2.6530E-02 Xco2eq= 2.1446E-02 sg= 1.6948E-02
+ Liq -> 2ph rank=     0 n=    1438 p=2.4280E+07 T=8.5677E+01 Xl= 2.3763E-02 Xco2eq= 2.1444E-02 sg= 6.8553E-03
+  1 2r: 6.48E-07 2x: 2.35E+09 2u: 1.55E+06 ir: 1.20E-07 iu: 9.56E+04 rsn:   0
+  2 2r: 1.12E-07 2x: 2.35E+09 2u: 5.35E+05 ir: 2.32E-08 iu: 5.66E+04 rsn: itol_res
+
+ Step     51 Time=  1.80000E+01 Dt=  2.00000E+00 [y] conv_reason: 10
+  newton =   2 [      73] linear =    27 [       813] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 27 / 2
+  --> SNES Residual: 0.111505E-06 0.126423E-10 0.231668E-07
+  --> max change: dpmx=   1.0419E+05 dtmpmx=   6.2652E-01
+                  dcmx=   1.2421E-02 dsmx=   1.2207E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 3.49E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 4.19E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1098 p=2.5087E+07 T=8.8765E+01 Xl= 2.8610E-02 Xco2eq= 2.1569E-02 sg= 2.4068E-02
+ Liq -> 2ph rank=     0 n=    1127 p=2.5209E+07 T=8.8648E+01 Xl= 2.2994E-02 Xco2eq= 2.1602E-02 sg= 3.4033E-03
+ Liq -> 2ph rank=     0 n=    1137 p=2.5209E+07 T=8.8648E+01 Xl= 2.2994E-02 Xco2eq= 2.1602E-02 sg= 3.4033E-03
+ Liq -> 2ph rank=     1 n=     992 p=2.5087E+07 T=8.8765E+01 Xl= 2.8610E-02 Xco2eq= 2.1569E-02 sg= 2.4068E-02
+ Liq -> 2ph rank=     1 n=    1026 p=2.5209E+07 T=8.8648E+01 Xl= 2.2994E-02 Xco2eq= 2.1602E-02 sg= 3.4036E-03
+ Liq -> 2ph rank=     1 n=    1037 p=2.5209E+07 T=8.8648E+01 Xl= 2.2994E-02 Xco2eq= 2.1602E-02 sg= 3.4036E-03
+ Liq -> 2ph rank=     1 n=    1080 p=2.5087E+07 T=8.8765E+01 Xl= 2.8610E-02 Xco2eq= 2.1569E-02 sg= 2.4068E-02
+ Liq -> 2ph rank=     1 n=    1121 p=2.4834E+07 T=8.6960E+01 Xl= 2.2199E-02 Xco2eq= 2.1549E-02 sg= 6.4895E-04
+ Liq -> 2ph rank=     1 n=    1198 p=2.4834E+07 T=8.6960E+01 Xl= 2.2199E-02 Xco2eq= 2.1549E-02 sg= 6.4905E-04
+ Liq -> 2ph rank=     2 n=    1002 p=2.5087E+07 T=8.8765E+01 Xl= 2.8610E-02 Xco2eq= 2.1569E-02 sg= 2.4068E-02
+ Liq -> 2ph rank=     2 n=    1049 p=2.5209E+07 T=8.8648E+01 Xl= 2.2994E-02 Xco2eq= 2.1602E-02 sg= 3.4036E-03
+ Liq -> 2ph rank=     2 n=    1061 p=2.5209E+07 T=8.8648E+01 Xl= 2.2994E-02 Xco2eq= 2.1602E-02 sg= 3.4036E-03
+ Liq -> 2ph rank=     2 n=    1098 p=2.5087E+07 T=8.8765E+01 Xl= 2.8610E-02 Xco2eq= 2.1569E-02 sg= 2.4068E-02
+ Liq -> 2ph rank=     2 n=    1103 p=2.4834E+07 T=8.6960E+01 Xl= 2.2199E-02 Xco2eq= 2.1549E-02 sg= 6.4895E-04
+ Liq -> 2ph rank=     2 n=    1187 p=2.4834E+07 T=8.6960E+01 Xl= 2.2199E-02 Xco2eq= 2.1549E-02 sg= 6.4905E-04
+ Liq -> 2ph rank=     3 n=     920 p=2.5087E+07 T=8.8765E+01 Xl= 2.8611E-02 Xco2eq= 2.1569E-02 sg= 2.4069E-02
+ Liq -> 2ph rank=     3 n=     957 p=2.5209E+07 T=8.8648E+01 Xl= 2.2994E-02 Xco2eq= 2.1602E-02 sg= 3.4043E-03
+ Liq -> 2ph rank=     3 n=     966 p=2.5209E+07 T=8.8648E+01 Xl= 2.2994E-02 Xco2eq= 2.1602E-02 sg= 3.4043E-03
+ Liq -> 2ph rank=     3 n=     992 p=2.5087E+07 T=8.8765E+01 Xl= 2.8611E-02 Xco2eq= 2.1569E-02 sg= 2.4069E-02
+ Liq -> 2ph rank=     3 n=    1008 p=2.4834E+07 T=8.6960E+01 Xl= 2.2199E-02 Xco2eq= 2.1549E-02 sg= 6.4912E-04
+ Liq -> 2ph rank=     3 n=    1071 p=2.4834E+07 T=8.6960E+01 Xl= 2.2199E-02 Xco2eq= 2.1549E-02 sg= 6.4908E-04
+ Liq -> 2ph rank=     0 n=    1178 p=2.5087E+07 T=8.8765E+01 Xl= 2.8610E-02 Xco2eq= 2.1569E-02 sg= 2.4068E-02
+ Liq -> 2ph rank=     0 n=    1242 p=2.4834E+07 T=8.6960E+01 Xl= 2.2199E-02 Xco2eq= 2.1549E-02 sg= 6.4892E-04
+ Liq -> 2ph rank=     0 n=    1312 p=2.4834E+07 T=8.6960E+01 Xl= 2.2199E-02 Xco2eq= 2.1549E-02 sg= 6.4891E-04
+  1 2r: 1.46E-07 2x: 2.35E+09 2u: 5.21E+05 ir: 4.33E-08 iu: 3.88E+04 rsn: itol_res
+
+ Step     52 Time=  1.90000E+01 Dt=  1.00000E+00 [y] conv_reason: 10
+  newton =   1 [      74] linear =    15 [       828] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 15 / 1
+  --> SNES Residual: 0.146190E-06 0.165748E-10 0.433480E-07
+  --> max change: dpmx=   3.8806E+04 dtmpmx=   2.8650E-01
+                  dcmx=   7.5109E-03 dsmx=   5.9610E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 4.01E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 4.77E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1117 p=2.5190E+07 T=8.8633E+01 Xl= 2.2108E-02 Xco2eq= 2.1598E-02 sg= 1.2082E-04
+ Liq -> 2ph rank=     0 n=    1147 p=2.5190E+07 T=8.8633E+01 Xl= 2.2108E-02 Xco2eq= 2.1598E-02 sg= 1.2082E-04
+ Liq -> 2ph rank=     0 n=    1251 p=2.4869E+07 T=8.6967E+01 Xl= 2.2918E-02 Xco2eq= 2.1557E-02 sg= 3.2560E-03
+ Liq -> 2ph rank=     0 n=    1291 p=2.4869E+07 T=8.6967E+01 Xl= 2.2918E-02 Xco2eq= 2.1557E-02 sg= 3.2560E-03
+ Liq -> 2ph rank=     1 n=    1015 p=2.5190E+07 T=8.8633E+01 Xl= 2.2108E-02 Xco2eq= 2.1598E-02 sg= 1.2110E-04
+ Liq -> 2ph rank=     1 n=    1048 p=2.5190E+07 T=8.8633E+01 Xl= 2.2108E-02 Xco2eq= 2.1598E-02 sg= 1.2116E-04
+ Liq -> 2ph rank=     1 n=    1133 p=2.4869E+07 T=8.6967E+01 Xl= 2.2918E-02 Xco2eq= 2.1557E-02 sg= 3.2561E-03
+ Liq -> 2ph rank=     1 n=    1177 p=2.4869E+07 T=8.6967E+01 Xl= 2.2918E-02 Xco2eq= 2.1557E-02 sg= 3.2561E-03
+ Liq -> 2ph rank=     2 n=    1037 p=2.5190E+07 T=8.8633E+01 Xl= 2.2108E-02 Xco2eq= 2.1598E-02 sg= 1.2111E-04
+ Liq -> 2ph rank=     2 n=    1073 p=2.5190E+07 T=8.8633E+01 Xl= 2.2108E-02 Xco2eq= 2.1598E-02 sg= 1.2117E-04
+ Liq -> 2ph rank=     2 n=    1126 p=2.4869E+07 T=8.6967E+01 Xl= 2.2918E-02 Xco2eq= 2.1557E-02 sg= 3.2561E-03
+ Liq -> 2ph rank=     2 n=    1174 p=2.4869E+07 T=8.6967E+01 Xl= 2.2918E-02 Xco2eq= 2.1557E-02 sg= 3.2561E-03
+ Liq -> 2ph rank=     3 n=     948 p=2.5190E+07 T=8.8633E+01 Xl= 2.2108E-02 Xco2eq= 2.1598E-02 sg= 1.2170E-04
+ Liq -> 2ph rank=     3 n=     975 p=2.5190E+07 T=8.8633E+01 Xl= 2.2108E-02 Xco2eq= 2.1598E-02 sg= 1.2170E-04
+ Liq -> 2ph rank=     3 n=    1027 p=2.4869E+07 T=8.6967E+01 Xl= 2.2918E-02 Xco2eq= 2.1557E-02 sg= 3.2563E-03
+ Liq -> 2ph rank=     3 n=    1063 p=2.4869E+07 T=8.6967E+01 Xl= 2.2918E-02 Xco2eq= 2.1557E-02 sg= 3.2562E-03
+  1 2r: 1.44E-08 2x: 2.35E+09 2u: 1.57E+05 ir: 3.21E-09 iu: 3.06E+04 rsn: itol_res
+
+ Step     53 Time=  1.92500E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      75] linear =    13 [       841] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.143886E-07 0.163136E-11 0.320770E-08
+  --> max change: dpmx=   3.0593E+04 dtmpmx=   7.0029E-02
+                  dcmx=   1.8300E-03 dsmx=   1.3093E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 3.60E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.28E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 3.88E-08 2x: 2.35E+09 2u: 1.41E+05 ir: 1.04E-08 iu: 3.45E+04 rsn: itol_res
+
+ Step     54 Time=  1.95000E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      76] linear =    16 [       857] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 16 / 1
+  --> SNES Residual: 0.388454E-07 0.440424E-11 0.104126E-07
+  --> max change: dpmx=   3.4520E+04 dtmpmx=   6.8345E-02
+                  dcmx=   2.1243E-03 dsmx=   1.2918E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 3.70E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.59E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     1 n=    1282 p=2.4266E+07 T=8.5676E+01 Xl= 2.2249E-02 Xco2eq= 2.1441E-02 sg= 1.2515E-03
+ Liq -> 2ph rank=     1 n=    1293 p=2.4266E+07 T=8.5676E+01 Xl= 2.2249E-02 Xco2eq= 2.1441E-02 sg= 1.2515E-03
+ Liq -> 2ph rank=     1 n=    1314 p=2.4256E+07 T=8.5676E+01 Xl= 2.2286E-02 Xco2eq= 2.1438E-02 sg= 1.3999E-03
+ Liq -> 2ph rank=     2 n=    1229 p=2.4266E+07 T=8.5676E+01 Xl= 2.2249E-02 Xco2eq= 2.1441E-02 sg= 1.2515E-03
+ Liq -> 2ph rank=     2 n=    1241 p=2.4266E+07 T=8.5676E+01 Xl= 2.2249E-02 Xco2eq= 2.1441E-02 sg= 1.2515E-03
+ Liq -> 2ph rank=     2 n=    1254 p=2.4256E+07 T=8.5676E+01 Xl= 2.2286E-02 Xco2eq= 2.1438E-02 sg= 1.3999E-03
+ Liq -> 2ph rank=     3 n=    1113 p=2.4266E+07 T=8.5676E+01 Xl= 2.2249E-02 Xco2eq= 2.1441E-02 sg= 1.2515E-03
+ Liq -> 2ph rank=     3 n=    1122 p=2.4266E+07 T=8.5676E+01 Xl= 2.2249E-02 Xco2eq= 2.1441E-02 sg= 1.2515E-03
+ Liq -> 2ph rank=     0 n=    1408 p=2.4256E+07 T=8.5676E+01 Xl= 2.2286E-02 Xco2eq= 2.1438E-02 sg= 1.3999E-03
+ Liq -> 2ph rank=     0 n=    1417 p=2.4266E+07 T=8.5676E+01 Xl= 2.2249E-02 Xco2eq= 2.1441E-02 sg= 1.2515E-03
+ Liq -> 2ph rank=     0 n=    1427 p=2.4266E+07 T=8.5676E+01 Xl= 2.2249E-02 Xco2eq= 2.1441E-02 sg= 1.2515E-03
+ Liq -> 2ph rank=     0 n=    1448 p=2.4256E+07 T=8.5676E+01 Xl= 2.2286E-02 Xco2eq= 2.1438E-02 sg= 1.3999E-03
+  1 2r: 5.29E-09 2x: 2.35E+09 2u: 1.17E+05 ir: 1.23E-09 iu: 5.80E+03 rsn: itol_res
+
+ Step     55 Time=  1.97500E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      77] linear =    16 [       873] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 16 / 1
+  --> SNES Residual: 0.528952E-08 0.599719E-12 0.123256E-08
+  --> max change: dpmx=   5.8011E+03 dtmpmx=   6.6909E-02
+                  dcmx=   2.4062E-03 dsmx=   1.2562E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 3.59E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.18E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=     956 p=2.6524E+07 T=9.0659E+01 Xl= 2.2705E-02 Xco2eq= 2.1891E-02 sg= 1.1747E-03
+ Liq -> 2ph rank=     0 n=    1033 p=2.5890E+07 T=8.9615E+01 Xl= 2.2285E-02 Xco2eq= 2.1753E-02 sg= 1.7279E-04
+ Liq -> 2ph rank=     0 n=    1073 p=2.5890E+07 T=8.9615E+01 Xl= 2.2285E-02 Xco2eq= 2.1753E-02 sg= 1.7281E-04
+ Liq -> 2ph rank=     1 n=     861 p=2.6524E+07 T=9.0659E+01 Xl= 2.2705E-02 Xco2eq= 2.1891E-02 sg= 1.1747E-03
+ Liq -> 2ph rank=     1 n=     931 p=2.5890E+07 T=8.9615E+01 Xl= 2.2285E-02 Xco2eq= 2.1753E-02 sg= 1.7284E-04
+ Liq -> 2ph rank=     1 n=     975 p=2.5890E+07 T=8.9615E+01 Xl= 2.2285E-02 Xco2eq= 2.1753E-02 sg= 1.7286E-04
+ Liq -> 2ph rank=     2 n=     780 p=2.6524E+07 T=9.0659E+01 Xl= 2.2705E-02 Xco2eq= 2.1891E-02 sg= 1.1747E-03
+ Liq -> 2ph rank=     2 n=     886 p=2.5890E+07 T=8.9615E+01 Xl= 2.2285E-02 Xco2eq= 2.1753E-02 sg= 1.7284E-04
+ Liq -> 2ph rank=     2 n=     934 p=2.5890E+07 T=8.9615E+01 Xl= 2.2285E-02 Xco2eq= 2.1753E-02 sg= 1.7286E-04
+ Liq -> 2ph rank=     3 n=     701 p=2.6524E+07 T=9.0659E+01 Xl= 2.2705E-02 Xco2eq= 2.1891E-02 sg= 1.1747E-03
+ Liq -> 2ph rank=     3 n=     805 p=2.5890E+07 T=8.9615E+01 Xl= 2.2285E-02 Xco2eq= 2.1753E-02 sg= 1.7293E-04
+ Liq -> 2ph rank=     3 n=     841 p=2.5890E+07 T=8.9615E+01 Xl= 2.2285E-02 Xco2eq= 2.1753E-02 sg= 1.7294E-04
+  1 2r: 1.04E-08 2x: 2.35E+09 2u: 1.95E+05 ir: 2.94E-09 iu: 4.18E+04 rsn: itol_res
+
+ Step     56 Time=  2.00000E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      78] linear =    13 [       886] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.104414E-07 0.118384E-11 0.293939E-08
+  --> max change: dpmx=   4.1816E+04 dtmpmx=   6.9673E-02
+                  dcmx=   2.6908E-03 dsmx=   1.2838E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.93E-06 2x: 0.00E+00 2u: 0.00E+00 ir: 4.89E-06 iu: 0.00E+00 rsn:   0
+ 2ph -> Liq rank=      0 n=    1033 p=2.5648E+07 T=8.9609E+01 sg =-2.3421E-04 Xco2eq= 2.1692E-02
+ 2ph -> Liq rank=      0 n=    1073 p=2.5648E+07 T=8.9609E+01 sg =-2.3419E-04 Xco2eq= 2.1692E-02
+ Liq -> 2ph rank=     0 n=    1107 p=2.5092E+07 T=8.8649E+01 Xl= 2.3035E-02 Xco2eq= 2.1573E-02 sg= 3.6519E-03
+ Liq -> 2ph rank=     0 n=    1157 p=2.5092E+07 T=8.8649E+01 Xl= 2.3035E-02 Xco2eq= 2.1573E-02 sg= 3.6519E-03
+ 2ph -> Liq rank=      1 n=     931 p=2.5648E+07 T=8.9609E+01 sg =-2.3416E-04 Xco2eq= 2.1692E-02
+ 2ph -> Liq rank=      1 n=     975 p=2.5648E+07 T=8.9609E+01 sg =-2.3415E-04 Xco2eq= 2.1692E-02
+ Liq -> 2ph rank=     1 n=    1004 p=2.5092E+07 T=8.8649E+01 Xl= 2.3036E-02 Xco2eq= 2.1573E-02 sg= 3.6521E-03
+ Liq -> 2ph rank=     1 n=    1059 p=2.5092E+07 T=8.8649E+01 Xl= 2.3036E-02 Xco2eq= 2.1573E-02 sg= 3.6523E-03
+ 2ph -> Liq rank=      2 n=     886 p=2.5648E+07 T=8.9609E+01 sg =-2.3417E-04 Xco2eq= 2.1692E-02
+ 2ph -> Liq rank=      2 n=     934 p=2.5648E+07 T=8.9609E+01 sg =-2.3415E-04 Xco2eq= 2.1692E-02
+ Liq -> 2ph rank=     2 n=    1025 p=2.5092E+07 T=8.8649E+01 Xl= 2.3036E-02 Xco2eq= 2.1573E-02 sg= 3.6522E-03
+ Liq -> 2ph rank=     2 n=    1085 p=2.5092E+07 T=8.8649E+01 Xl= 2.3036E-02 Xco2eq= 2.1573E-02 sg= 3.6522E-03
+ 2ph -> Liq rank=      3 n=     805 p=2.5648E+07 T=8.9609E+01 sg =-2.3407E-04 Xco2eq= 2.1692E-02
+ 2ph -> Liq rank=      3 n=     841 p=2.5648E+07 T=8.9609E+01 sg =-2.3407E-04 Xco2eq= 2.1692E-02
+ Liq -> 2ph rank=     3 n=     939 p=2.5092E+07 T=8.8649E+01 Xl= 2.3036E-02 Xco2eq= 2.1573E-02 sg= 3.6526E-03
+ Liq -> 2ph rank=     3 n=     984 p=2.5092E+07 T=8.8649E+01 Xl= 2.3036E-02 Xco2eq= 2.1573E-02 sg= 3.6526E-03
+  1 2r: 1.28E-07 2x: 2.35E+09 2u: 9.13E+06 ir: 6.39E-08 iu: 9.45E+05 rsn: itol_res
+
+ Step     57 Time=  2.02500E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      79] linear =    13 [       899] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.128360E-06 0.145533E-10 0.639051E-07
+  --> max change: dpmx=   9.4468E+05 dtmpmx=   1.2436E-01
+                  dcmx=   8.4894E-04 dsmx=   6.0246E-03
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 4.06E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 4.11E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 2.25E-08 2x: 2.35E+09 2u: 3.89E+06 ir: 5.68E-09 iu: 2.15E+05 rsn: itol_res
+
+ Step     58 Time=  2.05000E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      80] linear =    14 [       913] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 14 / 1
+  --> SNES Residual: 0.224818E-07 0.254896E-11 0.568074E-08
+  --> max change: dpmx=   2.1505E+05 dtmpmx=   3.3742E-02
+                  dcmx=   7.6119E-04 dsmx=   1.1457E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 2.13E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.13E-08 iu: 0.00E+00 rsn:   0
+  1 2r: 3.41E-09 2x: 2.34E+09 2u: 1.62E+06 ir: 8.34E-10 iu: 7.30E+04 rsn: itol_res
+
+ Step     59 Time=  2.07500E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      81] linear =    15 [       928] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 15 / 1
+  --> SNES Residual: 0.340802E-08 0.386397E-12 0.834286E-09
+  --> max change: dpmx=   7.2971E+04 dtmpmx=   4.3715E-02
+                  dcmx=   7.3993E-04 dsmx=   1.0266E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.62E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 2.52E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1241 p=2.4632E+07 T=8.6959E+01 Xl= 2.2132E-02 Xco2eq= 2.1497E-02 sg= 5.9840E-04
+ Liq -> 2ph rank=     0 n=    1301 p=2.4632E+07 T=8.6959E+01 Xl= 2.2132E-02 Xco2eq= 2.1497E-02 sg= 5.9839E-04
+ Liq -> 2ph rank=     1 n=    1122 p=2.4632E+07 T=8.6959E+01 Xl= 2.2132E-02 Xco2eq= 2.1497E-02 sg= 5.9841E-04
+ Liq -> 2ph rank=     1 n=    1188 p=2.4632E+07 T=8.6959E+01 Xl= 2.2132E-02 Xco2eq= 2.1497E-02 sg= 5.9846E-04
+ Liq -> 2ph rank=     2 n=    1114 p=2.4632E+07 T=8.6959E+01 Xl= 2.2132E-02 Xco2eq= 2.1497E-02 sg= 5.9841E-04
+ Liq -> 2ph rank=     2 n=    1186 p=2.4632E+07 T=8.6959E+01 Xl= 2.2132E-02 Xco2eq= 2.1497E-02 sg= 5.9847E-04
+ Liq -> 2ph rank=     3 n=    1018 p=2.4632E+07 T=8.6959E+01 Xl= 2.2132E-02 Xco2eq= 2.1497E-02 sg= 5.9858E-04
+ Liq -> 2ph rank=     3 n=    1072 p=2.4632E+07 T=8.6959E+01 Xl= 2.2132E-02 Xco2eq= 2.1497E-02 sg= 5.9859E-04
+  1 2r: 2.08E-09 2x: 2.34E+09 2u: 6.26E+05 ir: 4.15E-10 iu: 3.12E+04 rsn: itol_res
+
+ Step     60 Time=  2.10000E+01 Dt=  2.50000E-01 [y] conv_reason: 10
+  newton =   1 [      82] linear =    14 [       942] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 14 / 1
+  --> SNES Residual: 0.208257E-08 0.236120E-12 0.414654E-09
+  --> max change: dpmx=   3.1166E+04 dtmpmx=   4.6821E-02
+                  dcmx=   7.0535E-04 dsmx=   9.8175E-03
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.50E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 2.41E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1260 p=2.4625E+07 T=8.6961E+01 Xl= 2.3291E-02 Xco2eq= 2.1496E-02 sg= 4.8995E-03
+ Liq -> 2ph rank=     0 n=    1270 p=2.4625E+07 T=8.6961E+01 Xl= 2.3291E-02 Xco2eq= 2.1496E-02 sg= 4.8995E-03
+ Liq -> 2ph rank=     1 n=    1145 p=2.4625E+07 T=8.6961E+01 Xl= 2.3291E-02 Xco2eq= 2.1496E-02 sg= 4.8996E-03
+ Liq -> 2ph rank=     1 n=    1156 p=2.4625E+07 T=8.6961E+01 Xl= 2.3291E-02 Xco2eq= 2.1496E-02 sg= 4.8996E-03
+ Liq -> 2ph rank=     2 n=    1149 p=2.4625E+07 T=8.6961E+01 Xl= 2.3291E-02 Xco2eq= 2.1496E-02 sg= 4.8996E-03
+ Liq -> 2ph rank=     2 n=    1161 p=2.4625E+07 T=8.6961E+01 Xl= 2.3291E-02 Xco2eq= 2.1496E-02 sg= 4.8996E-03
+ Liq -> 2ph rank=     3 n=    1046 p=2.4625E+07 T=8.6961E+01 Xl= 2.3291E-02 Xco2eq= 2.1496E-02 sg= 4.8997E-03
+ Liq -> 2ph rank=     3 n=    1055 p=2.4625E+07 T=8.6961E+01 Xl= 2.3291E-02 Xco2eq= 2.1496E-02 sg= 4.8997E-03
+  1 2r: 2.31E-08 2x: 2.34E+09 2u: 3.20E+05 ir: 4.16E-09 iu: 2.05E+04 rsn: itol_res
+
+ Step     61 Time=  2.20000E+01 Dt=  1.00000E+00 [y] conv_reason: 10
+  newton =   1 [      83] linear =    14 [       956] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 14 / 1
+  --> SNES Residual: 0.231088E-07 0.262005E-11 0.416238E-08
+  --> max change: dpmx=   2.0487E+04 dtmpmx=   1.8950E-01
+                  dcmx=   2.7154E-03 dsmx=   3.6232E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.49E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 2.62E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1232 p=2.4621E+07 T=8.6973E+01 Xl= 2.5919E-02 Xco2eq= 2.1494E-02 sg= 1.4543E-02
+ Liq -> 2ph rank=     0 n=    1250 p=2.4622E+07 T=8.6972E+01 Xl= 2.5816E-02 Xco2eq= 2.1495E-02 sg= 1.4167E-02
+ Liq -> 2ph rank=     0 n=    1280 p=2.4622E+07 T=8.6972E+01 Xl= 2.5816E-02 Xco2eq= 2.1495E-02 sg= 1.4167E-02
+ Liq -> 2ph rank=     0 n=    1322 p=2.4621E+07 T=8.6973E+01 Xl= 2.5919E-02 Xco2eq= 2.1494E-02 sg= 1.4543E-02
+ Liq -> 2ph rank=     0 n=    1407 p=2.4144E+07 T=8.5680E+01 Xl= 2.3937E-02 Xco2eq= 2.1410E-02 sg= 7.6284E-03
+ Liq -> 2ph rank=     1 n=    1134 p=2.4622E+07 T=8.6972E+01 Xl= 2.5816E-02 Xco2eq= 2.1495E-02 sg= 1.4167E-02
+ Liq -> 2ph rank=     1 n=    1167 p=2.4622E+07 T=8.6972E+01 Xl= 2.5816E-02 Xco2eq= 2.1495E-02 sg= 1.4167E-02
+ Liq -> 2ph rank=     1 n=    1209 p=2.4621E+07 T=8.6973E+01 Xl= 2.5919E-02 Xco2eq= 2.1494E-02 sg= 1.4543E-02
+ Liq -> 2ph rank=     1 n=    1271 p=2.4144E+07 T=8.5680E+01 Xl= 2.3937E-02 Xco2eq= 2.1410E-02 sg= 7.6284E-03
+ Liq -> 2ph rank=     1 n=    1304 p=2.4144E+07 T=8.5680E+01 Xl= 2.3937E-02 Xco2eq= 2.1410E-02 sg= 7.6284E-03
+ Liq -> 2ph rank=     2 n=    1137 p=2.4622E+07 T=8.6972E+01 Xl= 2.5816E-02 Xco2eq= 2.1495E-02 sg= 1.4167E-02
+ Liq -> 2ph rank=     2 n=    1173 p=2.4622E+07 T=8.6972E+01 Xl= 2.5816E-02 Xco2eq= 2.1495E-02 sg= 1.4167E-02
+ Liq -> 2ph rank=     2 n=    1199 p=2.4621E+07 T=8.6973E+01 Xl= 2.5919E-02 Xco2eq= 2.1494E-02 sg= 1.4543E-02
+ Liq -> 2ph rank=     2 n=    1217 p=2.4144E+07 T=8.5680E+01 Xl= 2.3937E-02 Xco2eq= 2.1410E-02 sg= 7.6284E-03
+ Liq -> 2ph rank=     2 n=    1253 p=2.4144E+07 T=8.5680E+01 Xl= 2.3937E-02 Xco2eq= 2.1410E-02 sg= 7.6284E-03
+ Liq -> 2ph rank=     3 n=    1037 p=2.4622E+07 T=8.6972E+01 Xl= 2.5816E-02 Xco2eq= 2.1495E-02 sg= 1.4167E-02
+ Liq -> 2ph rank=     3 n=    1064 p=2.4622E+07 T=8.6972E+01 Xl= 2.5816E-02 Xco2eq= 2.1495E-02 sg= 1.4167E-02
+ Liq -> 2ph rank=     3 n=    1104 p=2.4144E+07 T=8.5680E+01 Xl= 2.3937E-02 Xco2eq= 2.1410E-02 sg= 7.6284E-03
+ Liq -> 2ph rank=     3 n=    1131 p=2.4144E+07 T=8.5680E+01 Xl= 2.3937E-02 Xco2eq= 2.1410E-02 sg= 7.6284E-03
+ Liq -> 2ph rank=     0 n=    1437 p=2.4144E+07 T=8.5680E+01 Xl= 2.3937E-02 Xco2eq= 2.1410E-02 sg= 7.6284E-03
+  1 2r: 6.35E-08 2x: 2.34E+09 2u: 1.26E+05 ir: 1.85E-08 iu: 2.72E+04 rsn: itol_res
+
+ Step     62 Time=  2.40000E+01 Dt=  2.00000E+00 [y] conv_reason: 10
+  newton =   1 [      84] linear =    13 [       969] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.634532E-07 0.719424E-11 0.184757E-07
+  --> max change: dpmx=   2.7234E+04 dtmpmx=   3.6400E-01
+                  dcmx=   4.8952E-03 dsmx=   8.2660E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.66E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 4.37E-08 iu: 0.00E+00 rsn:   0
+ 2ph -> Liq rank=      0 n=     956 p=2.5895E+07 T=9.0416E+01 sg =-8.5324E-05 Xco2eq= 2.1740E-02
+ 2ph -> Liq rank=      1 n=     861 p=2.5895E+07 T=9.0416E+01 sg =-8.5307E-05 Xco2eq= 2.1740E-02
+ Liq -> 2ph rank=     1 n=    1111 p=2.4617E+07 T=8.6979E+01 Xl= 2.5406E-02 Xco2eq= 2.1493E-02 sg= 1.2679E-02
+ Liq -> 2ph rank=     1 n=    1123 p=2.4616E+07 T=8.6983E+01 Xl= 2.5129E-02 Xco2eq= 2.1493E-02 sg= 1.1670E-02
+ Liq -> 2ph rank=     1 n=    1178 p=2.4616E+07 T=8.6983E+01 Xl= 2.5129E-02 Xco2eq= 2.1493E-02 sg= 1.1670E-02
+ 2ph -> Liq rank=      2 n=     780 p=2.5895E+07 T=9.0416E+01 sg =-8.5299E-05 Xco2eq= 2.1740E-02
+ Liq -> 2ph rank=     2 n=    1102 p=2.4617E+07 T=8.6979E+01 Xl= 2.5406E-02 Xco2eq= 2.1493E-02 sg= 1.2679E-02
+ 2ph -> Liq rank=      3 n=     701 p=2.5895E+07 T=9.0416E+01 sg =-8.5267E-05 Xco2eq= 2.1740E-02
+ Liq -> 2ph rank=     3 n=    1009 p=2.4617E+07 T=8.6979E+01 Xl= 2.5406E-02 Xco2eq= 2.1493E-02 sg= 1.2679E-02
+ Liq -> 2ph rank=     3 n=    1028 p=2.4616E+07 T=8.6983E+01 Xl= 2.5129E-02 Xco2eq= 2.1493E-02 sg= 1.1670E-02
+ Liq -> 2ph rank=     3 n=    1073 p=2.4616E+07 T=8.6983E+01 Xl= 2.5129E-02 Xco2eq= 2.1493E-02 sg= 1.1670E-02
+ Liq -> 2ph rank=     3 n=    1081 p=2.4617E+07 T=8.6979E+01 Xl= 2.5406E-02 Xco2eq= 2.1493E-02 sg= 1.2679E-02
+ Liq -> 2ph rank=     0 n=    1231 p=2.4617E+07 T=8.6979E+01 Xl= 2.5406E-02 Xco2eq= 2.1493E-02 sg= 1.2679E-02
+ Liq -> 2ph rank=     0 n=    1240 p=2.4616E+07 T=8.6983E+01 Xl= 2.5129E-02 Xco2eq= 2.1493E-02 sg= 1.1670E-02
+ Liq -> 2ph rank=     0 n=    1290 p=2.4616E+07 T=8.6983E+01 Xl= 2.5129E-02 Xco2eq= 2.1493E-02 sg= 1.1670E-02
+ Liq -> 2ph rank=     0 n=    1311 p=2.4617E+07 T=8.6979E+01 Xl= 2.5406E-02 Xco2eq= 2.1493E-02 sg= 1.2679E-02
+ Liq -> 2ph rank=     1 n=    1199 p=2.4617E+07 T=8.6979E+01 Xl= 2.5406E-02 Xco2eq= 2.1493E-02 sg= 1.2679E-02
+ Liq -> 2ph rank=     1 n=    1283 p=2.4143E+07 T=8.5678E+01 Xl= 2.2240E-02 Xco2eq= 2.1409E-02 sg= 1.3476E-03
+ Liq -> 2ph rank=     2 n=    1125 p=2.4616E+07 T=8.6983E+01 Xl= 2.5129E-02 Xco2eq= 2.1493E-02 sg= 1.1670E-02
+ Liq -> 2ph rank=     0 n=    1416 p=2.4143E+07 T=8.5678E+01 Xl= 2.2240E-02 Xco2eq= 2.1409E-02 sg= 1.3476E-03
+ Liq -> 2ph rank=     3 n=    1123 p=2.4143E+07 T=8.5678E+01 Xl= 2.2240E-02 Xco2eq= 2.1409E-02 sg= 1.3476E-03
+ Liq -> 2ph rank=     2 n=    1185 p=2.4616E+07 T=8.6983E+01 Xl= 2.5129E-02 Xco2eq= 2.1493E-02 sg= 1.1670E-02
+ Liq -> 2ph rank=     2 n=    1198 p=2.4617E+07 T=8.6979E+01 Xl= 2.5406E-02 Xco2eq= 2.1493E-02 sg= 1.2679E-02
+ Liq -> 2ph rank=     2 n=    1240 p=2.4143E+07 T=8.5678E+01 Xl= 2.2240E-02 Xco2eq= 2.1409E-02 sg= 1.3476E-03
+  1 2r: 6.38E-08 2x: 2.34E+09 2u: 1.77E+05 ir: 1.60E-08 iu: 2.83E+04 rsn: itol_res
+
+ Step     63 Time=  2.60000E+01 Dt=  2.00000E+00 [y] conv_reason: 10
+  newton =   1 [      85] linear =    12 [       981] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 12 / 1
+  --> SNES Residual: 0.637651E-07 0.722960E-11 0.159772E-07
+  --> max change: dpmx=   2.8325E+04 dtmpmx=   3.4821E-01
+                  dcmx=   3.5668E-03 dsmx=   7.2728E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.56E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.71E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1406 p=2.4143E+07 T=8.5680E+01 Xl= 2.2792E-02 Xco2eq= 2.1409E-02 sg= 3.3981E-03
+ Liq -> 2ph rank=     0 n=    1426 p=2.4143E+07 T=8.5680E+01 Xl= 2.2792E-02 Xco2eq= 2.1409E-02 sg= 3.3981E-03
+ Liq -> 2ph rank=     1 n=    1272 p=2.4143E+07 T=8.5680E+01 Xl= 2.2792E-02 Xco2eq= 2.1409E-02 sg= 3.3982E-03
+ Liq -> 2ph rank=     1 n=    1294 p=2.4143E+07 T=8.5680E+01 Xl= 2.2792E-02 Xco2eq= 2.1409E-02 sg= 3.3982E-03
+ Liq -> 2ph rank=     2 n=    1228 p=2.4143E+07 T=8.5680E+01 Xl= 2.2792E-02 Xco2eq= 2.1409E-02 sg= 3.3982E-03
+ Liq -> 2ph rank=     2 n=    1252 p=2.4143E+07 T=8.5680E+01 Xl= 2.2792E-02 Xco2eq= 2.1409E-02 sg= 3.3982E-03
+ Liq -> 2ph rank=     3 n=    1114 p=2.4143E+07 T=8.5680E+01 Xl= 2.2792E-02 Xco2eq= 2.1409E-02 sg= 3.3982E-03
+ Liq -> 2ph rank=     3 n=    1132 p=2.4143E+07 T=8.5680E+01 Xl= 2.2792E-02 Xco2eq= 2.1409E-02 sg= 3.3982E-03
+  1 2r: 5.93E-08 2x: 2.34E+09 2u: 1.75E+05 ir: 1.43E-08 iu: 2.62E+04 rsn: itol_res
+
+ Step     64 Time=  2.80000E+01 Dt=  2.00000E+00 [y] conv_reason: 10
+  newton =   1 [      86] linear =    12 [       993] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 12 / 1
+  --> SNES Residual: 0.593308E-07 0.672685E-11 0.142723E-07
+  --> max change: dpmx=   2.6190E+04 dtmpmx=   3.3318E-01
+                  dcmx=   3.5625E-03 dsmx=   7.5054E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.45E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 3.69E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1230 p=2.4604E+07 T=8.7024E+01 Xl= 2.3301E-02 Xco2eq= 2.1489E-02 sg= 4.9717E-03
+ Liq -> 2ph rank=     0 n=    1259 p=2.4602E+07 T=8.6991E+01 Xl= 2.2241E-02 Xco2eq= 2.1489E-02 sg= 1.0380E-03
+ Liq -> 2ph rank=     0 n=    1300 p=2.4604E+07 T=8.7024E+01 Xl= 2.3301E-02 Xco2eq= 2.1489E-02 sg= 4.9717E-03
+ Liq -> 2ph rank=     0 n=    1397 p=2.4142E+07 T=8.5682E+01 Xl= 2.4099E-02 Xco2eq= 2.1409E-02 sg= 8.2301E-03
+ Liq -> 2ph rank=     0 n=    1447 p=2.4142E+07 T=8.5682E+01 Xl= 2.4099E-02 Xco2eq= 2.1409E-02 sg= 8.2300E-03
+ Liq -> 2ph rank=     1 n=    1112 p=2.4604E+07 T=8.7024E+01 Xl= 2.3301E-02 Xco2eq= 2.1489E-02 sg= 4.9717E-03
+ Liq -> 2ph rank=     1 n=    1146 p=2.4602E+07 T=8.6991E+01 Xl= 2.2241E-02 Xco2eq= 2.1489E-02 sg= 1.0382E-03
+ Liq -> 2ph rank=     1 n=    1189 p=2.4604E+07 T=8.7024E+01 Xl= 2.3301E-02 Xco2eq= 2.1489E-02 sg= 4.9716E-03
+ Liq -> 2ph rank=     1 n=    1315 p=2.4142E+07 T=8.5682E+01 Xl= 2.4099E-02 Xco2eq= 2.1409E-02 sg= 8.2300E-03
+ Liq -> 2ph rank=     2 n=    1113 p=2.4604E+07 T=8.7024E+01 Xl= 2.3301E-02 Xco2eq= 2.1489E-02 sg= 4.9717E-03
+ Liq -> 2ph rank=     2 n=    1160 p=2.4602E+07 T=8.6991E+01 Xl= 2.2241E-02 Xco2eq= 2.1489E-02 sg= 1.0382E-03
+ Liq -> 2ph rank=     2 n=    1197 p=2.4604E+07 T=8.7024E+01 Xl= 2.3301E-02 Xco2eq= 2.1489E-02 sg= 4.9717E-03
+ Liq -> 2ph rank=     2 n=    1265 p=2.4142E+07 T=8.5682E+01 Xl= 2.4099E-02 Xco2eq= 2.1409E-02 sg= 8.2300E-03
+ Liq -> 2ph rank=     3 n=    1019 p=2.4604E+07 T=8.7024E+01 Xl= 2.3301E-02 Xco2eq= 2.1489E-02 sg= 4.9717E-03
+ Liq -> 2ph rank=     3 n=    1056 p=2.4602E+07 T=8.6991E+01 Xl= 2.2241E-02 Xco2eq= 2.1489E-02 sg= 1.0384E-03
+ Liq -> 2ph rank=     3 n=    1082 p=2.4604E+07 T=8.7024E+01 Xl= 2.3301E-02 Xco2eq= 2.1489E-02 sg= 4.9717E-03
+  1 2r: 5.53E-08 2x: 2.34E+09 2u: 1.36E+05 ir: 1.86E-08 iu: 2.29E+04 rsn: itol_res
+
+ Step     65 Time=  3.00000E+01 Dt=  2.00000E+00 [y] conv_reason: 10
+  newton =   1 [      87] linear =    13 [      1006] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.553232E-07 0.627247E-11 0.185718E-07
+  --> max change: dpmx=   2.2914E+04 dtmpmx=   3.1904E-01
+                  dcmx=   3.2924E-03 dsmx=   9.4296E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.38E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 4.93E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1221 p=2.4594E+07 T=8.6991E+01 Xl= 2.2418E-02 Xco2eq= 2.1487E-02 sg= 1.7078E-03
+ Liq -> 2ph rank=     0 n=    1249 p=2.4601E+07 T=8.6986E+01 Xl= 2.5115E-02 Xco2eq= 2.1489E-02 sg= 1.1632E-02
+ Liq -> 2ph rank=     0 n=    1269 p=2.4601E+07 T=8.6986E+01 Xl= 2.5115E-02 Xco2eq= 2.1489E-02 sg= 1.1632E-02
+ Liq -> 2ph rank=     0 n=    1321 p=2.4594E+07 T=8.6991E+01 Xl= 2.2418E-02 Xco2eq= 2.1487E-02 sg= 1.7078E-03
+ Liq -> 2ph rank=     0 n=    1396 p=2.4143E+07 T=8.5686E+01 Xl= 2.4452E-02 Xco2eq= 2.1409E-02 sg= 9.5287E-03
+ Liq -> 2ph rank=     0 n=    1436 p=2.4143E+07 T=8.5686E+01 Xl= 2.4452E-02 Xco2eq= 2.1409E-02 sg= 9.5287E-03
+ Liq -> 2ph rank=     1 n=    1135 p=2.4601E+07 T=8.6986E+01 Xl= 2.5115E-02 Xco2eq= 2.1489E-02 sg= 1.1632E-02
+ Liq -> 2ph rank=     1 n=    1157 p=2.4601E+07 T=8.6986E+01 Xl= 2.5115E-02 Xco2eq= 2.1489E-02 sg= 1.1632E-02
+ Liq -> 2ph rank=     1 n=    1210 p=2.4594E+07 T=8.6991E+01 Xl= 2.2418E-02 Xco2eq= 2.1487E-02 sg= 1.7078E-03
+ Liq -> 2ph rank=     1 n=    1261 p=2.4143E+07 T=8.5686E+01 Xl= 2.4452E-02 Xco2eq= 2.1409E-02 sg= 9.5288E-03
+ Liq -> 2ph rank=     1 n=    1305 p=2.4143E+07 T=8.5686E+01 Xl= 2.4452E-02 Xco2eq= 2.1409E-02 sg= 9.5287E-03
+ Liq -> 2ph rank=     2 n=    1148 p=2.4601E+07 T=8.6986E+01 Xl= 2.5115E-02 Xco2eq= 2.1489E-02 sg= 1.1632E-02
+ Liq -> 2ph rank=     2 n=    1172 p=2.4601E+07 T=8.6986E+01 Xl= 2.5115E-02 Xco2eq= 2.1489E-02 sg= 1.1632E-02
+ Liq -> 2ph rank=     2 n=    1210 p=2.4594E+07 T=8.6991E+01 Xl= 2.2418E-02 Xco2eq= 2.1487E-02 sg= 1.7078E-03
+ Liq -> 2ph rank=     2 n=    1216 p=2.4143E+07 T=8.5686E+01 Xl= 2.4452E-02 Xco2eq= 2.1409E-02 sg= 9.5287E-03
+ Liq -> 2ph rank=     2 n=    1264 p=2.4143E+07 T=8.5686E+01 Xl= 2.4452E-02 Xco2eq= 2.1409E-02 sg= 9.5287E-03
+ Liq -> 2ph rank=     3 n=    1047 p=2.4601E+07 T=8.6986E+01 Xl= 2.5115E-02 Xco2eq= 2.1489E-02 sg= 1.1632E-02
+ Liq -> 2ph rank=     3 n=    1065 p=2.4601E+07 T=8.6986E+01 Xl= 2.5115E-02 Xco2eq= 2.1489E-02 sg= 1.1632E-02
+ Liq -> 2ph rank=     3 n=    1105 p=2.4143E+07 T=8.5686E+01 Xl= 2.4452E-02 Xco2eq= 2.1409E-02 sg= 9.5287E-03
+ Liq -> 2ph rank=     3 n=    1141 p=2.4143E+07 T=8.5686E+01 Xl= 2.4452E-02 Xco2eq= 2.1409E-02 sg= 9.5287E-03
+  1 2r: 9.15E-08 2x: 2.34E+09 2u: 1.55E+05 ir: 2.82E-08 iu: 2.57E+04 rsn: itol_res
+
+ Step     66 Time=  3.25041E+01 Dt=  2.50408E+00 [y] conv_reason: 10
+  newton =   1 [      88] linear =    12 [      1018] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 12 / 1
+  --> SNES Residual: 0.914536E-07 0.103689E-10 0.282498E-07
+  --> max change: dpmx=   2.5744E+04 dtmpmx=   3.7909E-01
+                  dcmx=   3.4275E-03 dsmx=   1.1884E-01
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.67E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 5.91E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1239 p=2.4595E+07 T=8.6985E+01 Xl= 2.3737E-02 Xco2eq= 2.1487E-02 sg= 6.5815E-03
+ Liq -> 2ph rank=     0 n=    1279 p=2.4595E+07 T=8.6985E+01 Xl= 2.3737E-02 Xco2eq= 2.1487E-02 sg= 6.5815E-03
+ Liq -> 2ph rank=     0 n=    1405 p=2.4143E+07 T=8.5690E+01 Xl= 2.4541E-02 Xco2eq= 2.1409E-02 sg= 9.8561E-03
+ Liq -> 2ph rank=     0 n=    1415 p=2.4143E+07 T=8.5690E+01 Xl= 2.4541E-02 Xco2eq= 2.1409E-02 sg= 9.8561E-03
+ Liq -> 2ph rank=     1 n=    1124 p=2.4595E+07 T=8.6985E+01 Xl= 2.3737E-02 Xco2eq= 2.1487E-02 sg= 6.5816E-03
+ Liq -> 2ph rank=     1 n=    1168 p=2.4595E+07 T=8.6985E+01 Xl= 2.3737E-02 Xco2eq= 2.1487E-02 sg= 6.5815E-03
+ Liq -> 2ph rank=     1 n=    1273 p=2.4143E+07 T=8.5690E+01 Xl= 2.4541E-02 Xco2eq= 2.1409E-02 sg= 9.8562E-03
+ Liq -> 2ph rank=     1 n=    1284 p=2.4143E+07 T=8.5690E+01 Xl= 2.4541E-02 Xco2eq= 2.1409E-02 sg= 9.8562E-03
+ Liq -> 2ph rank=     2 n=    1136 p=2.4595E+07 T=8.6985E+01 Xl= 2.3737E-02 Xco2eq= 2.1487E-02 sg= 6.5816E-03
+ Liq -> 2ph rank=     2 n=    1184 p=2.4595E+07 T=8.6985E+01 Xl= 2.3737E-02 Xco2eq= 2.1487E-02 sg= 6.5815E-03
+ Liq -> 2ph rank=     2 n=    1239 p=2.4143E+07 T=8.5690E+01 Xl= 2.4541E-02 Xco2eq= 2.1409E-02 sg= 9.8561E-03
+ Liq -> 2ph rank=     2 n=    1251 p=2.4143E+07 T=8.5690E+01 Xl= 2.4541E-02 Xco2eq= 2.1409E-02 sg= 9.8562E-03
+ Liq -> 2ph rank=     3 n=    1038 p=2.4595E+07 T=8.6985E+01 Xl= 2.3737E-02 Xco2eq= 2.1487E-02 sg= 6.5818E-03
+ Liq -> 2ph rank=     3 n=    1074 p=2.4595E+07 T=8.6985E+01 Xl= 2.3737E-02 Xco2eq= 2.1487E-02 sg= 6.5818E-03
+ Liq -> 2ph rank=     3 n=    1124 p=2.4143E+07 T=8.5690E+01 Xl= 2.4541E-02 Xco2eq= 2.1409E-02 sg= 9.8562E-03
+ Liq -> 2ph rank=     3 n=    1133 p=2.4143E+07 T=8.5690E+01 Xl= 2.4541E-02 Xco2eq= 2.1409E-02 sg= 9.8562E-03
+  1 2r: 7.93E-08 2x: 2.34E+09 2u: 1.73E+05 ir: 3.24E-08 iu: 2.64E+04 rsn: itol_res
+
+ Step     67 Time=  3.50000E+01 Dt=  2.49592E+00 [y] conv_reason: 10
+  newton =   1 [      89] linear =    12 [      1030] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 12 / 1
+  --> SNES Residual: 0.792790E-07 0.898854E-11 0.324398E-07
+  --> max change: dpmx=   2.6406E+04 dtmpmx=   3.5968E-01
+                  dcmx=   3.0760E-03 dsmx=   1.2603E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.50E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 6.50E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1220 p=2.4587E+07 T=8.6987E+01 Xl= 2.2466E-02 Xco2eq= 2.1485E-02 sg= 1.8944E-03
+ Liq -> 2ph rank=     0 n=    1310 p=2.4587E+07 T=8.6987E+01 Xl= 2.2466E-02 Xco2eq= 2.1485E-02 sg= 1.8944E-03
+ Liq -> 2ph rank=     0 n=    1385 p=2.4139E+07 T=8.5687E+01 Xl= 2.2699E-02 Xco2eq= 2.1408E-02 sg= 3.0699E-03
+ Liq -> 2ph rank=     0 n=    1386 p=2.4141E+07 T=8.5693E+01 Xl= 2.6223E-02 Xco2eq= 2.1409E-02 sg= 1.6044E-02
+ Liq -> 2ph rank=     0 n=    1394 p=2.4139E+07 T=8.5685E+01 Xl= 2.1930E-02 Xco2eq= 2.1408E-02 sg= 1.9600E-04
+ Liq -> 2ph rank=     0 n=    1395 p=2.4145E+07 T=8.5694E+01 Xl= 2.8575E-02 Xco2eq= 2.1409E-02 sg= 2.4520E-02
+ Liq -> 2ph rank=     0 n=    1404 p=2.4141E+07 T=8.5687E+01 Xl= 2.3162E-02 Xco2eq= 2.1409E-02 sg= 4.7907E-03
+ Liq -> 2ph rank=     0 n=    1414 p=2.4139E+07 T=8.5685E+01 Xl= 2.1930E-02 Xco2eq= 2.1408E-02 sg= 1.9598E-04
+ Liq -> 2ph rank=     0 n=    1425 p=2.4145E+07 T=8.5694E+01 Xl= 2.8575E-02 Xco2eq= 2.1409E-02 sg= 2.4520E-02
+ Liq -> 2ph rank=     0 n=    1435 p=2.4139E+07 T=8.5687E+01 Xl= 2.2699E-02 Xco2eq= 2.1408E-02 sg= 3.0699E-03
+ Liq -> 2ph rank=     0 n=    1446 p=2.4141E+07 T=8.5693E+01 Xl= 2.6223E-02 Xco2eq= 2.1409E-02 sg= 1.6044E-02
+ Liq -> 2ph rank=     1 n=    1101 p=2.4587E+07 T=8.6987E+01 Xl= 2.2466E-02 Xco2eq= 2.1485E-02 sg= 1.8945E-03
+ Liq -> 2ph rank=     1 n=    1200 p=2.4587E+07 T=8.6987E+01 Xl= 2.2466E-02 Xco2eq= 2.1485E-02 sg= 1.8944E-03
+ Liq -> 2ph rank=     1 n=    1251 p=2.4139E+07 T=8.5687E+01 Xl= 2.2699E-02 Xco2eq= 2.1408E-02 sg= 3.0700E-03
+ Liq -> 2ph rank=     1 n=    1262 p=2.4145E+07 T=8.5694E+01 Xl= 2.8575E-02 Xco2eq= 2.1409E-02 sg= 2.4520E-02
+ Liq -> 2ph rank=     1 n=    1263 p=2.4139E+07 T=8.5685E+01 Xl= 2.1930E-02 Xco2eq= 2.1408E-02 sg= 1.9601E-04
+ Liq -> 2ph rank=     1 n=    1274 p=2.4141E+07 T=8.5687E+01 Xl= 2.3162E-02 Xco2eq= 2.1409E-02 sg= 4.7907E-03
+ Liq -> 2ph rank=     1 n=    1285 p=2.4139E+07 T=8.5685E+01 Xl= 2.1930E-02 Xco2eq= 2.1408E-02 sg= 1.9599E-04
+ Liq -> 2ph rank=     1 n=    1295 p=2.4145E+07 T=8.5694E+01 Xl= 2.8575E-02 Xco2eq= 2.1409E-02 sg= 2.4520E-02
+ Liq -> 2ph rank=     1 n=    1306 p=2.4139E+07 T=8.5687E+01 Xl= 2.2699E-02 Xco2eq= 2.1408E-02 sg= 3.0699E-03
+ Liq -> 2ph rank=     1 n=    1316 p=2.4141E+07 T=8.5693E+01 Xl= 2.6223E-02 Xco2eq= 2.1409E-02 sg= 1.6044E-02
+ Liq -> 2ph rank=     2 n=    1101 p=2.4587E+07 T=8.6987E+01 Xl= 2.2466E-02 Xco2eq= 2.1485E-02 sg= 1.8945E-03
+ Liq -> 2ph rank=     2 n=    1209 p=2.4587E+07 T=8.6987E+01 Xl= 2.2466E-02 Xco2eq= 2.1485E-02 sg= 1.8944E-03
+ Liq -> 2ph rank=     2 n=    1215 p=2.4139E+07 T=8.5687E+01 Xl= 2.2699E-02 Xco2eq= 2.1408E-02 sg= 3.0699E-03
+ Liq -> 2ph rank=     2 n=    1227 p=2.4145E+07 T=8.5694E+01 Xl= 2.8575E-02 Xco2eq= 2.1409E-02 sg= 2.4520E-02
+ Liq -> 2ph rank=     2 n=    1238 p=2.4139E+07 T=8.5685E+01 Xl= 2.1930E-02 Xco2eq= 2.1408E-02 sg= 1.9600E-04
+ Liq -> 2ph rank=     2 n=    1250 p=2.4141E+07 T=8.5687E+01 Xl= 2.3162E-02 Xco2eq= 2.1409E-02 sg= 4.7907E-03
+ Liq -> 2ph rank=     2 n=    1262 p=2.4139E+07 T=8.5685E+01 Xl= 2.1930E-02 Xco2eq= 2.1408E-02 sg= 1.9599E-04
+ Liq -> 2ph rank=     2 n=    1263 p=2.4145E+07 T=8.5694E+01 Xl= 2.8575E-02 Xco2eq= 2.1409E-02 sg= 2.4520E-02
+ Liq -> 2ph rank=     2 n=    1275 p=2.4139E+07 T=8.5687E+01 Xl= 2.2699E-02 Xco2eq= 2.1408E-02 sg= 3.0699E-03
+ Liq -> 2ph rank=     2 n=    1276 p=2.4141E+07 T=8.5693E+01 Xl= 2.6223E-02 Xco2eq= 2.1409E-02 sg= 1.6044E-02
+ Liq -> 2ph rank=     3 n=    1010 p=2.4587E+07 T=8.6987E+01 Xl= 2.2466E-02 Xco2eq= 2.1485E-02 sg= 1.8945E-03
+ Liq -> 2ph rank=     3 n=    1091 p=2.4587E+07 T=8.6987E+01 Xl= 2.2466E-02 Xco2eq= 2.1485E-02 sg= 1.8945E-03
+ Liq -> 2ph rank=     3 n=    1106 p=2.4139E+07 T=8.5687E+01 Xl= 2.2699E-02 Xco2eq= 2.1408E-02 sg= 3.0700E-03
+ Liq -> 2ph rank=     3 n=    1115 p=2.4145E+07 T=8.5694E+01 Xl= 2.8575E-02 Xco2eq= 2.1409E-02 sg= 2.4520E-02
+ Liq -> 2ph rank=     3 n=    1125 p=2.4139E+07 T=8.5685E+01 Xl= 2.1930E-02 Xco2eq= 2.1408E-02 sg= 1.9601E-04
+ Liq -> 2ph rank=     3 n=    1134 p=2.4141E+07 T=8.5687E+01 Xl= 2.3162E-02 Xco2eq= 2.1409E-02 sg= 4.7907E-03
+ Liq -> 2ph rank=     3 n=    1142 p=2.4145E+07 T=8.5694E+01 Xl= 2.8575E-02 Xco2eq= 2.1409E-02 sg= 2.4520E-02
+ Liq -> 2ph rank=     3 n=    1143 p=2.4139E+07 T=8.5685E+01 Xl= 2.1930E-02 Xco2eq= 2.1408E-02 sg= 1.9600E-04
+ Liq -> 2ph rank=     3 n=    1151 p=2.4139E+07 T=8.5687E+01 Xl= 2.2699E-02 Xco2eq= 2.1408E-02 sg= 3.0700E-03
+  1 2r: 1.64E-07 2x: 2.34E+09 2u: 2.10E+05 ir: 6.53E-08 iu: 3.24E+04 rsn: itol_res
+
+ Step     68 Time=  4.00000E+01 Dt=  5.00000E+00 [y] conv_reason: 10
+  newton =   1 [      90] linear =    14 [      1044] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 14 / 1
+  --> SNES Residual: 0.164020E-06 0.185963E-10 0.652808E-07
+  --> max change: dpmx=   3.2438E+04 dtmpmx=   7.2642E-01
+                  dcmx=   5.6558E-03 dsmx=   2.7117E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 2.29E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 1.03E-07 iu: 0.00E+00 rsn:   0
+ 2ph -> Liq rank=      0 n=    1078 p=2.5440E+07 T=8.2701E+01 sg =-4.6909E-02 Xco2eq= 2.1819E-02
+ 2ph -> Liq rank=      0 n=    1088 p=2.5440E+07 T=8.2701E+01 sg =-4.6909E-02 Xco2eq= 2.1819E-02
+ Liq -> 2ph rank=     0 n=    1229 p=2.4585E+07 T=8.6999E+01 Xl= 2.3279E-02 Xco2eq= 2.1485E-02 sg= 4.9116E-03
+ 2ph -> Liq rank=      1 n=     981 p=2.5440E+07 T=8.2701E+01 sg =-4.6909E-02 Xco2eq= 2.1819E-02
+ Liq -> 2ph rank=     1 n=    1113 p=2.4585E+07 T=8.6999E+01 Xl= 2.3279E-02 Xco2eq= 2.1485E-02 sg= 4.9117E-03
+ Liq -> 2ph rank=     1 n=    1179 p=2.4585E+07 T=8.6999E+01 Xl= 2.3279E-02 Xco2eq= 2.1485E-02 sg= 4.9113E-03
+ Liq -> 2ph rank=     1 n=    1252 p=2.4141E+07 T=8.5692E+01 Xl= 2.5134E-02 Xco2eq= 2.1409E-02 sg= 1.2070E-02
+ Liq -> 2ph rank=     1 n=    1264 p=2.4139E+07 T=8.5688E+01 Xl= 2.2029E-02 Xco2eq= 2.1408E-02 sg= 5.6596E-04
+ Liq -> 2ph rank=     1 n=    1275 p=2.4139E+07 T=8.5688E+01 Xl= 2.2029E-02 Xco2eq= 2.1408E-02 sg= 5.6592E-04
+ Liq -> 2ph rank=     1 n=    1296 p=2.4141E+07 T=8.5692E+01 Xl= 2.5134E-02 Xco2eq= 2.1409E-02 sg= 1.2070E-02
+ Liq -> 2ph rank=     1 n=    1317 p=2.4138E+07 T=8.5693E+01 Xl= 2.3436E-02 Xco2eq= 2.1408E-02 sg= 5.8132E-03
+ 2ph -> Liq rank=      2 n=     891 p=2.5440E+07 T=8.2701E+01 sg =-4.6909E-02 Xco2eq= 2.1819E-02
+ Liq -> 2ph rank=     2 n=    1124 p=2.4585E+07 T=8.6999E+01 Xl= 2.3279E-02 Xco2eq= 2.1485E-02 sg= 4.9117E-03
+ Liq -> 2ph rank=     2 n=    1196 p=2.4585E+07 T=8.6999E+01 Xl= 2.3279E-02 Xco2eq= 2.1485E-02 sg= 4.9113E-03
+ Liq -> 2ph rank=     2 n=    1226 p=2.4141E+07 T=8.5692E+01 Xl= 2.5134E-02 Xco2eq= 2.1409E-02 sg= 1.2070E-02
+ Liq -> 2ph rank=     2 n=    1249 p=2.4139E+07 T=8.5688E+01 Xl= 2.2029E-02 Xco2eq= 2.1408E-02 sg= 5.6598E-04
+ Liq -> 2ph rank=     2 n=    1261 p=2.4139E+07 T=8.5688E+01 Xl= 2.2029E-02 Xco2eq= 2.1408E-02 sg= 5.6591E-04
+ Liq -> 2ph rank=     2 n=    1274 p=2.4141E+07 T=8.5692E+01 Xl= 2.5134E-02 Xco2eq= 2.1409E-02 sg= 1.2070E-02
+ Liq -> 2ph rank=     2 n=    1287 p=2.4138E+07 T=8.5693E+01 Xl= 2.3436E-02 Xco2eq= 2.1408E-02 sg= 5.8132E-03
+ Liq -> 2ph rank=     3 n=    1029 p=2.4585E+07 T=8.6999E+01 Xl= 2.3279E-02 Xco2eq= 2.1485E-02 sg= 4.9116E-03
+ Liq -> 2ph rank=     3 n=    1083 p=2.4585E+07 T=8.6999E+01 Xl= 2.3279E-02 Xco2eq= 2.1485E-02 sg= 4.9116E-03
+ Liq -> 2ph rank=     3 n=    1116 p=2.4141E+07 T=8.5692E+01 Xl= 2.5134E-02 Xco2eq= 2.1409E-02 sg= 1.2070E-02
+ Liq -> 2ph rank=     3 n=    1135 p=2.4139E+07 T=8.5688E+01 Xl= 2.2029E-02 Xco2eq= 2.1408E-02 sg= 5.6599E-04
+ Liq -> 2ph rank=     3 n=    1144 p=2.4139E+07 T=8.5688E+01 Xl= 2.2029E-02 Xco2eq= 2.1408E-02 sg= 5.6598E-04
+ Liq -> 2ph rank=     3 n=    1152 p=2.4141E+07 T=8.5692E+01 Xl= 2.5134E-02 Xco2eq= 2.1409E-02 sg= 1.2070E-02
+ Liq -> 2ph rank=     0 n=    1289 p=2.4585E+07 T=8.6999E+01 Xl= 2.3279E-02 Xco2eq= 2.1485E-02 sg= 4.9116E-03
+ Liq -> 2ph rank=     0 n=    1375 p=2.4138E+07 T=8.5693E+01 Xl= 2.3436E-02 Xco2eq= 2.1408E-02 sg= 5.8133E-03
+ Liq -> 2ph rank=     0 n=    1384 p=2.4141E+07 T=8.5692E+01 Xl= 2.5134E-02 Xco2eq= 2.1409E-02 sg= 1.2070E-02
+ Liq -> 2ph rank=     0 n=    1393 p=2.4139E+07 T=8.5688E+01 Xl= 2.2029E-02 Xco2eq= 2.1408E-02 sg= 5.6593E-04
+ Liq -> 2ph rank=     0 n=    1403 p=2.4139E+07 T=8.5688E+01 Xl= 2.2029E-02 Xco2eq= 2.1408E-02 sg= 5.6590E-04
+ Liq -> 2ph rank=     0 n=    1424 p=2.4141E+07 T=8.5692E+01 Xl= 2.5134E-02 Xco2eq= 2.1409E-02 sg= 1.2070E-02
+ Liq -> 2ph rank=     0 n=    1445 p=2.4138E+07 T=8.5693E+01 Xl= 2.3436E-02 Xco2eq= 2.1408E-02 sg= 5.8132E-03
+  1 2r: 1.52E-07 2x: 2.34E+09 2u: 2.77E+05 ir: 8.39E-08 iu: 3.55E+04 rsn: itol_res
+
+ Step     69 Time=  4.50000E+01 Dt=  5.00000E+00 [y] conv_reason: 10
+  newton =   1 [      91] linear =    14 [      1058] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 14 / 1
+  --> SNES Residual: 0.151955E-06 0.172284E-10 0.838824E-07
+  --> max change: dpmx=   3.5513E+04 dtmpmx=   7.7290E-01
+                  dcmx=   5.6640E-03 dsmx=   1.5585E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.99E-07 2x: 0.00E+00 2u: 0.00E+00 ir: 1.09E-07 iu: 0.00E+00 rsn:   0
+ 2ph -> Liq rank=      0 n=    1043 p=2.5515E+07 T=8.9595E+01 sg =-4.7113E-04 Xco2eq= 2.1660E-02
+ 2ph -> Liq rank=      0 n=    1063 p=2.5515E+07 T=8.9595E+01 sg =-4.7113E-04 Xco2eq= 2.1660E-02
+ 2ph -> Liq rank=      0 n=    1089 p=2.5427E+07 T=8.0219E+01 sg =-2.1642E-01 Xco2eq= 2.1903E-02
+ 2ph -> Liq rank=      1 n=     942 p=2.5515E+07 T=8.9595E+01 sg =-4.7111E-04 Xco2eq= 2.1660E-02
+ 2ph -> Liq rank=      1 n=     964 p=2.5515E+07 T=8.9595E+01 sg =-4.7111E-04 Xco2eq= 2.1660E-02
+ Liq -> 2ph rank=     1 n=    1241 p=2.4140E+07 T=8.5698E+01 Xl= 2.6138E-02 Xco2eq= 2.1408E-02 sg= 1.5734E-02
+ Liq -> 2ph rank=     1 n=    1253 p=2.4140E+07 T=8.5696E+01 Xl= 2.5968E-02 Xco2eq= 2.1408E-02 sg= 1.5114E-02
+ Liq -> 2ph rank=     1 n=    1286 p=2.4140E+07 T=8.5696E+01 Xl= 2.5968E-02 Xco2eq= 2.1408E-02 sg= 1.5114E-02
+ Liq -> 2ph rank=     1 n=    1307 p=2.4140E+07 T=8.5698E+01 Xl= 2.6138E-02 Xco2eq= 2.1408E-02 sg= 1.5734E-02
+ 2ph -> Liq rank=      2 n=     898 p=2.5515E+07 T=8.9595E+01 sg =-4.7111E-04 Xco2eq= 2.1660E-02
+ 2ph -> Liq rank=      2 n=     922 p=2.5515E+07 T=8.9595E+01 sg =-4.7112E-04 Xco2eq= 2.1660E-02
+ Liq -> 2ph rank=     2 n=    1214 p=2.4140E+07 T=8.5698E+01 Xl= 2.6138E-02 Xco2eq= 2.1408E-02 sg= 1.5734E-02
+ Liq -> 2ph rank=     2 n=    1237 p=2.4140E+07 T=8.5696E+01 Xl= 2.5968E-02 Xco2eq= 2.1408E-02 sg= 1.5114E-02
+ Liq -> 2ph rank=     2 n=    1273 p=2.4140E+07 T=8.5696E+01 Xl= 2.5968E-02 Xco2eq= 2.1408E-02 sg= 1.5114E-02
+ Liq -> 2ph rank=     2 n=    1286 p=2.4140E+07 T=8.5698E+01 Xl= 2.6138E-02 Xco2eq= 2.1408E-02 sg= 1.5734E-02
+ 2ph -> Liq rank=      3 n=     814 p=2.5515E+07 T=8.9595E+01 sg =-4.7107E-04 Xco2eq= 2.1660E-02
+ 2ph -> Liq rank=      3 n=     832 p=2.5515E+07 T=8.9595E+01 sg =-4.7108E-04 Xco2eq= 2.1660E-02
+ Liq -> 2ph rank=     3 n=    1107 p=2.4140E+07 T=8.5698E+01 Xl= 2.6138E-02 Xco2eq= 2.1408E-02 sg= 1.5734E-02
+ Liq -> 2ph rank=     3 n=    1126 p=2.4140E+07 T=8.5696E+01 Xl= 2.5968E-02 Xco2eq= 2.1408E-02 sg= 1.5114E-02
+ Liq -> 2ph rank=     3 n=    1153 p=2.4140E+07 T=8.5696E+01 Xl= 2.5968E-02 Xco2eq= 2.1408E-02 sg= 1.5114E-02
+ Liq -> 2ph rank=     3 n=    1161 p=2.4140E+07 T=8.5698E+01 Xl= 2.6138E-02 Xco2eq= 2.1408E-02 sg= 1.5734E-02
+ Liq -> 2ph rank=     0 n=    1374 p=2.4140E+07 T=8.5698E+01 Xl= 2.6138E-02 Xco2eq= 2.1408E-02 sg= 1.5734E-02
+ Liq -> 2ph rank=     0 n=    1383 p=2.4140E+07 T=8.5696E+01 Xl= 2.5968E-02 Xco2eq= 2.1408E-02 sg= 1.5114E-02
+ Liq -> 2ph rank=     0 n=    1413 p=2.4140E+07 T=8.5696E+01 Xl= 2.5968E-02 Xco2eq= 2.1408E-02 sg= 1.5114E-02
+ Liq -> 2ph rank=     0 n=    1434 p=2.4140E+07 T=8.5698E+01 Xl= 2.6138E-02 Xco2eq= 2.1408E-02 sg= 1.5734E-02
+  1 2r: 2.75E-07 2x: 2.34E+09 2u: 2.73E+05 ir: 2.02E-07 iu: 3.10E+04 rsn:   0
+ Liq -> 2ph rank=     0 n=    1089 p=2.5488E+07 T=8.3459E+01 Xl= 1.8386E-01 Xco2eq= 2.1806E-02 sg= 4.0825E-01
+  2 2r: 1.49E-06 2x: 2.34E+09 2u: 2.67E+05 ir: 1.07E-06 iu: 6.08E+04 rsn:   0
+  3 2r: 3.78E-07 2x: 2.34E+09 2u: 8.10E+04 ir: 2.68E-07 iu: 2.76E+04 rsn:   0
+  4 2r: 6.85E-08 2x: 2.34E+09 2u: 3.30E+04 ir: 4.84E-08 iu: 9.25E+03 rsn: itol_res
+
+ Step     70 Time=  5.00000E+01 Dt=  5.00000E+00 [y] conv_reason: 10
+  newton =   4 [      95] linear =    64 [      1122] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 64 / 4
+  --> SNES Residual: 0.685463E-07 0.777169E-11 0.483725E-07
+  --> max change: dpmx=   6.0936E+04 dtmpmx=   7.8686E-01
+                  dcmx=   5.8131E-03 dsmx=   3.7920E-01
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 6.26E-08 2x: 0.00E+00 2u: 0.00E+00 ir: 5.50E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1078 p=2.5515E+07 T=8.3374E+01 Xl= 2.2406E-02 Xco2eq= 2.1815E-02 sg= 3.6520E-04
+ Liq -> 2ph rank=     0 n=    1088 p=2.5515E+07 T=8.3374E+01 Xl= 2.2406E-02 Xco2eq= 2.1815E-02 sg= 3.6520E-04
+ Liq -> 2ph rank=     1 n=     981 p=2.5515E+07 T=8.3374E+01 Xl= 2.2406E-02 Xco2eq= 2.1815E-02 sg= 3.6520E-04
+ Liq -> 2ph rank=     1 n=    1242 p=2.4139E+07 T=8.5712E+01 Xl= 2.8016E-02 Xco2eq= 2.1407E-02 sg= 2.2520E-02
+ Liq -> 2ph rank=     1 n=    1254 p=2.4137E+07 T=8.5695E+01 Xl= 2.4756E-02 Xco2eq= 2.1407E-02 sg= 1.0686E-02
+ Liq -> 2ph rank=     1 n=    1265 p=2.4137E+07 T=8.5696E+01 Xl= 2.5885E-02 Xco2eq= 2.1408E-02 sg= 1.4813E-02
+ Liq -> 2ph rank=     1 n=    1276 p=2.4137E+07 T=8.5695E+01 Xl= 2.4756E-02 Xco2eq= 2.1407E-02 sg= 1.0686E-02
+ Liq -> 2ph rank=     1 n=    1297 p=2.4139E+07 T=8.5712E+01 Xl= 2.8016E-02 Xco2eq= 2.1407E-02 sg= 2.2520E-02
+ Liq -> 2ph rank=     1 n=    1318 p=2.4134E+07 T=8.5702E+01 Xl= 2.4265E-02 Xco2eq= 2.1407E-02 sg= 8.8812E-03
+ Liq -> 2ph rank=     2 n=     891 p=2.5515E+07 T=8.3374E+01 Xl= 2.2406E-02 Xco2eq= 2.1815E-02 sg= 3.6521E-04
+ Liq -> 2ph rank=     2 n=    1225 p=2.4139E+07 T=8.5712E+01 Xl= 2.8016E-02 Xco2eq= 2.1407E-02 sg= 2.2520E-02
+ Liq -> 2ph rank=     2 n=    1248 p=2.4137E+07 T=8.5695E+01 Xl= 2.4756E-02 Xco2eq= 2.1407E-02 sg= 1.0686E-02
+ Liq -> 2ph rank=     2 n=    1260 p=2.4137E+07 T=8.5696E+01 Xl= 2.5885E-02 Xco2eq= 2.1408E-02 sg= 1.4813E-02
+ Liq -> 2ph rank=     2 n=    1272 p=2.4137E+07 T=8.5695E+01 Xl= 2.4756E-02 Xco2eq= 2.1407E-02 sg= 1.0686E-02
+ Liq -> 2ph rank=     2 n=    1285 p=2.4139E+07 T=8.5712E+01 Xl= 2.8016E-02 Xco2eq= 2.1407E-02 sg= 2.2520E-02
+ Liq -> 2ph rank=     2 n=    1298 p=2.4134E+07 T=8.5702E+01 Xl= 2.4265E-02 Xco2eq= 2.1407E-02 sg= 8.8812E-03
+ Liq -> 2ph rank=     3 n=    1117 p=2.4139E+07 T=8.5712E+01 Xl= 2.8016E-02 Xco2eq= 2.1407E-02 sg= 2.2520E-02
+ Liq -> 2ph rank=     3 n=    1136 p=2.4137E+07 T=8.5695E+01 Xl= 2.4756E-02 Xco2eq= 2.1407E-02 sg= 1.0686E-02
+ Liq -> 2ph rank=     3 n=    1145 p=2.4137E+07 T=8.5696E+01 Xl= 2.5885E-02 Xco2eq= 2.1408E-02 sg= 1.4813E-02
+ Liq -> 2ph rank=     3 n=    1154 p=2.4137E+07 T=8.5695E+01 Xl= 2.4756E-02 Xco2eq= 2.1407E-02 sg= 1.0686E-02
+ Liq -> 2ph rank=     3 n=    1162 p=2.4139E+07 T=8.5712E+01 Xl= 2.8016E-02 Xco2eq= 2.1407E-02 sg= 2.2520E-02
+ Liq -> 2ph rank=     0 n=    1364 p=2.4134E+07 T=8.5702E+01 Xl= 2.4265E-02 Xco2eq= 2.1407E-02 sg= 8.8813E-03
+ Liq -> 2ph rank=     0 n=    1373 p=2.4139E+07 T=8.5712E+01 Xl= 2.8016E-02 Xco2eq= 2.1407E-02 sg= 2.2520E-02
+ Liq -> 2ph rank=     0 n=    1382 p=2.4137E+07 T=8.5695E+01 Xl= 2.4756E-02 Xco2eq= 2.1407E-02 sg= 1.0685E-02
+ Liq -> 2ph rank=     0 n=    1392 p=2.4137E+07 T=8.5696E+01 Xl= 2.5885E-02 Xco2eq= 2.1408E-02 sg= 1.4813E-02
+ Liq -> 2ph rank=     0 n=    1402 p=2.4137E+07 T=8.5695E+01 Xl= 2.4756E-02 Xco2eq= 2.1407E-02 sg= 1.0685E-02
+ Liq -> 2ph rank=     0 n=    1423 p=2.4139E+07 T=8.5712E+01 Xl= 2.8016E-02 Xco2eq= 2.1407E-02 sg= 2.2520E-02
+ Liq -> 2ph rank=     0 n=    1444 p=2.4134E+07 T=8.5702E+01 Xl= 2.4265E-02 Xco2eq= 2.1407E-02 sg= 8.8813E-03
+  1 2r: 2.47E-08 2x: 2.34E+09 2u: 1.76E+05 ir: 7.23E-09 iu: 3.40E+04 rsn: itol_res
+
+ Step     71 Time=  5.50082E+01 Dt=  5.00817E+00 [y] conv_reason: 10
+  newton =   1 [      96] linear =    14 [      1136] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 14 / 1
+  --> SNES Residual: 0.246821E-07 0.279842E-11 0.722770E-08
+  --> max change: dpmx=   3.4006E+04 dtmpmx=   4.8948E-01
+                  dcmx=   5.5197E-03 dsmx=   1.1728E-01
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 3.88E-08 2x: 0.00E+00 2u: 0.00E+00 ir: 2.48E-08 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1363 p=2.4136E+07 T=8.5702E+01 Xl= 2.7072E-02 Xco2eq= 2.1407E-02 sg= 1.9119E-02
+ Liq -> 2ph rank=     0 n=    1372 p=2.4136E+07 T=8.5706E+01 Xl= 2.7508E-02 Xco2eq= 2.1407E-02 sg= 2.0690E-02
+ Liq -> 2ph rank=     0 n=    1412 p=2.4136E+07 T=8.5706E+01 Xl= 2.7508E-02 Xco2eq= 2.1407E-02 sg= 2.0690E-02
+ Liq -> 2ph rank=     0 n=    1433 p=2.4136E+07 T=8.5702E+01 Xl= 2.7072E-02 Xco2eq= 2.1407E-02 sg= 1.9119E-02
+ Liq -> 2ph rank=     1 n=    1231 p=2.4136E+07 T=8.5702E+01 Xl= 2.7072E-02 Xco2eq= 2.1407E-02 sg= 1.9119E-02
+ Liq -> 2ph rank=     1 n=    1243 p=2.4136E+07 T=8.5706E+01 Xl= 2.7508E-02 Xco2eq= 2.1407E-02 sg= 2.0691E-02
+ Liq -> 2ph rank=     1 n=    1287 p=2.4136E+07 T=8.5706E+01 Xl= 2.7508E-02 Xco2eq= 2.1407E-02 sg= 2.0691E-02
+ Liq -> 2ph rank=     1 n=    1308 p=2.4136E+07 T=8.5702E+01 Xl= 2.7072E-02 Xco2eq= 2.1407E-02 sg= 1.9119E-02
+ Liq -> 2ph rank=     2 n=    1213 p=2.4136E+07 T=8.5702E+01 Xl= 2.7072E-02 Xco2eq= 2.1407E-02 sg= 1.9119E-02
+ Liq -> 2ph rank=     2 n=    1236 p=2.4136E+07 T=8.5706E+01 Xl= 2.7508E-02 Xco2eq= 2.1407E-02 sg= 2.0691E-02
+ Liq -> 2ph rank=     2 n=    1284 p=2.4136E+07 T=8.5706E+01 Xl= 2.7508E-02 Xco2eq= 2.1407E-02 sg= 2.0690E-02
+ Liq -> 2ph rank=     2 n=    1297 p=2.4136E+07 T=8.5702E+01 Xl= 2.7072E-02 Xco2eq= 2.1407E-02 sg= 1.9119E-02
+ Liq -> 2ph rank=     3 n=    1108 p=2.4136E+07 T=8.5702E+01 Xl= 2.7072E-02 Xco2eq= 2.1407E-02 sg= 1.9119E-02
+ Liq -> 2ph rank=     3 n=    1127 p=2.4136E+07 T=8.5706E+01 Xl= 2.7508E-02 Xco2eq= 2.1407E-02 sg= 2.0691E-02
+ Liq -> 2ph rank=     3 n=    1163 p=2.4136E+07 T=8.5706E+01 Xl= 2.7508E-02 Xco2eq= 2.1407E-02 sg= 2.0691E-02
+ Liq -> 2ph rank=     3 n=    1171 p=2.4136E+07 T=8.5702E+01 Xl= 2.7072E-02 Xco2eq= 2.1407E-02 sg= 1.9119E-02
+  1 2r: 1.87E-08 2x: 2.34E+09 2u: 1.65E+05 ir: 2.25E-09 iu: 3.07E+04 rsn: itol_res
+
+ Step     72 Time=  6.00000E+01 Dt=  4.99183E+00 [y] conv_reason: 10
+  newton =   1 [      97] linear =    13 [      1149] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.187381E-07 0.212450E-11 0.224991E-08
+  --> max change: dpmx=   3.0654E+04 dtmpmx=   4.0442E-01
+                  dcmx=   5.2467E-03 dsmx=   2.3139E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 2.68E-08 2x: 0.00E+00 2u: 0.00E+00 ir: 7.98E-09 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1352 p=2.4123E+07 T=8.5702E+01 Xl= 2.3407E-02 Xco2eq= 2.1404E-02 sg= 5.7430E-03
+ Liq -> 2ph rank=     0 n=    1353 p=2.4128E+07 T=8.5707E+01 Xl= 2.8779E-02 Xco2eq= 2.1405E-02 sg= 2.5375E-02
+ Liq -> 2ph rank=     0 n=    1361 p=2.4124E+07 T=8.5703E+01 Xl= 2.3651E-02 Xco2eq= 2.1404E-02 sg= 6.6489E-03
+ Liq -> 2ph rank=     0 n=    1362 p=2.4134E+07 T=8.5715E+01 Xl= 3.4018E-02 Xco2eq= 2.1406E-02 sg= 4.3843E-02
+ Liq -> 2ph rank=     0 n=    1371 p=2.4131E+07 T=8.5708E+01 Xl= 3.0300E-02 Xco2eq= 2.1405E-02 sg= 3.0805E-02
+ Liq -> 2ph rank=     0 n=    1381 p=2.4133E+07 T=8.5711E+01 Xl= 3.3243E-02 Xco2eq= 2.1406E-02 sg= 4.1155E-02
+ Liq -> 2ph rank=     0 n=    1391 p=2.4133E+07 T=8.5711E+01 Xl= 3.3243E-02 Xco2eq= 2.1406E-02 sg= 4.1155E-02
+ Liq -> 2ph rank=     0 n=    1401 p=2.4131E+07 T=8.5708E+01 Xl= 3.0300E-02 Xco2eq= 2.1405E-02 sg= 3.0805E-02
+ Liq -> 2ph rank=     0 n=    1411 p=2.4124E+07 T=8.5703E+01 Xl= 2.3651E-02 Xco2eq= 2.1404E-02 sg= 6.6489E-03
+ Liq -> 2ph rank=     1 n=    1221 p=2.4123E+07 T=8.5702E+01 Xl= 2.3407E-02 Xco2eq= 2.1404E-02 sg= 5.7431E-03
+ Liq -> 2ph rank=     1 n=    1232 p=2.4134E+07 T=8.5715E+01 Xl= 3.4018E-02 Xco2eq= 2.1406E-02 sg= 4.3843E-02
+ Liq -> 2ph rank=     1 n=    1233 p=2.4124E+07 T=8.5703E+01 Xl= 2.3651E-02 Xco2eq= 2.1404E-02 sg= 6.6490E-03
+ Liq -> 2ph rank=     1 n=    1244 p=2.4131E+07 T=8.5708E+01 Xl= 3.0300E-02 Xco2eq= 2.1405E-02 sg= 3.0805E-02
+ Liq -> 2ph rank=     1 n=    1255 p=2.4133E+07 T=8.5711E+01 Xl= 3.3243E-02 Xco2eq= 2.1406E-02 sg= 4.1155E-02
+ Liq -> 2ph rank=     1 n=    1266 p=2.4133E+07 T=8.5711E+01 Xl= 3.3243E-02 Xco2eq= 2.1406E-02 sg= 4.1155E-02
+ Liq -> 2ph rank=     1 n=    1277 p=2.4131E+07 T=8.5708E+01 Xl= 3.0300E-02 Xco2eq= 2.1405E-02 sg= 3.0805E-02
+ Liq -> 2ph rank=     1 n=    1288 p=2.4124E+07 T=8.5703E+01 Xl= 2.3651E-02 Xco2eq= 2.1404E-02 sg= 6.6489E-03
+ Liq -> 2ph rank=     1 n=    1298 p=2.4134E+07 T=8.5715E+01 Xl= 3.4018E-02 Xco2eq= 2.1406E-02 sg= 4.3843E-02
+ Liq -> 2ph rank=     1 n=    1309 p=2.4123E+07 T=8.5702E+01 Xl= 2.3407E-02 Xco2eq= 2.1404E-02 sg= 5.7426E-03
+ Liq -> 2ph rank=     1 n=    1319 p=2.4128E+07 T=8.5707E+01 Xl= 2.8779E-02 Xco2eq= 2.1405E-02 sg= 2.5375E-02
+ Liq -> 2ph rank=     2 n=    1212 p=2.4123E+07 T=8.5702E+01 Xl= 2.3407E-02 Xco2eq= 2.1404E-02 sg= 5.7431E-03
+ Liq -> 2ph rank=     2 n=    1224 p=2.4134E+07 T=8.5715E+01 Xl= 3.4018E-02 Xco2eq= 2.1406E-02 sg= 4.3843E-02
+ Liq -> 2ph rank=     2 n=    1235 p=2.4124E+07 T=8.5703E+01 Xl= 2.3651E-02 Xco2eq= 2.1404E-02 sg= 6.6490E-03
+ Liq -> 2ph rank=     2 n=    1247 p=2.4131E+07 T=8.5708E+01 Xl= 3.0300E-02 Xco2eq= 2.1405E-02 sg= 3.0805E-02
+ Liq -> 2ph rank=     2 n=    1259 p=2.4133E+07 T=8.5711E+01 Xl= 3.3243E-02 Xco2eq= 2.1406E-02 sg= 4.1155E-02
+ Liq -> 2ph rank=     2 n=    1271 p=2.4133E+07 T=8.5711E+01 Xl= 3.3243E-02 Xco2eq= 2.1406E-02 sg= 4.1155E-02
+ Liq -> 2ph rank=     2 n=    1283 p=2.4131E+07 T=8.5708E+01 Xl= 3.0300E-02 Xco2eq= 2.1405E-02 sg= 3.0805E-02
+ Liq -> 2ph rank=     2 n=    1295 p=2.4124E+07 T=8.5703E+01 Xl= 2.3651E-02 Xco2eq= 2.1404E-02 sg= 6.6489E-03
+ Liq -> 2ph rank=     2 n=    1296 p=2.4134E+07 T=8.5715E+01 Xl= 3.4018E-02 Xco2eq= 2.1406E-02 sg= 4.3843E-02
+ Liq -> 2ph rank=     2 n=    1308 p=2.4123E+07 T=8.5702E+01 Xl= 2.3407E-02 Xco2eq= 2.1404E-02 sg= 5.7427E-03
+ Liq -> 2ph rank=     2 n=    1309 p=2.4128E+07 T=8.5707E+01 Xl= 2.8779E-02 Xco2eq= 2.1405E-02 sg= 2.5375E-02
+ Liq -> 2ph rank=     3 n=    1109 p=2.4123E+07 T=8.5702E+01 Xl= 2.3407E-02 Xco2eq= 2.1404E-02 sg= 5.7427E-03
+ Liq -> 2ph rank=     3 n=    1118 p=2.4134E+07 T=8.5715E+01 Xl= 3.4018E-02 Xco2eq= 2.1406E-02 sg= 4.3843E-02
+ Liq -> 2ph rank=     3 n=    1128 p=2.4124E+07 T=8.5703E+01 Xl= 2.3651E-02 Xco2eq= 2.1404E-02 sg= 6.6491E-03
+ Liq -> 2ph rank=     3 n=    1137 p=2.4131E+07 T=8.5708E+01 Xl= 3.0300E-02 Xco2eq= 2.1405E-02 sg= 3.0806E-02
+ Liq -> 2ph rank=     3 n=    1146 p=2.4133E+07 T=8.5711E+01 Xl= 3.3243E-02 Xco2eq= 2.1406E-02 sg= 4.1156E-02
+ Liq -> 2ph rank=     3 n=    1155 p=2.4133E+07 T=8.5711E+01 Xl= 3.3243E-02 Xco2eq= 2.1406E-02 sg= 4.1156E-02
+ Liq -> 2ph rank=     3 n=    1164 p=2.4131E+07 T=8.5708E+01 Xl= 3.0300E-02 Xco2eq= 2.1405E-02 sg= 3.0806E-02
+ Liq -> 2ph rank=     3 n=    1172 p=2.4134E+07 T=8.5715E+01 Xl= 3.4018E-02 Xco2eq= 2.1406E-02 sg= 4.3843E-02
+ Liq -> 2ph rank=     3 n=    1173 p=2.4124E+07 T=8.5703E+01 Xl= 2.3651E-02 Xco2eq= 2.1404E-02 sg= 6.6491E-03
+ Liq -> 2ph rank=     3 n=    1181 p=2.4123E+07 T=8.5702E+01 Xl= 2.3407E-02 Xco2eq= 2.1404E-02 sg= 5.7426E-03
+ Liq -> 2ph rank=     0 n=    1422 p=2.4134E+07 T=8.5715E+01 Xl= 3.4018E-02 Xco2eq= 2.1406E-02 sg= 4.3843E-02
+ Liq -> 2ph rank=     0 n=    1432 p=2.4123E+07 T=8.5702E+01 Xl= 2.3407E-02 Xco2eq= 2.1404E-02 sg= 5.7430E-03
+ Liq -> 2ph rank=     0 n=    1443 p=2.4128E+07 T=8.5707E+01 Xl= 2.8779E-02 Xco2eq= 2.1405E-02 sg= 2.5375E-02
+  1 2r: 6.73E-09 2x: 2.34E+09 2u: 1.72E+05 ir: 1.29E-09 iu: 3.42E+04 rsn: itol_res
+
+ Step     73 Time=  7.00000E+01 Dt=  1.00000E+01 [y] conv_reason: 10
+  newton =   1 [      98] linear =    12 [      1161] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 12 / 1
+  --> SNES Residual: 0.672620E-08 0.762607E-12 0.129277E-08
+  --> max change: dpmx=   3.4215E+04 dtmpmx=   6.9816E-01
+                  dcmx=   5.6536E-03 dsmx=   4.5570E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.79E-08 2x: 0.00E+00 2u: 0.00E+00 ir: 6.23E-09 iu: 0.00E+00 rsn:   0
+  1 2r: 8.91E-10 2x: 2.34E+09 2u: 2.14E+05 ir: 2.76E-10 iu: 3.11E+04 rsn: itol_res
+
+ Step     74 Time=  8.00000E+01 Dt=  1.00000E+01 [y] conv_reason: 10
+  newton =   1 [      99] linear =    13 [      1174] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.891112E-09 0.101033E-12 0.275878E-09
+  --> max change: dpmx=   3.1100E+04 dtmpmx=   6.0505E-01
+                  dcmx=   6.8674E-03 dsmx=   3.9391E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.49E-08 2x: 0.00E+00 2u: 0.00E+00 ir: 5.16E-09 iu: 0.00E+00 rsn:   0
+ Liq -> 2ph rank=     0 n=    1351 p=2.4116E+07 T=8.5726E+01 Xl= 2.6645E-02 Xco2eq= 2.1401E-02 sg= 1.7636E-02
+ Liq -> 2ph rank=     0 n=    1370 p=2.4114E+07 T=8.5705E+01 Xl= 2.4343E-02 Xco2eq= 2.1401E-02 sg= 9.2054E-03
+ Liq -> 2ph rank=     0 n=    1380 p=2.4116E+07 T=8.5713E+01 Xl= 2.6931E-02 Xco2eq= 2.1401E-02 sg= 1.8673E-02
+ Liq -> 2ph rank=     1 n=    1222 p=2.4116E+07 T=8.5726E+01 Xl= 2.6645E-02 Xco2eq= 2.1401E-02 sg= 1.7636E-02
+ Liq -> 2ph rank=     1 n=    1245 p=2.4114E+07 T=8.5705E+01 Xl= 2.4343E-02 Xco2eq= 2.1401E-02 sg= 9.2054E-03
+ Liq -> 2ph rank=     1 n=    1256 p=2.4116E+07 T=8.5713E+01 Xl= 2.6931E-02 Xco2eq= 2.1401E-02 sg= 1.8673E-02
+ Liq -> 2ph rank=     1 n=    1267 p=2.4114E+07 T=8.5705E+01 Xl= 2.4343E-02 Xco2eq= 2.1401E-02 sg= 9.2053E-03
+ Liq -> 2ph rank=     1 n=    1299 p=2.4116E+07 T=8.5726E+01 Xl= 2.6645E-02 Xco2eq= 2.1401E-02 sg= 1.7635E-02
+ Liq -> 2ph rank=     2 n=    1223 p=2.4116E+07 T=8.5726E+01 Xl= 2.6645E-02 Xco2eq= 2.1401E-02 sg= 1.7636E-02
+ Liq -> 2ph rank=     2 n=    1258 p=2.4114E+07 T=8.5705E+01 Xl= 2.4343E-02 Xco2eq= 2.1401E-02 sg= 9.2054E-03
+ Liq -> 2ph rank=     2 n=    1270 p=2.4116E+07 T=8.5713E+01 Xl= 2.6931E-02 Xco2eq= 2.1401E-02 sg= 1.8673E-02
+ Liq -> 2ph rank=     2 n=    1282 p=2.4114E+07 T=8.5705E+01 Xl= 2.4343E-02 Xco2eq= 2.1401E-02 sg= 9.2052E-03
+ Liq -> 2ph rank=     2 n=    1307 p=2.4116E+07 T=8.5726E+01 Xl= 2.6645E-02 Xco2eq= 2.1401E-02 sg= 1.7635E-02
+ Liq -> 2ph rank=     3 n=    1119 p=2.4116E+07 T=8.5726E+01 Xl= 2.6645E-02 Xco2eq= 2.1401E-02 sg= 1.7635E-02
+ Liq -> 2ph rank=     3 n=    1147 p=2.4114E+07 T=8.5705E+01 Xl= 2.4343E-02 Xco2eq= 2.1401E-02 sg= 9.2055E-03
+ Liq -> 2ph rank=     3 n=    1156 p=2.4116E+07 T=8.5713E+01 Xl= 2.6931E-02 Xco2eq= 2.1401E-02 sg= 1.8674E-02
+ Liq -> 2ph rank=     3 n=    1165 p=2.4114E+07 T=8.5705E+01 Xl= 2.4343E-02 Xco2eq= 2.1401E-02 sg= 9.2055E-03
+ Liq -> 2ph rank=     3 n=    1182 p=2.4116E+07 T=8.5726E+01 Xl= 2.6645E-02 Xco2eq= 2.1401E-02 sg= 1.7635E-02
+ Liq -> 2ph rank=     0 n=    1390 p=2.4114E+07 T=8.5705E+01 Xl= 2.4343E-02 Xco2eq= 2.1401E-02 sg= 9.2054E-03
+ Liq -> 2ph rank=     0 n=    1421 p=2.4116E+07 T=8.5726E+01 Xl= 2.6645E-02 Xco2eq= 2.1401E-02 sg= 1.7636E-02
+  1 2r: 5.21E-09 2x: 2.34E+09 2u: 1.14E+05 ir: 1.05E-09 iu: 6.88E+03 rsn: itol_res
+
+ Step     75 Time=  9.00000E+01 Dt=  1.00000E+01 [y] conv_reason: 10
+  newton =   1 [     100] linear =    13 [      1187] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 13 / 1
+  --> SNES Residual: 0.521276E-08 0.591016E-12 0.104828E-08
+  --> max change: dpmx=   6.8780E+03 dtmpmx=   5.2889E-01
+                  dcmx=   5.2797E-03 dsmx=   3.1719E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+== MPHASE CO2 FLOW =============================================================
+  0 2r: 1.48E-08 2x: 0.00E+00 2u: 0.00E+00 ir: 4.63E-09 iu: 0.00E+00 rsn:   0
+ 2ph -> Liq rank=      1 n=     953 p=2.5522E+07 T=8.9539E+01 sg =-2.0729E-05 Xco2eq= 2.1662E-02
+ 2ph -> Liq rank=      2 n=     910 p=2.5522E+07 T=8.9539E+01 sg =-2.0735E-05 Xco2eq= 2.1662E-02
+ Liq -> 2ph rank=     2 n=    1246 p=2.4109E+07 T=8.5703E+01 Xl= 2.2289E-02 Xco2eq= 2.1400E-02 sg= 1.5731E-03
+ 2ph -> Liq rank=      3 n=     823 p=2.5522E+07 T=8.9539E+01 sg =-2.0702E-05 Xco2eq= 2.1662E-02
+ Liq -> 2ph rank=     3 n=    1138 p=2.4109E+07 T=8.5703E+01 Xl= 2.2289E-02 Xco2eq= 2.1400E-02 sg= 1.5727E-03
+ 2ph -> Liq rank=      0 n=    1053 p=2.5522E+07 T=8.9539E+01 sg =-2.0749E-05 Xco2eq= 2.1662E-02
+ Liq -> 2ph rank=     1 n=    1234 p=2.4109E+07 T=8.5703E+01 Xl= 2.2289E-02 Xco2eq= 2.1400E-02 sg= 1.5731E-03
+ Liq -> 2ph rank=     1 n=    1278 p=2.4109E+07 T=8.5703E+01 Xl= 2.2289E-02 Xco2eq= 2.1400E-02 sg= 1.5725E-03
+ Liq -> 2ph rank=     2 n=    1294 p=2.4109E+07 T=8.5703E+01 Xl= 2.2289E-02 Xco2eq= 2.1400E-02 sg= 1.5725E-03
+ Liq -> 2ph rank=     3 n=    1174 p=2.4109E+07 T=8.5703E+01 Xl= 2.2289E-02 Xco2eq= 2.1400E-02 sg= 1.5727E-03
+ Liq -> 2ph rank=     0 n=    1360 p=2.4109E+07 T=8.5703E+01 Xl= 2.2289E-02 Xco2eq= 2.1400E-02 sg= 1.5731E-03
+ Liq -> 2ph rank=     0 n=    1400 p=2.4109E+07 T=8.5703E+01 Xl= 2.2289E-02 Xco2eq= 2.1400E-02 sg= 1.5731E-03
+  1 2r: 2.54E-10 2x: 2.34E+09 2u: 1.42E+05 ir: 6.66E-11 iu: 1.72E+04 rsn: itol_res
+
+ Step     76 Time=  1.00000E+02 Dt=  1.00000E+01 [y] conv_reason: 10
+  newton =   1 [     101] linear =    11 [      1198] cuts =  0 [   0]
+  --> SNES Linear/Non-Linear Iterations = 11 / 1
+  --> SNES Residual: 0.254221E-09 0.288232E-13 0.665548E-10
+  --> max change: dpmx=   1.7152E+04 dtmpmx=   4.6617E-01
+                  dcmx=   5.2397E-03 dsmx=   2.7928E-02
+
+ --> appending to hdf5 output file: pflotran.h5
+      0.01 Seconds to write HDF5 file.
+
+PMCSubsurfaceFlow
+ Total Time: 4.6313E+00 seconds
+
+ FLOW TS SNES steps = 76  newton = 101  linear = 1198  cuts = 0
+ FLOW TS SNES Wasted Linear Iterations = 0
+ FLOW TS SNES Wasted Newton Iterations = 0
+ FLOW TS SNES time = 4.3 seconds
+
+ Wall Clock Time:  4.9110E+00 [sec]   8.1851E-02 [min]   1.3642E-03 [hr]

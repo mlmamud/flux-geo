@@ -1,0 +1,123 @@
+
+================================
+  PFLOTRAN Development Version
+================================
+
+"grid_structured_type" set to default value.
+pflotran card:: NUMERICAL_METHODS
+pflotran card:: CO2_DATABASE
+pflotran card:: GRID
+pflotran card:: TIME
+pflotran card:: OUTPUT
+"OUTPUT,MASS_BALANCE,DETAILED" set to default value.
+"OUTPUT,FORMAT,HDF5,# FILES" set to default value.
+pflotran card:: FLUID_PROPERTY
+"FLUID_PROPERTY,diffusion_coefficient units" set to default value.
+pflotran card:: MATERIAL_PROPERTY
+  Name :: formation
+"MATERIAL_PROPERTY,ROCK_DENSITY units" set to default value.
+"MATERIAL_PROPERTY,SPECIFIC_HEAT units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_DRY units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_WET units" set to default value.
+pflotran card:: MATERIAL_PROPERTY
+  Name :: caprock
+"MATERIAL_PROPERTY,ROCK_DENSITY units" set to default value.
+"MATERIAL_PROPERTY,SPECIFIC_HEAT units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_DRY units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_WET units" set to default value.
+pflotran card:: MATERIAL_PROPERTY
+  Name :: overburden
+"MATERIAL_PROPERTY,ROCK_DENSITY units" set to default value.
+"MATERIAL_PROPERTY,SPECIFIC_HEAT units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_DRY units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_WET units" set to default value.
+pflotran card:: MATERIAL_PROPERTY
+  Name :: basement
+"MATERIAL_PROPERTY,ROCK_DENSITY units" set to default value.
+"MATERIAL_PROPERTY,SPECIFIC_HEAT units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_DRY units" set to default value.
+"MATERIAL_PROPERTY,THERMAL_CONDUCTIVITY_WET units" set to default value.
+pflotran card:: SATURATION_FUNCTION
+pflotran card:: REGION
+all
+pflotran card:: REGION
+top
+pflotran card:: REGION
+bottom
+pflotran card:: REGION
+east
+pflotran card:: REGION
+west
+pflotran card:: REGION
+north
+pflotran card:: REGION
+south
+pflotran card:: REGION
+basement
+pflotran card:: REGION
+formation
+pflotran card:: REGION
+caprock
+pflotran card:: REGION
+overburden
+pflotran card:: REGION
+well
+pflotran card:: REGION
+obs
+pflotran card:: OBSERVATION
+pflotran card:: FLOW_CONDITION
+initial
+pflotran card:: FLOW_CONDITION
+src
+pflotran card:: INITIAL_CONDITION
+"Initial Condition name" set to default value.
+pflotran card:: BOUNDARY_CONDITION
+pflotran card:: BOUNDARY_CONDITION
+pflotran card:: BOUNDARY_CONDITION
+pflotran card:: BOUNDARY_CONDITION
+pflotran card:: BOUNDARY_CONDITION
+pflotran card:: BOUNDARY_CONDITION
+pflotran card:: SOURCE_SINK
+pflotran card:: STRATA
+pflotran card:: STRATA
+pflotran card:: STRATA
+pflotran card:: STRATA
+pflotran card:: END_SUBSURFACE
+
+Process Decomposition
+ rank=0, nlmax= 2420, nlxyz= 11 11 20, xs/e= 0 11, ys/e= 0 11, zs/e= 0 20
+ rank=1, nlmax= 2200, nlxyz= 10 11 20, xs/e= 11 21, ys/e= 0 11, zs/e= 0 20
+ rank=2, nlmax= 2200, nlxyz= 11 10 20, xs/e= 0 11, ys/e= 11 21, zs/e= 0 20
+ rank=3, nlmax= 2000, nlxyz= 10 10 20, xs/e= 11 21, ys/e= 11 21, zs/e= 0 20
+
+Number of processes: 4
+
+Extent of Gridded Domain
+ X: 0.000000E+00 - 2.500000E+03
+ Y: 0.000000E+00 - 2.500000E+03
+ Z: 0.000000E+00 - 1.000000E+03
+
+Size of Gridded Domain
+ Number of grid cells: 8820
+ Maximum number of grid cells per process: 2420
+ Minimum number of grid cells per process: 2000
+
+Min/Max Cell Volumes [m^3]
+ Maximum: 7.086168E+05
+ Minimum: 7.086168E+05
+
+Number of active grid cells: 8820
+Number of inactive grid cells: 0
+
+Default HDF5 method is used in Initialization
+ file: ../../../database/co2data0.dat not found.
+Note: The following floating-point exceptions are signalling: IEEE_DIVIDE_BY_ZERO
+ file: ../../../database/co2data0.dat not found.
+Note: The following floating-point exceptions are signalling: IEEE_DIVIDE_BY_ZERO
+ file: ../../../database/co2data0.dat not found.
+Note: The following floating-point exceptions are signalling: IEEE_DIVIDE_BY_ZERO
+ Preparing Table...           2
+ Reading Table ...
+ --> CO2 database file: ../../../database/co2data0.dat
+ file: ../../../database/co2data0.dat not found.
+Note: The following floating-point exceptions are signalling: IEEE_DIVIDE_BY_ZERO
