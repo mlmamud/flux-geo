@@ -4,6 +4,8 @@
 *.nc
 *.vtk
 *.exo
+*.Identifier
+
 
 # Simulation outputs
 results/
